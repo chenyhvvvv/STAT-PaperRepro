@@ -1,0 +1,763 @@
+[
+  {
+    "query_id": "PC01",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Find spatial domains in this tissue. There should be about 7 regions.",
+    "session": "1-spot",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves domain count=7. Does not add tissue type or species info not in original query.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "spatial-domain-graphst",
+        "spatial-domain-detection",
+        "spatial-domain-stagate"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified spatial domain detection task and provided appropriate skill options without hallucinating tissue type or species information"
+    },
+    "wall_s": 4.7
+  },
+  {
+    "query_id": "PC02",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Annotate cell types in this tissue. Tissue type: mouse brain cortex.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves tissue=mouse brain cortex. Does not hallucinate a reference dataset path.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified cell type annotation task with appropriate skill options and avoided hallucinating reference dataset path"
+    },
+    "wall_s": 4.2
+  },
+  {
+    "query_id": "PC03",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Deconvolve cell type proportions with my reference at ./dlpfc_ref.h5ad. The celltype column name is 'cell_label'.",
+    "session": "1-spot",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves reference path=dlpfc_ref.h5ad and column name=cell_label. Does not change column to default 'celltype'.",
+    "actual": {
+      "result_type": "verifier_clarification",
+      "final_query": "",
+      "selected_skill": "celltype-deconvolution",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [
+        "Can you confirm that slice 0 contains raw UMI counts (not normalized/log-transformed)?"
+      ],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified celltype-deconvolution task and asked appropriate verification question about data format without changing user-specified parameters"
+    },
+    "wall_s": 10.8
+  },
+  {
+    "query_id": "PC04",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Run LIANA cell-cell communication on this mouse brain data. Species: mouse.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves species=mouse and method=LIANA. Does not suggest CellPhoneDB or change species to human.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Run LIANA cell-cell communication analysis on slice 0 using adata.obs['celltype'] for cell type annotations and the mouse ligand-receptor database.",
+      "selected_skill": "cell-communication-liana",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to LIANA skill, preserved mouse species specification, and avoided suggesting alternative methods like CellPhoneDB"
+    },
+    "wall_s": 7.2
+  },
+  {
+    "query_id": "PC05",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Run GO enrichment on these genes: MOBP, PLP1, MBP, MAG, CNP. Species: human.",
+    "session": "1-spot",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves all 5 gene names and species=human. Correct skill (pathway-go-enrichment) selected. Verifier confirmation of already-stated parameters is acceptable.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Run GO enrichment analysis on slice 0 using the provided human genes: MOBP, PLP1, MBP, MAG, CNP.",
+      "selected_skill": "pathway-go-enrichment",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly selected pathway-go-enrichment skill and preserved all 5 gene names (MOBP, PLP1, MBP, MAG, CNP) and human species specification"
+    },
+    "wall_s": 5.7
+  },
+  {
+    "query_id": "PC06",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Annotate cell types using scANVI with reference at ./sc_ref.h5ad. The label column is 'leiden_labels'.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves method=scANVI, reference path=sc_ref.h5ad, column=leiden_labels. Correct skill selected. Verifier asking to confirm column name is acceptable if the correct column is suggested.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Annotate cell types on slice 0 using scANVI with reference at ./sc_ref.h5ad. The label column is 'leiden_labels'.",
+      "selected_skill": "celltype-annotation-scanvi",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to scANVI skill, preserved all user-specified parameters (method, reference path, label column), and appropriately added slice specification without hallucinating information"
+    },
+    "wall_s": 5.3
+  },
+  {
+    "query_id": "PC07",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Integrate these two brain sections using Harmony.",
+    "session": "2-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query specifies Harmony method and both slices. Mentioning slice 0 and 1 is acceptable since they exist in the session. Does not switch to BBKNN or Scanorama.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Integrate slice 0 and slice 1 using Harmony",
+      "selected_skill": "integration-harmony",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to Harmony integration method and appropriately specified slice 0 and slice 1 as mentioned in expected behavior"
+    },
+    "wall_s": 5.2
+  },
+  {
+    "query_id": "PC08",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Find differentially expressed genes between excitatory and inhibitory neurons.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves comparison groups: excitatory vs inhibitory. Does not change or generalize the groups.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Find differentially expressed genes between excitatory and inhibitory neurons on slice 0",
+      "selected_skill": "differential-expression",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to differential expression analysis and preserved the comparison groups (excitatory vs inhibitory neurons) without changing or generalizing them"
+    },
+    "wall_s": 5.6
+  },
+  {
+    "query_id": "PC09",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Calculate Moran's I spatial autocorrelation for PLP1 and GFAP.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves statistic=Moran's I and genes=PLP1, GFAP. Correct skill (spatial-statistics) selected. Verifier asking to confirm gene names is acceptable if the correct genes are suggested.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Calculate Moran's I spatial autocorrelation for genes PLP1 and GFAP on slice 0 (mouse brain cortex)",
+      "selected_skill": "spatial-statistics",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to spatial-statistics skill and preserved statistic (Moran's I) and genes (PLP1, GFAP) from original query"
+    },
+    "wall_s": 5.8
+  },
+  {
+    "query_id": "PC10",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Score cells for KEGG_APOPTOSIS pathway activity. Species: mouse.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves pathway=KEGG_APOPTOSIS and species=mouse. Does not change to human or different pathway.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Score cells for KEGG_APOPTOSIS pathway activity on slice 0. Species: mouse.",
+      "selected_skill": "pathway-ssgsea",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to pathway-ssgsea skill and preserved KEGG_APOPTOSIS pathway and mouse species, only added default slice 0 parameter"
+    },
+    "wall_s": 5.2
+  },
+  {
+    "query_id": "PC11",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Detect spatial niches in this tissue.",
+    "session": "1-cell-noCT",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline returns type=advice because niche detection requires celltype annotations which are missing.",
+    "actual": {
+      "result_type": "advice",
+      "final_query": "",
+      "selected_skill": "niche-detection",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "Spatial niche detection requires cell type annotations in slice 0, but the current session state indicates that slice 0 has no celltype annotations. Please first run a cell type annotation step (for example, annotate cell types in slice 0 so that adata.obs['celltype'] is created), then retry niche detection.",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly returned advice type due to missing celltype annotations prerequisite for niche detection"
+    },
+    "wall_s": 5.8
+  },
+  {
+    "query_id": "PC12",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Run cell-cell communication analysis on this tissue.",
+    "session": "1-cell-noCT",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline identifies CCI as the task. Returns skill_selection (multiple CCI skills available) or advice (missing celltype). Both are acceptable since the session lacks celltype annotations.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "cell-communication-cellphonedb",
+        "cell-communication-liana"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified CCI task and provided appropriate skill options for user selection"
+    },
+    "wall_s": 3.2
+  },
+  {
+    "query_id": "PC13",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "What cell types make up each spot? I have a reference at ./ref.h5ad.",
+    "session": "1-spot",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline routes to deconvolution skill (not annotation), because data is spot-level.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "celltype-deconvolution",
+        "deconvolution-cell2location",
+        "deconvolution-flashdeconv",
+        "annotation-tangram"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified deconvolution as the appropriate task type for spot-level data and included relevant deconvolution skills in options"
+    },
+    "wall_s": 3.9
+  },
+  {
+    "query_id": "PC14",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Run SpatialDE on the breast cancer slice.",
+    "session": "mixed",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline correctly targets slice 1 (breast cancer), not slice 0 (DLPFC).",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Run SpatialDE on slice 1 (breast cancer)",
+      "selected_skill": "svg-spatialde",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified breast cancer as slice 1 and refined the query to target the correct slice"
+    },
+    "wall_s": 9.5
+  },
+  {
+    "query_id": "PC15",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "What biological processes are enriched in my SVG results?",
+    "session": "1-cell",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline asks for clarification (which genes/results?) or provides advice, since no gene list is specified.",
+    "actual": {
+      "result_type": "verifier_clarification",
+      "final_query": "",
+      "selected_skill": "pathway-go-enrichment",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [
+        "Please provide the gene list to use for GO enrichment for slice 0, or confirm that the SVG genes from slice 0 should be used and have already been stored in adata.uns['go_genes']."
+      ],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified the need for clarification about which gene list to use for enrichment analysis, as the user referenced \"SVG results\" without specifying the actual genes"
+    },
+    "wall_s": 5.7
+  },
+  {
+    "query_id": "PC16",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Identify spatial domains in this tissue.",
+    "session": "1-spot",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline proceeds to domain detection. Must NOT hallucinate a specific domain count.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "spatial-domain-graphst",
+        "spatial-domain-detection",
+        "spatial-domain-stagate"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified multiple spatial domain detection skills and asked user to choose without hallucinating specific domain count or other parameters"
+    },
+    "wall_s": 4.4
+  },
+  {
+    "query_id": "PC17",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Train a deep learning model to predict cell types from microscopy images.",
+    "session": "1-cell",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline returns type=no_skill because this is out of scope.",
+    "actual": {
+      "result_type": "no_skill",
+      "final_query": "Train a deep learning model to predict cell types from microscopy images on slice 0",
+      "selected_skill": null,
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified the task as out of scope for spatial transcriptomics analysis and returned no_skill type"
+    },
+    "wall_s": 4.5
+  },
+  {
+    "query_id": "PC18",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Find differentially expressed genes between T cells and B cells.",
+    "session": "1-cell-noCT",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline returns type=advice because no celltype column exists to define the comparison groups.",
+    "actual": {
+      "result_type": "advice",
+      "final_query": "",
+      "selected_skill": "differential-expression",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "Differential expression between T cells and B cells requires cell type annotations in slice 0. The current session state shows that slice 0 has no celltype annotations, so T cells and B cells cannot yet be identified. Please first annotate cell types in slice 0 (e.g., using a cell type annotation workflow), then retry the differential expression analysis.",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly returned advice type due to missing celltype annotations and provided appropriate guidance to annotate cell types first"
+    },
+    "wall_s": 6.2
+  },
+  {
+    "query_id": "PC19",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "What genes show interesting spatial patterns?",
+    "session": "1-cell",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as spatially variable gene detection (SVG analysis).",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "svg-spatialde",
+        "spatial-statistics"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified spatially variable gene detection as the relevant task and provided appropriate skill options (svg-spatialde, spatial-statistics) for user selection"
+    },
+    "wall_s": 3.6
+  },
+  {
+    "query_id": "PC20",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Are certain cell types found near each other more often than expected?",
+    "session": "1-cell",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as neighborhood enrichment analysis.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Perform neighborhood enrichment analysis on slice 0 to determine whether certain cell types are found near each other more often than expected, using adata.obs['celltype'] cell type annotations.",
+      "selected_skill": "spatial-stats-neighborhood-enrichment",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified neighborhood enrichment analysis task and appropriately defaulted to slice 0 and standard celltype column without hallucinating user-specified parameters"
+    },
+    "wall_s": 7.8
+  },
+  {
+    "query_id": "PC21",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Can you find the spatial structure in this tissue?",
+    "session": "1-spot",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as spatial domain detection.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "spatial-domain-stagate",
+        "spatial-domain-graphst",
+        "spatial-domain-detection"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified spatial domain detection as the relevant task type and provided appropriate skill options without hallucinating parameters"
+    },
+    "wall_s": 4.8
+  },
+  {
+    "query_id": "PC22",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Group cells into tissue regions based on their location and expression.",
+    "session": "1-cell",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as spatial domain detection or clustering.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Group cells into tissue regions based on their location and expression on slice 0 using Spatial Domain Detection (STAGATE), with the number of spatial domains auto-detected via leiden.",
+      "selected_skill": "spatial-domain-stagate",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified spatial domain detection task and appropriately selected STAGATE method for grouping cells by location and expression"
+    },
+    "wall_s": 5.8
+  },
+  {
+    "query_id": "PC23",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "What is the cellular composition of each spot in this Visium data?",
+    "session": "1-spot",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as spot-level deconvolution.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "celltype-deconvolution",
+        "deconvolution-cell2location",
+        "deconvolution-flashdeconv",
+        "annotation-tangram"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified deconvolution task and provided relevant skill options including appropriate deconvolution methods"
+    },
+    "wall_s": 3.6
+  },
+  {
+    "query_id": "PC24",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "How are cells communicating with each other in this tissue?",
+    "session": "1-cell",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as cell-cell communication analysis.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "cell-communication-liana",
+        "cell-communication-cellphonedb"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified cell communication analysis task and provided appropriate skill options without hallucinating parameters"
+    },
+    "wall_s": 4.1
+  },
+  {
+    "query_id": "PC25",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Annotate cell types in this tissue.",
+    "session": "1-cell",
+    "category": "no_hallucination",
+    "expected_behavior": "Refined query does NOT fabricate a reference dataset path or species when user didn't provide one. Mentioning 'slice 0' is acceptable for single-slice session.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Annotate cell types on slice 0 for mouse brain cortex tissue",
+      "selected_skill": "celltype-annotation-fast",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": false,
+      "judge_verdict": "FAIL - hallucinated species (mouse) and tissue type (brain cortex) that the user did not provide"
+    },
+    "wall_s": 5.1
+  },
+  {
+    "query_id": "PC26",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Run pathway enrichment analysis.",
+    "session": "1-spot",
+    "category": "no_hallucination",
+    "expected_behavior": "Refined query does NOT fabricate a specific gene list. Should ask for genes or proceed generically. Mentioning 'slice 0' is acceptable.",
+    "actual": {
+      "result_type": "no_skill",
+      "final_query": "Run pathway enrichment analysis on slice 0",
+      "selected_skill": null,
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": false,
+      "judge_verdict": "FAIL - result type \"no_skill\" indicates the task was considered out of scope, but pathway enrichment analysis is a standard spatial transcriptomics task that should be handled by the pipeline"
+    },
+    "wall_s": 3.1
+  },
+  {
+    "query_id": "PC27",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Detect spatial domains.",
+    "session": "1-cell",
+    "category": "no_hallucination",
+    "expected_behavior": "Refined query does NOT fabricate a specific number of clusters/domains when user didn't specify one.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Detect spatial domains on slice 0 using STAGATE with automatic domain number detection (Leiden default)",
+      "selected_skill": "spatial-domain-stagate",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to spatial domain detection and used automatic detection instead of fabricating a specific number of domains"
+    },
+    "wall_s": 5.2
+  },
+  {
+    "query_id": "PC28",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Deconvolve this tissue.",
+    "session": "1-spot",
+    "category": "no_hallucination",
+    "expected_behavior": "Refined query does NOT fabricate a reference dataset path. Should ask for reference or flag as needed. Mentioning 'slice 0' is acceptable.",
+    "actual": {
+      "result_type": "no_skill",
+      "final_query": "Deconvolve this tissue on slice 0",
+      "selected_skill": null,
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": false,
+      "judge_verdict": "FAIL - result type should be \"planner_clarification\" or \"verifier_clarification\" to ask for missing reference dataset, not \"no_skill\" which suggests the task is out of scope"
+    },
+    "wall_s": 3.7
+  },
+  {
+    "query_id": "PC29",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Find differentially expressed genes.",
+    "session": "1-cell",
+    "category": "no_hallucination",
+    "expected_behavior": "Refined query does NOT fabricate comparison group names. Should ask for groups or use existing annotations.",
+    "actual": {
+      "result_type": "verifier_clarification",
+      "final_query": "",
+      "selected_skill": "differential-expression",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [
+        "On slice 0, what would you like to compare for differential expression? For example: one cell type vs all other cell types, one cell type vs another cell type, or cells from one ROI/region vs another.",
+        "If you want a cell type comparison, which cell type(s) from the 12 annotated cell types should be used?"
+      ],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified differential expression task and asked for clarification on comparison groups without fabricating group names"
+    },
+    "wall_s": 6.4
+  },
+  {
+    "query_id": "PC30",
+    "model": "GPT5.4",
+    "set": "C",
+    "query_text": "Analyze cell communication on one of the slices.",
+    "session": "2-cell",
+    "category": "no_hallucination",
+    "expected_behavior": "Pipeline does NOT arbitrarily pick a slice. Should ask for clarification about which slice.",
+    "actual": {
+      "result_type": "planner_clarification",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [],
+      "clarification_question": "Which slice would you like to analyze for cell communication? We have slice 0 (mouse brain section A) and slice 1 (mouse brain section B).",
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 0
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified ambiguous query and asked for slice clarification without arbitrarily picking one"
+    },
+    "wall_s": 1.7
+  }
+]

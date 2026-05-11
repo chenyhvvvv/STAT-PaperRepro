@@ -1,0 +1,1086 @@
+[
+  {
+    "query_id": "PB01",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Identify 7 spatial domains using graph-based clustering.",
+    "session": "1-spot",
+    "category": "clear",
+    "task_type": "T2",
+    "actual": {
+      "matched_slugs": [],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv",
+        "differential-expression",
+        "integration-bbknn",
+        "pathway-go-enrichment",
+        "spatial-domain-detection",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "spatial-domain-detection"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": false
+    },
+    "wall_s": 1.6
+  },
+  {
+    "query_id": "PB02",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Find spatially variable genes using Gaussian process regression.",
+    "session": "1-cell",
+    "category": "clear",
+    "task_type": "T3",
+    "actual": {
+      "matched_slugs": [
+        "svg-spatialde"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "svg-spatialde"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.6
+  },
+  {
+    "query_id": "PB03",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Detect spatial microenvironments based on cell type neighborhoods.",
+    "session": "1-cell",
+    "category": "clear",
+    "task_type": "T7",
+    "actual": {
+      "matched_slugs": [
+        "niche-detection"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "niche-detection",
+        "spatial-stats-neighborhood-enrichment"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.5
+  },
+  {
+    "query_id": "PB04",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Analyze ligand-receptor interactions in this mouse tissue. Species: mouse.",
+    "session": "1-cell",
+    "category": "clear",
+    "task_type": "T4",
+    "actual": {
+      "matched_slugs": [
+        "cell-communication-liana"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "cell-communication-liana"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 2.0
+  },
+  {
+    "query_id": "PB05",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Identify cell types using clustering and marker genes. Tissue: mouse brain cortex.",
+    "session": "1-cell",
+    "category": "clear",
+    "task_type": "T1",
+    "actual": {
+      "matched_slugs": [
+        "celltype-annotation-fast",
+        "differential-expression"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "celltype-annotation-fast"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.8
+  },
+  {
+    "query_id": "PB06",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Deconvolve cell type proportions in each spot using my reference at ./ref.h5ad.",
+    "session": "1-spot",
+    "category": "clear",
+    "task_type": "T6",
+    "actual": {
+      "matched_slugs": [
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv",
+        "differential-expression",
+        "integration-bbknn",
+        "pathway-go-enrichment",
+        "spatial-domain-detection",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.6
+  },
+  {
+    "query_id": "PB07",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Compute neighborhood enrichment z-scores between cell types.",
+    "session": "1-cell",
+    "category": "clear",
+    "task_type": "T5",
+    "actual": {
+      "matched_slugs": [
+        "spatial-stats-neighborhood-enrichment"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "spatial-stats-neighborhood-enrichment"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.7
+  },
+  {
+    "query_id": "PB08",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Calculate Moran's I spatial autocorrelation for genes PLP1, MBP, GFAP.",
+    "session": "1-cell",
+    "category": "clear",
+    "task_type": "T5",
+    "actual": {
+      "matched_slugs": [
+        "spatial-statistics"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "spatial-statistics"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.7
+  },
+  {
+    "query_id": "PB09",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Run Gene Ontology enrichment analysis on genes MOBP, PLP1, MBP. Species: human.",
+    "session": "1-spot",
+    "category": "clear",
+    "task_type": "T9",
+    "actual": {
+      "matched_slugs": [
+        "pathway-go-enrichment"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv",
+        "differential-expression",
+        "integration-bbknn",
+        "pathway-go-enrichment",
+        "spatial-domain-detection",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "pathway-go-enrichment"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.8
+  },
+  {
+    "query_id": "PB10",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Correct batch effects between these two slices.",
+    "session": "2-cell",
+    "category": "clear",
+    "task_type": "T10",
+    "actual": {
+      "matched_slugs": [
+        "integration-bbknn"
+      ],
+      "compatible_skills": [
+        "alignment-stalign",
+        "differential-expression",
+        "integration-bbknn",
+        "pathway-go-enrichment"
+      ],
+      "n_compatible": 4
+    },
+    "expected": {
+      "skill_slugs": [
+        "integration-bbknn"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.5
+  },
+  {
+    "query_id": "PB11",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Find differentially expressed genes between excitatory and inhibitory neurons.",
+    "session": "1-cell",
+    "category": "clear",
+    "task_type": "T8",
+    "actual": {
+      "matched_slugs": [
+        "differential-expression"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "differential-expression"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 2.2
+  },
+  {
+    "query_id": "PB12",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Transfer cell type labels from single-cell reference via scANVI variational inference.",
+    "session": "1-cell",
+    "category": "clear",
+    "task_type": "T1",
+    "actual": {
+      "matched_slugs": [
+        "celltype-annotation-scanvi"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "celltype-annotation-scanvi"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.7
+  },
+  {
+    "query_id": "PB13",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Compute Gene Ontology enrichment for marker genes of each cell type. Species: mouse.",
+    "session": "1-cell",
+    "category": "clear",
+    "task_type": "T9",
+    "actual": {
+      "matched_slugs": [
+        "pathway-go-enrichment"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "pathway-go-enrichment",
+        "differential-expression"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.6
+  },
+  {
+    "query_id": "PB14",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Perform cell-cell communication analysis on this human tissue. Species: human.",
+    "session": "1-spot",
+    "category": "clear",
+    "task_type": "T4",
+    "actual": {
+      "matched_slugs": [
+        "cell-communication-liana"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv",
+        "differential-expression",
+        "integration-bbknn",
+        "pathway-go-enrichment",
+        "spatial-domain-detection",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "cell-communication-liana"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 2.0
+  },
+  {
+    "query_id": "PB15",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Detect spatial domains in this tissue using unsupervised clustering.",
+    "session": "1-spot",
+    "category": "clear",
+    "task_type": "T2",
+    "actual": {
+      "matched_slugs": [
+        "spatial-domain-detection"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv",
+        "differential-expression",
+        "integration-bbknn",
+        "pathway-go-enrichment",
+        "spatial-domain-detection",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "spatial-domain-detection"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.8
+  },
+  {
+    "query_id": "PB16",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "What genes show interesting spatial patterns?",
+    "session": "1-cell",
+    "category": "vague",
+    "task_type": "T3",
+    "actual": {
+      "matched_slugs": [
+        "svg-spatialde",
+        "spatial-statistics"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "svg-spatialde"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.7
+  },
+  {
+    "query_id": "PB17",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Are certain cell types found near each other more often than expected?",
+    "session": "1-cell",
+    "category": "vague",
+    "task_type": "T5",
+    "actual": {
+      "matched_slugs": [
+        "spatial-stats-neighborhood-enrichment"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "spatial-stats-neighborhood-enrichment"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.5
+  },
+  {
+    "query_id": "PB18",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Can you find the spatial structure in this tissue?",
+    "session": "1-spot",
+    "category": "vague",
+    "task_type": "T2",
+    "actual": {
+      "matched_slugs": [
+        "spatial-domain-detection"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv",
+        "differential-expression",
+        "integration-bbknn",
+        "pathway-go-enrichment",
+        "spatial-domain-detection",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "spatial-domain-detection"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.7
+  },
+  {
+    "query_id": "PB19",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "How are cells communicating with each other?",
+    "session": "1-cell",
+    "category": "vague",
+    "task_type": "T4",
+    "actual": {
+      "matched_slugs": [
+        "cell-communication-liana"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "cell-communication-liana"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.7
+  },
+  {
+    "query_id": "PB20",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "What makes tumor cells different from stromal cells at the gene level?",
+    "session": "1-cell",
+    "category": "vague",
+    "task_type": "T8",
+    "actual": {
+      "matched_slugs": [
+        "differential-expression"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "differential-expression"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.5
+  },
+  {
+    "query_id": "PB21",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "What is the cellular composition of each spot?",
+    "session": "1-spot",
+    "category": "vague",
+    "task_type": "T6",
+    "actual": {
+      "matched_slugs": [
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv",
+        "differential-expression",
+        "integration-bbknn",
+        "pathway-go-enrichment",
+        "spatial-domain-detection",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.7
+  },
+  {
+    "query_id": "PB22",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Cluster spots into distinct spatial domains based on gene expression profiles.",
+    "session": "1-spot",
+    "category": "vague",
+    "task_type": "T2",
+    "actual": {
+      "matched_slugs": [
+        "spatial-domain-detection"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv",
+        "differential-expression",
+        "integration-bbknn",
+        "pathway-go-enrichment",
+        "spatial-domain-detection",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "spatial-domain-detection"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 2.8
+  },
+  {
+    "query_id": "PB23",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "What types of cells are in this tissue? It is a mouse cortex.",
+    "session": "1-cell-noCT",
+    "category": "vague",
+    "task_type": "T1",
+    "actual": {
+      "matched_slugs": [
+        "celltype-annotation-scanvi",
+        "celltype-annotation-fast"
+      ],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi"
+      ],
+      "no_skill": false
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.8
+  },
+  {
+    "query_id": "PB24",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Segment nuclei from the DAPI staining image.",
+    "session": "1-cell",
+    "category": "out_of_scope",
+    "task_type": "OOS",
+    "actual": {
+      "matched_slugs": [],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [],
+      "no_skill": true
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.7
+  },
+  {
+    "query_id": "PB25",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Build a convolutional neural network to classify tissue regions from H&E images.",
+    "session": "1-cell",
+    "category": "out_of_scope",
+    "task_type": "OOS",
+    "actual": {
+      "matched_slugs": [],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [],
+      "no_skill": true
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 3.2
+  },
+  {
+    "query_id": "PB26",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Impute dropout zeros in the expression matrix using MAGIC.",
+    "session": "1-cell",
+    "category": "out_of_scope",
+    "task_type": "OOS",
+    "actual": {
+      "matched_slugs": [],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [],
+      "no_skill": true
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.9
+  },
+  {
+    "query_id": "PB27",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Convert this AnnData object to a Seurat RDS file for analysis in R.",
+    "session": "1-spot",
+    "category": "out_of_scope",
+    "task_type": "OOS",
+    "actual": {
+      "matched_slugs": [],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv",
+        "differential-expression",
+        "integration-bbknn",
+        "pathway-go-enrichment",
+        "spatial-domain-detection",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [],
+      "no_skill": true
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.8
+  },
+  {
+    "query_id": "PB28",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Perform RNA velocity analysis using spliced and unspliced counts.",
+    "session": "1-cell",
+    "category": "out_of_scope",
+    "task_type": "OOS",
+    "actual": {
+      "matched_slugs": [],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [],
+      "no_skill": true
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.7
+  },
+  {
+    "query_id": "PB29",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Train a variational autoencoder on the gene expression data for dimensionality reduction.",
+    "session": "1-cell",
+    "category": "out_of_scope",
+    "task_type": "OOS",
+    "actual": {
+      "matched_slugs": [],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [],
+      "no_skill": true
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.6
+  },
+  {
+    "query_id": "PB30",
+    "model": "GPT5.4",
+    "set": "B",
+    "query_text": "Predict patient survival outcomes from spatial gene expression features.",
+    "session": "1-cell",
+    "category": "out_of_scope",
+    "task_type": "OOS",
+    "actual": {
+      "matched_slugs": [],
+      "compatible_skills": [
+        "cell-communication-liana",
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi",
+        "differential-expression",
+        "integration-bbknn",
+        "niche-detection",
+        "pathway-go-enrichment",
+        "spatial-statistics",
+        "spatial-stats-neighborhood-enrichment",
+        "svg-spatialde"
+      ],
+      "n_compatible": 10
+    },
+    "expected": {
+      "skill_slugs": [],
+      "no_skill": true
+    },
+    "evaluation": {
+      "success": true
+    },
+    "wall_s": 1.7
+  }
+]

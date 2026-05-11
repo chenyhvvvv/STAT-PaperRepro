@@ -1,0 +1,7 @@
+data/
+out/
+out_pipeline/
+logs/
+__pycache__/
+*.pyc
+.DS_Store

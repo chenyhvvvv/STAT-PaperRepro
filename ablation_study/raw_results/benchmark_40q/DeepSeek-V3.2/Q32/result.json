@@ -1,0 +1,22 @@
+{
+  "response": "0 of type <class 'int'> is an invalid key. Should be str.",
+  "code": "",
+  "stdout": "",
+  "stderr": "",
+  "output_h5ad": "/Users/vvv/Code/Claude-project/STAT-agent/paper/benchmarking/comparison/results_ablation/DeepSeek-V3.2/Q32/run_0/output.h5ad",
+  "success": false,
+  "prompt_tokens": 48002,
+  "completion_tokens": 5049,
+  "total_tokens": 53051,
+  "llm_calls": 11,
+  "wall_s": 193.9,
+  "model": "DeepSeek-V3.2",
+  "system": "stat_DeepSeek-V3.2",
+  "query_id": "Q32",
+  "run_id": 0,
+  "query_text": "Identify spatial domains in this brain tissue (about 7 regions), then find genes that are differentially expressed between them.",
+  "task": "multi-step",
+  "dataset": "D1",
+  "difficulty": "multi",
+  "has_ground_truth": false
+}

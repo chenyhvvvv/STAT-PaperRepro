@@ -1,0 +1,1670 @@
+{
+  "Q01": {
+    "query": "Annotate cell types on this tissue. It is a mouse brain cortex sample.",
+    "task": "T1",
+    "Claude-Sonnet-4": {
+      "summary": "Successfully annotated 22 cell types using clustering + LLM-based annotation with biologically meaningful labels (Layer 2/3 excitatory neurons, OPCs, etc.).",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Completed (5647ch)",
+      "success": true,
+      "quality": 3
+    },
+    "Grok-4": {
+      "summary": "Successfully annotated 17 cell types with biologically meaningful labels (Layer 2/3 excitatory neurons, SST+ GABAergic interneurons, astrocytes, etc.).",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Successfully annotated 22 cell types with detailed layer-specific labels (L2/3 intratelencephalic excitatory neurons Lamp5+/Satb2+, etc.).",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Successfully annotated 12 cell types with meaningful but less granular labels (Excitatory neurons, Inhibitory neurons, Astrocytes, etc.).",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-3": {
+      "summary": "Successfully annotated 21 cell types with layer-specific excitatory neuron labels and other biologically meaningful types.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Failed to annotate; got stuck requesting a reference dataset and did not proceed with marker-based annotation despite being told no reference was available.",
+      "success": false,
+      "quality": null
+    }
+  },
+  "Q02": {
+    "query": "Identify cell types in this breast cancer tissue sample. I have a single-cell reference dataset at './breast_cancer_reference.h5ad' with cell type annotations that you can optionally use.",
+    "task": "T1",
+    "Claude-Sonnet-4": {
+      "summary": "Successfully used scANVI to transfer 17 cell type labels from reference, matching all expected breast cancer cell populations.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Annotation discussed in response but not persisted",
+      "success": true,
+      "quality": 3
+    },
+    "GPT-4o": {
+      "summary": "Successfully used scANVI to transfer 17 cell type labels from reference, matching all expected breast cancer populations.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Successfully used scANVI to transfer 17 cell type labels from reference with good quality and biological commentary.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Successfully used scANVI to transfer 17 cell type labels from reference, matching expected populations.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Reference-based annotation via scANVI, 17 cell types identified",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Successfully used scANVI to transfer 17 cell type labels from reference, matching expected populations.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q03": {
+    "query": "What cell types are present in this tissue?",
+    "task": "T1",
+    "Claude-Sonnet-4": {
+      "summary": "Successfully annotated 22 cell types using clustering + LLM annotation with biologically meaningful labels for mouse brain.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Successfully annotated 21 cell types with detailed labels (glutamatergic cortical layers, GABAergic interneurons, OPCs, etc.).",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Did not annotate cell types; only checked if celltype column existed and reported it was not available, failing to run annotation.",
+      "success": false,
+      "quality": null
+    },
+    "GPT5.4": {
+      "summary": "Did not annotate cell types; only checked existing columns and reported no annotations available, failing to perform the task.",
+      "success": false,
+      "quality": null
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Did not annotate cell types; only checked if celltype column existed and reported none available, failing to run annotation.",
+      "success": false,
+      "quality": null
+    },
+    "Grok-3": {
+      "summary": "Successfully annotated 21 cell types with layer-specific labels for excitatory neurons and other meaningful cell type names.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Did not annotate cell types; only checked existing columns and reported no annotations available, failing to perform annotation.",
+      "success": false,
+      "quality": null
+    }
+  },
+  "Q04": {
+    "query": "Can you identify the different cell populations here? I have a reference scRNA-seq dataset at './breast_cancer_reference.h5ad' if that helps.",
+    "task": "T1",
+    "Claude-Sonnet-4": {
+      "summary": "Successfully used scANVI to transfer 17 cell type labels from reference with good results for breast cancer tissue.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Reference-based annotation via scANVI, 17 cell types identified",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Reference-based annotation via scANVI, 17 cell types identified",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Reference-based annotation via scANVI, 17 cell types identified",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Successfully used scANVI to transfer 17 cell type labels from reference, matching expected breast cancer populations.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "scANVI ran (latent in obsm) but celltype not transferred to obs",
+      "success": false,
+      "quality": null
+    },
+    "Grok-4": {
+      "summary": "Reference-based annotation via scANVI, 17 cell types identified",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q05": {
+    "query": "Identify spatial domains in this brain tissue. There should be about 7 distinct regions including cortical layers and white matter.",
+    "task": "T2",
+    "Claude-Sonnet-4": {
+      "summary": "Successfully identified 7 spatial domains using SpaGCN, matching the requested number of regions.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Successfully identified 7 spatial domains using SpaGCN, matching the requested number of regions.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Successfully identified 7 spatial domains using SpaGCN, matching the requested number of regions.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Successfully identified 7 spatial domains using SpaGCN, matching the requested number of regions.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Successfully identified 7 spatial domains using SpaGCN, matching the requested number of regions.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Successfully identified 7 spatial domains using SpaGCN, matching the requested number of regions.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Successfully identified 7 spatial domains using SpaGCN, matching the requested number of regions.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q06": {
+    "query": "Can you find the spatial structure in this tissue?",
+    "task": "T2",
+    "Claude-Sonnet-4": {
+      "summary": "Successfully identified 7 spatial domains using SpaGCN with spatial_domain column stored in adata.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Analysis completed, new_cols=['domain', 'spatial_domain'], resp=6430ch",
+      "success": true,
+      "quality": 4
+    },
+    "GPT-4o": {
+      "summary": "Identified 7 spatial clusters using Leiden clustering and stored in leiden column; used basic clustering instead of spatial-aware method.",
+      "success": true,
+      "quality": 3
+    },
+    "GPT5.4": {
+      "summary": "Identified only 5 spatial domains using SpaGCN instead of the expected ~7, slightly underperforming.",
+      "success": true,
+      "quality": 3
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Successfully identified 7 spatial domains using SpaGCN with spatial_domain column stored in adata.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Completed, new_cols=['domain'], resp=11628ch",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "Ran spatial clustering analysis but results not persisted to output h5ad",
+      "success": true,
+      "quality": 2
+    }
+  },
+  "Q07": {
+    "query": "Identify distinct tissue regions based on spatial gene expression.",
+    "task": "T2",
+    "Claude-Sonnet-4": {
+      "summary": "Successfully identified 6 spatial regions and stored as spatial_region column in adata.",
+      "success": true,
+      "quality": 4
+    },
+    "DeepSeek-V3.2": {
+      "summary": "No spatial domains identified",
+      "success": false,
+      "quality": null
+    },
+    "GPT-4o": {
+      "summary": "Used Moran's I to identify spatially variable genes and spatial patterns for tissue region identification",
+      "success": true,
+      "quality": 3
+    },
+    "GPT5.4": {
+      "summary": "Attempted spatial region detection and produced 6 tissue regions, but encountered errors during PCA stage; regions were saved.",
+      "success": true,
+      "quality": 3
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Attempted Leiden clustering for spatial regions but did not save domain assignments to the output h5ad.",
+      "success": false,
+      "quality": null
+    },
+    "Grok-3": {
+      "summary": "Completed, new_cols=[], resp=7822ch",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "Attempted Leiden clustering for spatial regions but encountered errors and did not save domain assignments to h5ad.",
+      "success": false,
+      "quality": null
+    }
+  },
+  "Q08": {
+    "query": "Find genes that show significant spatial expression patterns across this tissue.",
+    "task": "T3",
+    "Claude-Sonnet-4": {
+      "summary": "Successfully ran SpatialDE, stored SVG statistics (pval, qval, l) in adata.var, and identified top spatially variable genes.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Successfully ran SpatialDE, stored SVG statistics in adata.var and results in uns, identified top spatially variable genes.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Ran SpatialDE and produced gene results with statistics in response, but did not store SVG results in adata.var.",
+      "success": true,
+      "quality": 4
+    },
+    "GPT5.4": {
+      "summary": "Ran SpatialDE and stored full SVG statistics in adata.var and uns, though response was truncated after validation stage.",
+      "success": true,
+      "quality": 4
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Successfully ran SpatialDE, stored SVG statistics in adata.var and results in uns, identified top spatially variable genes.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Successfully ran SpatialDE, stored SVG statistics in adata.var and results in uns, identified top spatially variable genes.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Successfully ran SpatialDE, stored SVG statistics in adata.var and results in uns, with gene-level statistics displayed.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q09": {
+    "query": "Which genes have interesting spatial patterns?",
+    "task": "T3",
+    "Claude-Sonnet-4": {
+      "summary": "Successfully ran SpatialDE, stored SVG statistics in adata.var and results in uns, identified top spatially variable genes.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Analysis completed, new_cols=['domain'], resp=23406ch",
+      "success": true,
+      "quality": 4
+    },
+    "GPT-4o": {
+      "summary": "Ran SpatialDE and reported gene results with statistics, but did not store SVG data in adata; response shows incomplete output.",
+      "success": true,
+      "quality": 3
+    },
+    "GPT5.4": {
+      "summary": "Successfully ran SpatialDE, stored SVG statistics in adata.var and results in uns despite encountering initial errors.",
+      "success": true,
+      "quality": 4
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Successfully ran SpatialDE after fixing compatibility issues, stored SVG statistics in adata.var and results in uns.",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-3": {
+      "summary": "Identified spatially variable genes using spatial statistics",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "Successfully ran SpatialDE, stored SVG statistics in adata.var and results in uns, identified top spatially variable genes.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q10": {
+    "query": "Identify spatially variable genes in this mouse brain section.",
+    "task": "T3",
+    "Claude-Sonnet-4": {
+      "summary": "Successfully identified spatially variable genes using Moran's I, stored statistics (moran_I, pval, qval) in adata.var.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Successfully identified spatially variable genes using Moran's I, stored statistics (moran_I, pval, qval) in adata.var.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Successfully identified spatially variable genes using Moran's I, stored statistics (moran_I, pval, qval) in adata.var.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Successfully identified spatially variable genes using Moran's I, stored statistics (moran_I, pval, qval) in adata.var.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Successfully identified spatially variable genes using Moran's I, stored statistics (moran_I, pval, qval) in adata.var.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Successfully identified spatially variable genes using Moran's I, stored statistics (moran_I, pval, qval) in adata.var.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Successfully identified spatially variable genes using Moran's I, stored statistics (moran_I, pval, qval) in adata.var.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q11": {
+    "query": "Analyze ligand-receptor interactions between cell types in this mouse brain tissue.",
+    "task": "T4",
+    "Claude-Sonnet-4": {
+      "summary": "Used LIANA+ with mouseconsensus resource. Correct species detection, proper preprocessing with normalization check, spatial neighbors computed. CCI results stored in uns. Complete multi-stage pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Used LIANA+ but incorrectly set species to 'human' and resource to 'consensus' for mouse brain data. Pipeline otherwise correct with spatial neighbors and normalization. Species mismatch reduces biological relevance of LR pairs found.",
+      "success": true,
+      "quality": 3
+    },
+    "Grok-4": {
+      "summary": "Used LIANA+ with correct mouseconsensus resource. Proper species detection, standard preprocessing pipeline. CCI results stored. Equivalent to baseline quality.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Used LIANA+ with correct mouseconsensus resource. Added session summary check and cell-level assertion. Comprehensive validation and spatial neighbor computation. Well-structured code.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Used LIANA+ with correct mouseconsensus resource. Clean structured code with explicit stages. Included visualization with dotplot. Results stored properly.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Used LIANA+ with correct mouseconsensus resource. Proper species identification and standard preprocessing. Complete pipeline execution.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Used LIANA+ with correct mouseconsensus resource. Concise implementation with proper validation and spatial neighbor computation. Slightly less verbose but functionally complete.",
+      "success": true,
+      "quality": 4
+    }
+  },
+  "Q12": {
+    "query": "Find cell-cell communication patterns between tumor and immune cells in this human breast cancer sample.",
+    "task": "T4",
+    "Claude-Sonnet-4": {
+      "summary": "Used LIANA+ with human consensus resource. Ran on all cell types then filtered. Proper preprocessing and spatial neighbors. CCI results stored with communication summary.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Used LIANA+ with human consensus resource. Explicitly classified tumor and immune cell types before analysis. Proper preprocessing pipeline. Results stored.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Used LIANA+ with human consensus. Explicitly listed tumor and immune cell types for focused analysis. Proper preprocessing. Well-structured with tumor-immune focus.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Used LIANA+ with human consensus. Defined tumor and immune groups explicitly, validated presence. Comprehensive preprocessing with session summary check.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Used LIANA+ with human consensus. Subset data to tumor and immune cell types before running LIANA, which focuses the analysis more specifically. Clean structured code.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Used LIANA+ with human consensus resource. Ran on all cell types. Proper preprocessing and standard pipeline. Results stored.",
+      "success": true,
+      "quality": 4
+    },
+    "GPT-4o": {
+      "summary": "Used LIANA+ with human consensus resource. Standard pipeline with proper validation and spatial neighbor computation. Results stored.",
+      "success": true,
+      "quality": 4
+    }
+  },
+  "Q13": {
+    "query": "How are the cells communicating with each other?",
+    "task": "T4",
+    "Claude-Sonnet-4": {
+      "summary": "Correctly interpreted vague query as CCI task. Used LIANA+ with human consensus for breast cancer data. Complete pipeline with proper preprocessing and results storage.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Correctly interpreted vague query as CCI. Used LIANA+ with human consensus. Standard preprocessing with plotnine import for visualization. Complete pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Correctly interpreted as CCI task. Used LIANA+ with human consensus. Standard preprocessing and pipeline execution. Results stored.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Correctly interpreted as CCI task. Used LIANA+ with human consensus. Added session summary and cell-level assertion. Comprehensive validation.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Correctly interpreted as CCI task. Used LIANA+ with human consensus. Clean code with explicit stages and results storage.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Correctly interpreted as CCI task. Used LIANA+ with human consensus. Standard pipeline with proper species selection.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Correctly interpreted as CCI task. Used LIANA+ with human consensus. Standard pipeline with proper validation. Slightly less detailed output.",
+      "success": true,
+      "quality": 4
+    }
+  },
+  "Q14": {
+    "query": "Test whether certain cell types tend to co-localize or avoid each other spatially in this mouse brain tissue.",
+    "task": "T5",
+    "Claude-Sonnet-4": {
+      "summary": "Used squidpy neighborhood enrichment with permutation testing (1000 perms). Built spatial neighbor graph with 10 neighbors for cell-level data. Z-score matrix stored with enrichment/depletion pairs reported.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Used squidpy neighborhood enrichment with 1000 permutations. Proper spatial graph construction. Summarized top enriched and depleted pairs. Results stored.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Used squidpy neighborhood enrichment with permutation testing. Standard spatial neighbor graph. Z-score results stored and summarized.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Used squidpy neighborhood enrichment with 1000 permutations. Added session summary check and cell-level validation. Comprehensive results with z-score heatmap.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Used squidpy neighborhood enrichment with 1000 permutations. Clean compact code with visualization. Results stored with z-score heatmap. Top enriched and depleted pairs reported.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Used squidpy neighborhood enrichment with permutation testing. Standard pipeline with proper spatial graph. Results stored.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Used squidpy neighborhood enrichment with 1000 permutations. Built spatial graph, computed z-scores, summarized pairs, and generated heatmap. Complete pipeline.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q15": {
+    "query": "Analyze spatial co-localization patterns between cell types in this breast cancer sample.",
+    "task": "T5",
+    "Claude-Sonnet-4": {
+      "summary": "Used squidpy neighborhood enrichment on breast cancer cell-level data with 10 neighbors. Permutation testing with z-score matrix stored. Top pairs reported.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Used squidpy neighborhood enrichment. Proper 10-neighbor graph for cell-level data. 1000 permutations. Results stored with z-scores.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Used squidpy neighborhood enrichment with standard pipeline. Proper spatial graph construction and permutation testing. Results stored.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Used squidpy neighborhood enrichment with session summary check. Proper graph construction with 10 neighbors. Complete pipeline with heatmap.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Used squidpy neighborhood enrichment with 1000 permutations. Complete pipeline with z-score matrix and visualization.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Used squidpy neighborhood enrichment with proper spatial graph. Standard pipeline execution. Results stored.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Used squidpy neighborhood enrichment with 1000 permutations. Standard pipeline with heatmap visualization. Results stored.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q16": {
+    "query": "Are certain cell types found near each other in this tissue?",
+    "task": "T5",
+    "Claude-Sonnet-4": {
+      "summary": "Correctly interpreted vague query as neighborhood enrichment task. Used squidpy with permutation testing on mouse brain data. Z-score matrix stored with pair summaries.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Correctly interpreted as neighborhood enrichment. Used squidpy with proper spatial graph. Required more LLM calls (12 vs 6) suggesting some retries, but completed successfully.",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "Correctly interpreted as neighborhood enrichment. Used squidpy with standard pipeline. Z-score results stored and summarized.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Correctly interpreted as neighborhood enrichment. Used squidpy with comprehensive validation. Session summary check and error handling. Results stored.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Correctly interpreted as neighborhood enrichment. Used squidpy with 1000 permutations. Clean code with visualization and pair summaries.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Correctly interpreted as neighborhood enrichment. Used squidpy with standard pipeline. Complete execution with z-score summaries.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Correctly interpreted as neighborhood enrichment. Used squidpy with standard pipeline and heatmap. Z-score results stored.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q17": {
+    "query": "Estimate cell type proportions for each spot in this Visium tissue. I have a single-cell reference dataset at './dlpfc_reference.h5ad' with cell type annotations.",
+    "task": "T6",
+    "Claude-Sonnet-4": {
+      "summary": "Used RCTD deconvolution with reference dataset. Marker gene selection via HVG + Wilcoxon. Ran RCTD with Ray, properly shutdown and stored deconv_weights in obsm. Dominant celltype assigned. 3606 spots retained.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "RCTD code in response but results not persisted",
+      "success": false,
+      "quality": null
+    },
+    "Grok-4": {
+      "summary": "Used RCTD deconvolution with absolute path to reference. Proper marker selection and RCTD execution. Ray shutdown and numba reset. Deconv weights stored. Very long runtime (949s) but successful.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Used RCTD with comprehensive validation including session summary and spot-level check. Detailed marker selection workflow. Long runtime (787s) but successful. Deconv weights stored.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Used RCTD deconvolution with absolute reference path. Clean compact code following skill template. Proper marker selection, RCTD execution, Ray shutdown. Deconv weights stored.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "RCTD code attempted but failed with error, no deconv weights produced",
+      "success": false,
+      "quality": null
+    },
+    "GPT-4o": {
+      "summary": "Used RCTD with absolute reference path. Proper marker selection and RCTD execution. Ray shutdown and numba reset. Deconv weights stored. Runtime 698s.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q18": {
+    "query": "What cell types make up each spot in this tissue?",
+    "task": "T6",
+    "Claude-Sonnet-4": {
+      "summary": "Correctly interpreted vague query as deconvolution task. Used RCTD with reference dataset. Proper marker selection and execution. Deconv weights stored. Runtime 414s.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "RCTD deconvolution completed with weights",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Correctly interpreted as deconvolution. Used RCTD but initialized Ray with max_cores=1, leading to extremely long runtime (2896s). Deconv weights stored. Functional but inefficient.",
+      "success": true,
+      "quality": 4
+    },
+    "GPT5.4": {
+      "summary": "Correctly interpreted as deconvolution. Used RCTD with comprehensive validation. Long runtime (1032s) but successful. Deconv weights stored.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Correctly interpreted as deconvolution. Used RCTD with proper pipeline. Very long runtime (1221s) but successful. Deconv weights stored.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Correctly interpreted as deconvolution. Used RCTD with absolute path. Proper marker selection and execution. Deconv weights stored (3606 spots, 33 cell types). Runtime 1130s.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Correctly interpreted as deconvolution. Used RCTD with absolute path. Proper marker selection and execution. Deconv weights stored. Runtime 879s.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q19": {
+    "query": "Identify spatial microenvironments (niches) based on the local cell type composition in this mouse brain tissue.",
+    "task": "T7",
+    "Claude-Sonnet-4": {
+      "summary": "Used Harmonics hierarchical model for niche detection. Complete 7-stage pipeline: data prep, model init, preprocessing, cluster init, hierarchical refinement, solution selection. Niche labels stored. Runtime 718s.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Used Harmonics hierarchical model with identical pipeline to baseline. Complete 7-stage execution with niche labels stored. Runtime 108s.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Used Harmonics hierarchical model with correct pipeline. All 7 stages executed. Niche labels stored. Runtime 132s.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Used Harmonics hierarchical model with session summary check. Complete 7-stage pipeline with niche labels stored. Added cell-level validation. Runtime 89s.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Used Harmonics hierarchical model with parallel=False (different from others using True). Complete pipeline with niche labels stored. Runtime 157s.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Used Harmonics hierarchical model. Complete 7-stage pipeline execution. Niche labels stored. Runtime 65s.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Used Harmonics hierarchical model. Complete 7-stage pipeline with proper parameter settings. Niche labels stored. Runtime 40s.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q20": {
+    "query": "Find the spatial neighborhoods in this tissue.",
+    "task": "T7",
+    "Claude-Sonnet-4": {
+      "summary": "Interpreted vague 'neighborhoods' query as neighborhood enrichment analysis (T5-like) rather than niche detection (T7). Used squidpy nhood_enrichment instead of Harmonics. Produced valid spatial analysis but did not identify distinct niches. Partial match to intended T7 task.",
+      "success": true,
+      "quality": 3
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Also interpreted as neighborhood enrichment rather than niche detection. Used squidpy nhood_enrichment. Produced valid co-localization z-scores but not discrete niche labels. Partial match to T7.",
+      "success": true,
+      "quality": 3
+    },
+    "Grok-4": {
+      "summary": "Interpreted as neighborhood enrichment. Initial ValueError with condensed distance matrix, then retried successfully. Used squidpy nhood_enrichment. Produced z-scores but not niche labels. Partial match to T7.",
+      "success": true,
+      "quality": 3
+    },
+    "GPT5.4": {
+      "summary": "Used Harmonics model for true niche detection, correctly interpreting the query as a niche analysis task. Complete 7-stage pipeline with niche labels stored. Best interpretation of this vague query for T7.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Used Harmonics model for niche detection. Complete 7-stage pipeline with niche labels stored. Correct interpretation of vague query as T7 niche task.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Interpreted as neighborhood enrichment rather than niche detection. Used squidpy nhood_enrichment. Produced z-scores but not discrete niche labels. Partial match to T7.",
+      "success": true,
+      "quality": 3
+    },
+    "GPT-4o": {
+      "summary": "Interpreted as neighborhood enrichment rather than niche detection. Used squidpy nhood_enrichment with z-score heatmap. Valid spatial analysis but not niche identification. Partial match to T7.",
+      "success": true,
+      "quality": 3
+    }
+  },
+  "Q21": {
+    "query": "Find differentially expressed genes between the different spatial domains in this tissue.",
+    "task": "T8",
+    "Claude-Sonnet-4": {
+      "summary": "Used the existing 'layer' column as grouping variable. Ran sc.tl.rank_genes_groups with Wilcoxon test. DE results stored in uns_rank_genes_groups. Proper normalization before DE. Complete pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "DE analysis between cortical layers using layer column",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Used 'layer' column, ran sc.tl.rank_genes_groups with Wilcoxon test. DE results stored in uns_rank_genes_groups. Proper normalization and validation. Equivalent to baseline.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Refused to run DE, claiming spatial domains are not yet defined. Failed to recognize the existing 'layer' column in adata.obs as the spatial domain annotation. No DE results produced.",
+      "success": false,
+      "quality": 0
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Used 'layer' column with Wilcoxon rank-sum test. Proper normalization and categorical conversion. DE results stored in uns_rank_genes_groups. Clean structured code.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Used 'layer' column with Wilcoxon test. Proper normalization. DE results stored in uns_rank_genes_groups. Complete and correct pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "DE analysis using layer column as spatial domains",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q22": {
+    "query": "What genes distinguish the tumor regions from the surrounding stroma?",
+    "task": "T8",
+    "Claude-Sonnet-4": {
+      "summary": "Correctly grouped tumor types (Invasive Tumor, Prolif Invasive Tumor, DCIS 1, DCIS 2) vs stromal types (Stromal, Endothelial, Myoepi ACTA2+). Ran Wilcoxon DE on filtered subset. Stored results in uns. Proper normalization.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Correctly defined tumor and stroma groups. Ran Wilcoxon DE with proper preprocessing. DE results stored in uns_rank_genes_groups. Complete pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Correctly defined tumor and stroma groups. Ran Wilcoxon DE with normalization. Stored results in uns as rank_genes_groups and de_results. Worked on copy to avoid modifying original but still stored back. Complete.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Correctly defined tumor and stroma compartments with validation. Ran Wilcoxon DE. Results stored in uns_rank_genes_groups_tumor_vs_stroma. Added cell-level assertion and session summary check. Thorough implementation.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Defined tumor types correctly but only used 'Stromal' for stroma (omitted Endothelial and Myoepi ACTA2+). Ran Wilcoxon DE with normalization. Narrower stroma definition slightly reduces completeness.",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-3": {
+      "summary": "Correctly defined both tumor and stroma groups including all relevant cell types. Ran Wilcoxon DE. Results stored in uns_rank_genes_groups. Clean and complete.",
+      "success": true,
+      "quality": 4
+    },
+    "GPT-4o": {
+      "summary": "Defined tumor types but only used 'Invasive Tumor' and 'Prolif Invasive Tumor' (missed DCIS 1, DCIS 2) and only 'Stromal' for stroma (missed Endothelial, Myoepi ACTA2+). Ran Wilcoxon DE. Narrower group definitions reduce biological completeness.",
+      "success": true,
+      "quality": 3
+    }
+  },
+  "Q23": {
+    "query": "Run gene ontology enrichment analysis on these marker genes: RELN, CUX2, PCP4, MBP, MOBP, NTNG2, TLE4. The species is human.",
+    "task": "T9",
+    "Claude-Sonnet-4": {
+      "summary": "Used gseapy with GO_Biological_Process library. Stored gene list, parameters, and GO results in uns (go_genes, go_params, go_results). Proper enrichment with statistical testing. Complete pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Used gseapy with GO enrichment. Stored gene list and results in uns (go_genes, go_params, go_results). Correct species setting. Complete formal enrichment analysis.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Used gseapy with GO_Biological_Process. Stored all results in uns (go_genes, go_params, go_results). Focused on biological processes with significance metrics. Complete and well-structured.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Used gseapy with human GO gene sets. Stored results in uns (go_genes, go_params, go_results). Added session summary check and visualization. Thorough implementation.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Used gseapy for GO enrichment with proper species setting. Stored results in uns (go_genes, go_params, go_results). Included visualization of top results. Complete.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Used gseapy for GO enrichment. Stored gene list and results in uns (go_genes, go_params, go_results). Covers biological processes, molecular functions, and cellular components. Complete.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Used gseapy for GO enrichment. Stored gene list and results in uns (go_genes, go_params, go_results). Correct species and gene list handling. Complete implementation.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q24": {
+    "query": "What biological pathways are active in the tumor microenvironment?",
+    "task": "T9",
+    "Claude-Sonnet-4": {
+      "summary": "First performed DE between tumor and immune cells, then ran GO enrichment on DE genes using gseapy. Stored results in uns (go_genes, go_params, go_results). Two-step approach: DE then enrichment. Formal statistical enrichment.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "No pathway/GO analysis",
+      "success": false,
+      "quality": null
+    },
+    "Grok-4": {
+      "summary": "Performed DE between tumor and TME groups, then ran GO enrichment on DE genes using gseapy. Proper two-step pipeline. No results stored in uns_go_results but enrichment was computed and displayed. Correct approach with formal statistical testing.",
+      "success": true,
+      "quality": 4
+    },
+    "GPT5.4": {
+      "summary": "Gene set scoring for cancer pathways, not formal statistical enrichment",
+      "success": true,
+      "quality": 2
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Performed DE between tumor and immune cells using Wilcoxon test, identifying upregulated genes. However, stopped at DE without running formal GO/pathway enrichment on the DE genes. Incomplete for T9 which requires enrichment analysis.",
+      "success": false,
+      "quality": 2
+    },
+    "Grok-3": {
+      "summary": "DE + GO enrichment on tumor microenvironment",
+      "success": true,
+      "quality": 4
+    },
+    "GPT-4o": {
+      "summary": "Described pathway analysis plan but did not execute enrichment. No GO results in output.",
+      "success": false,
+      "quality": null
+    }
+  },
+  "Q25": {
+    "query": "Integrate these four brain tissue slices, correcting for batch effects while preserving biological variation.",
+    "task": "T10",
+    "Claude-Sonnet-4": {
+      "summary": "Loaded all 4 slices, concatenated with batch labels, ran BBKNN for batch correction. Joint leiden clustering stored. All 14243 spots integrated. Complete integration pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Loaded all 4 slices, concatenated, ran BBKNN for batch correction. Joint leiden_integrated clustering stored. All 14243 spots integrated. Complete pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Loaded all 4 slices, concatenated, ran BBKNN for batch correction. Joint leiden_integrated clustering stored. All 14243 spots integrated. Complete pipeline equivalent to baseline.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Loaded all 4 slices, concatenated, ran BBKNN. Joint leiden_integrated clustering plus UMAP coordinates stored. Additional UMAP1/UMAP2_integrated columns. Thorough implementation with session summary validation.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Loaded all 4 slices, concatenated, ran BBKNN for batch correction. Joint leiden_integrated clustering stored. All 14243 spots integrated. Complete pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Loaded all 4 slices, concatenated with batch labels, ran BBKNN. Joint leiden clustering stored with batch column. All 14243 spots integrated. Complete pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Refused to perform integration, incorrectly claiming BBKNN requires cell type annotations. All 4 slices were loaded (14243 spots) but no batch correction was applied. No leiden clustering, no integration results.",
+      "success": false,
+      "quality": 0
+    }
+  },
+  "Q26": {
+    "query": "These two tissue sections are from the same brain region but look quite different. Can you make them comparable?",
+    "task": "T10",
+    "Claude-Sonnet-4": {
+      "summary": "Loaded both slices, concatenated with batch labels, ran BBKNN for batch correction. Joint leiden clustering stored. All 113604 cells integrated with batch and leiden columns. Complete integration.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Integrated two mouse brain slices with Harmony batch correction",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "Loaded both slices, applied ComBat batch correction (instead of BBKNN). Computed joint UMAP embedding. Used sc.pp.combat for correction. Valid batch correction method though different from skill's BBKNN recommendation. No joint clustering stored in h5ad.",
+      "success": true,
+      "quality": 4
+    },
+    "GPT5.4": {
+      "summary": "Loaded both slices and aligned to shared gene space. Compared cell type composition and expression but did not apply any batch correction method (no BBKNN, ComBat, or Harmony). Feature alignment alone is insufficient for integration.",
+      "success": false,
+      "quality": 2
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Loaded both slices, concatenated, ran BBKNN for batch correction. Joint leiden_integrated clustering stored. All 113604 cells integrated. Complete pipeline.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Loaded both slices, concatenated with batch labels, ran BBKNN. Joint leiden clustering stored with batch column. All 113604 cells integrated. Complete pipeline.",
+      "success": true,
+      "quality": 4
+    },
+    "GPT-4o": {
+      "summary": "Loaded both slices and performed normalization and gene alignment. However, only did log normalization and feature intersection without any batch correction method. No BBKNN, ComBat, or Harmony applied. Insufficient for integration.",
+      "success": false,
+      "quality": 1
+    }
+  },
+  "Q27": {
+    "query": "Give me a summary of this dataset \u2014 how many spots, how many genes, what spatial extent, and what annotations are already present.",
+    "task": "T11",
+    "Claude-Sonnet-4": {
+      "summary": "Reported spot count, gene count, spatial extent (X/Y ranges), data type, and available annotations. Comprehensive summary covering all requested aspects. Clear presentation.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Reported spot count, gene count, spatial extent, modality, and data level. Comprehensive summary with clear formatting. Complete response to all aspects of the query.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Reported spot count, gene count, spatial extent, and checked for annotations including celltype and deconv_weights. Concise and complete summary.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Reported all requested information with session summary check. Spot count, gene count, spatial extent, and annotation review. Thorough implementation.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Reported spot count, gene count, spatial extent, and annotation columns. Clean and concise summary covering all requested aspects.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Reported spot count, gene count, modality, data level, and checked for annotations. Also included spot-level metadata. Complete summary.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Reported spot count, gene count, spatial extent bounding box, and checked for celltype and deconv annotations. Concise and complete.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q28": {
+    "query": "Show the top 10 most highly expressed genes across all cells in this tissue.",
+    "task": "T11",
+    "Claude-Sonnet-4": {
+      "summary": "Calculated mean expression per gene, sorted descending, displayed top 10. Handled sparse matrix correctly. Clear and correct implementation.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Calculated mean expression per gene using a per-gene loop (inefficient but correct). Sorted and displayed top 10 with visualization. Correct result.",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "Calculated mean expression per gene using vectorized operation. Created DataFrame, sorted descending, displayed top 10. Clean and efficient implementation.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Used total expression sum (not mean) to rank genes. Displayed top 10 with session summary check. Sum ranking is a valid alternative to mean for identifying highly expressed genes.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Calculated mean expression per gene with proper sparse matrix handling. Sorted and displayed top 10. Clean implementation with clear formatting.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Identified top 10 highly expressed genes across all cells",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Calculated mean expression per gene with sparse matrix handling. Created DataFrame, sorted descending, displayed top 10. Correct and concise.",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q29": {
+    "query": "Give me a complete analysis of this spatial transcriptomics data.",
+    "task": "T11",
+    "Claude-Sonnet-4": {
+      "summary": "Comprehensive analysis covering data overview, spatial patterns, cell type distributions, gene expression analysis, and spatial relationships. Multiple analysis aspects with neighbor analysis. Thorough response.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Completed (47724ch, cols=[])",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "Summarized slice properties, visualized spatial distribution by cell type, computed cell type distribution, and identified spatially variable genes using SpatialDE. Multi-faceted analysis covering key aspects.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Comprehensive analysis covering composition, marker features, neighborhood structure, and spatial autocorrelation. Used NearestNeighbors for spatial statistics. Thorough multi-aspect analysis.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Covered dataset overview, cell type composition, and gene expression density visualization. Reasonable breadth for a general analysis though not as comprehensive as some.",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-3": {
+      "summary": "Comprehensive analysis with DE between cell types",
+      "success": true,
+      "quality": 4
+    },
+    "GPT-4o": {
+      "summary": "Planned comprehensive analysis covering summary, spatial visualization, gene expression, clustering, and neighborhood analysis. Code executed with multiple analysis components. Reasonable breadth.",
+      "success": true,
+      "quality": 4
+    }
+  },
+  "Q30": {
+    "query": "What can you tell me about this tissue?",
+    "task": "T11",
+    "Claude-Sonnet-4": {
+      "summary": "Analyzed tissue characteristics including morphology, gene expression patterns, and spatial organization. Reported data type, tissue metadata, spot count, genes, and spot-level details. Comprehensive tissue overview.",
+      "success": true,
+      "quality": 5
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Analyzed tissue by examining spatial organization and gene expression patterns. Reported data level, modality, spot count, gene count, and tissue metadata. Complete tissue overview.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-4": {
+      "summary": "Retrieved key details including basic properties, metadata, spot characteristics, and annotations. Checked for celltype and deconv data. Included visualization. Complete overview.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "Checked basic metadata, spatial coverage, expression characteristics, and deconvolution annotations. Included spatial layout visualization and quality features. Thorough overview.",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Extracted metadata, basic statistics, and checked for cell type and deconvolution annotations. Clean summary with annotation checks. Complete tissue overview.",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Reported basic information including modality, data level, spot count, genes, tissue metadata, and spot-level details. Checked for deconvolution weights. Complete overview.",
+      "success": true,
+      "quality": 5
+    },
+    "GPT-4o": {
+      "summary": "Reported tissue metadata, data level, modality, spot count, gene count, and checked for annotations. Concise but complete tissue summary.",
+      "success": true,
+      "quality": 4
+    }
+  },
+  "Q31": {
+    "query": "First annotate cell types, then analyze which cell types tend to co-localize in this mouse brain tissue.",
+    "task": "multi-step",
+    "Claude-Sonnet-4": {
+      "summary": "Annotated 22 cell types using LLM-assisted clustering (layer-specific neuron subtypes) and performed neighborhood enrichment co-localization analysis; saved h5ad with celltype and nhood_enrichment results.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Both steps completed with the most granular annotation (22 types including L2/3, L4, L5, L6 excitatory neurons plus glia). Neighborhood enrichment stored as zscore DataFrame. Best-in-class annotation quality for mouse brain."
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Annotation + co-localization analysis",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "Annotated 18 cell types using LLM-assisted clustering and performed neighborhood enrichment analysis; saved h5ad with celltype and nhood_enrichment results.",
+      "success": true,
+      "quality": 4,
+      "rank": 3,
+      "reason": "Both steps completed. 18 cell types is comprehensive for mouse brain (includes cortical/hippocampal excitatory neurons, interneurons, OPCs, astrocytes, endothelial, tanycytes). Co-localization stored as zscore DataFrame."
+    },
+    "GPT5.4": {
+      "summary": "Annotated 20 cell types using LLM-assisted clustering and performed detailed neighborhood enrichment analysis; saved h5ad with celltype, nhood enrichment zscore, top enriched/depleted pairs.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Both steps completed with excellent quality. 20 cell types is very granular. Co-localization analysis includes enrichment zscore, count, top enriched and top depleted DataFrames, providing the most comprehensive co-localization output."
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Annotated 16 cell types using LLM-assisted clustering and performed neighborhood enrichment analysis; saved h5ad with celltype and nhood_enrichment results.",
+      "success": true,
+      "quality": 4,
+      "rank": 4,
+      "reason": "Both steps completed. 16 cell types is reasonable but some labels are generic (e.g., 'Neurons', 'Excitatory neurons') rather than layer-specific. Co-localization stored as zscore DataFrame."
+    },
+    "Grok-3": {
+      "summary": "Annotated 21 cell types using LLM-assisted clustering and performed neighborhood enrichment analysis; saved h5ad with celltype and nhood_enrichment results.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Both steps completed. 21 cell types is very granular with layer-specific neuron subtypes (L2/3, L4, L5, L6 excitatory), pericytes, and interneurons. Co-localization stored as zscore DataFrame."
+    },
+    "GPT-4o": {
+      "summary": "Annotated 18 cell types using LLM-assisted clustering and performed neighborhood enrichment analysis; saved h5ad with celltype and nhood_enrichment results.",
+      "success": true,
+      "quality": 4,
+      "rank": 3,
+      "reason": "Both steps completed. 18 cell types includes layer-specific excitatory neurons and neurogliaform cells. Co-localization stored as zscore DataFrame."
+    }
+  },
+  "Q32": {
+    "query": "Identify spatial domains in this brain tissue (about 7 regions), then find genes that are differentially expressed between them.",
+    "task": "multi-step",
+    "Claude-Sonnet-4": {
+      "summary": "Identified 7 spatial domains using SpaGCN and performed DE analysis; saved h5ad with spatial_domain column, spatial_domain_raw, and rank_genes_groups.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Both steps completed using SpaGCN, a dedicated spatial domain detection method. Exactly 7 domains identified. DE results stored in uns. Includes both raw and refined domain assignments."
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Domains identified but no DE",
+      "success": false,
+      "quality": null
+    },
+    "Grok-4": {
+      "summary": "Identified 7 spatial domains using SpaGCN and performed DE analysis; saved h5ad with spatial_domain column, spatial_domain_raw, and rank_genes_domains.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Both steps completed using SpaGCN. Exactly 7 domains as requested. DE results stored as rank_genes_domains. Includes both raw and refined domain assignments."
+    },
+    "GPT5.4": {
+      "summary": "Identified 7 spatial domains using spatially-informed clustering (combined expression and spatial graphs) and performed DE analysis; saved h5ad with spatial_domain and rank_genes_groups.",
+      "success": true,
+      "quality": 4,
+      "rank": 3,
+      "reason": "Both steps completed. Used a custom spatially-informed clustering approach combining expression and spatial kNN graphs, which is a reasonable alternative to SpaGCN. 7 domains identified. DE results stored with top markers DataFrame."
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Identified 7 spatial domains using SpaGCN but no DE results stored in output h5ad; spatial_domain column present but no rank_genes_groups.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Step 1 completed with 7 domains via SpaGCN. However, the DE analysis results were not persisted in the output h5ad -- no rank_genes_groups or similar stored. Multi-step requires ALL steps to complete."
+    },
+    "Grok-3": {
+      "summary": "Completed (20032ch, cols=['domain', 'spatial_domain_raw', 'spatial_domain'])",
+      "success": true,
+      "quality": 4
+    },
+    "GPT-4o": {
+      "summary": "Identified 7 spatial domains using SpaGCN and performed DE analysis; saved h5ad with spatial_domain column and rank_genes_groups.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Both steps completed using SpaGCN with proper domain refinement. Exactly 7 domains as requested. DE results stored in uns['rank_genes_groups']."
+    }
+  },
+  "Q33": {
+    "query": "Annotate cell types in this breast cancer sample using the reference at './breast_cancer_reference.h5ad', then analyze cell-cell communication between tumor and immune cells.",
+    "task": "multi-step",
+    "Claude-Sonnet-4": {
+      "summary": "Annotated 17 cell types using scANVI transfer from reference and performed CCI analysis with LIANA+; saved h5ad with celltype column and cell_communication results.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Both steps completed with best-practice methods. scANVI is state-of-the-art for reference-based annotation, yielding all 17 expected cell types. LIANA+ is a comprehensive CCI framework. Both results stored."
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Completed (18148ch, cols=[])",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "scANVI annotation (17 types) + LIANA CCI analysis",
+      "success": true,
+      "quality": 5
+    },
+    "GPT5.4": {
+      "summary": "CCI analysis with LIANA on annotated breast cancer data",
+      "success": true,
+      "quality": 5
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "CCI analysis with LIANA on annotated breast cancer data",
+      "success": true,
+      "quality": 5
+    },
+    "Grok-3": {
+      "summary": "Annotated 17 cell types using scANVI transfer from reference and performed CCI analysis; saved h5ad with celltype column and cell_communication results.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Both steps completed. Used scANVI for reference-based annotation, correctly identifying all 17 cell types. CCI analysis results stored in uns['cell_communication']. Substantial wall time (1688.8s) confirms full execution."
+    },
+    "GPT-4o": {
+      "summary": "scANVI annotation (17 types) + LIANA CCI analysis",
+      "success": true,
+      "quality": 5
+    }
+  },
+  "Q34": {
+    "query": "Identify cell types, find marker genes for each type, then run pathway enrichment on the tumor cell markers.",
+    "task": "multi-step",
+    "Claude-Sonnet-4": {
+      "summary": "Annotated 17 cell types using scANVI, found marker genes with rank_genes_groups, and performed GO pathway enrichment on tumor markers; saved comprehensive results in h5ad.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "All three steps completed with best methods. scANVI yielded 17 biologically meaningful cell types. Marker genes stored in rank_genes_groups and marker_genes DataFrame. GO enrichment results stored with terms, p-values, and tumor markers."
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Completed (13882ch, cols=[])",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "No celltype, markers, or GO results in output despite code attempt",
+      "success": false,
+      "quality": null
+    },
+    "GPT5.4": {
+      "summary": "Annotated 8 cell types using LLM-assisted clustering and found marker genes with DE results; saved h5ad with celltype, rank_genes_groups, and top markers DataFrames.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Steps 1 and 2 completed with 8 cell types. DE results stored with marker DataFrames. Step 3 (pathway enrichment) evidence is indirect -- top markers stored but no explicit GO/pathway results in uns. However, marker analysis is comprehensive. 8 types is limited for breast cancer."
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Annotated 8 cell types using LLM-assisted clustering, found marker genes, and ran pathway enrichment using gseapy; saved h5ad with celltype and rank_genes_groups.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "All three steps attempted in a single comprehensive code block. 8 cell types identified. Marker genes found via rank_genes_groups. Pathway enrichment explicitly uses gseapy enrichr with KEGG and GO databases. 8 cell types is limited but the full pipeline executed."
+    },
+    "Grok-3": {
+      "summary": "Annotated 8 cell types using LLM-assisted clustering, found marker genes, and performed GO pathway enrichment; saved h5ad with celltype, rank_genes_groups, and go_results.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "All three steps completed. 8 cell types (including ERBB2+ tumor subtypes) identified. Marker genes stored. GO enrichment results stored as DataFrame in uns. Complete pipeline execution."
+    },
+    "GPT-4o": {
+      "summary": "Annotated 7 cell types using LLM-assisted clustering, found marker genes, and performed GO pathway enrichment; saved h5ad with celltype, rank_genes_groups, and go_results.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "All three steps completed. 7 cell types is the lowest count but includes relevant tumor subtypes. Marker genes and GO enrichment results stored. Complete pipeline."
+    }
+  },
+  "Q35": {
+    "query": "Estimate cell type proportions for each spot without any reference dataset.",
+    "task": "infeasible",
+    "Claude-Sonnet-4": {
+      "summary": "Used NMF for unsupervised deconvolution, identified 12 latent cell type signatures and estimated proportions per spot; saved h5ad with celltype column and deconv_weights.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "NMF-based unsupervised deconvolution is a principled approach for reference-free estimation. Explicitly acknowledged the reference-free constraint. 12 components stored in deconv_weights. Also assigned dominant celltype labels. Best overall approach."
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Correctly identified that deconvolution requires a reference dataset which is not available",
+      "success": true,
+      "quality": 3
+    },
+    "Grok-4": {
+      "summary": "Used NMF for unsupervised deconvolution with 5 latent components; saved deconv_weights in obsm with spatial visualization.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "NMF-based approach is appropriate. 5 components is reasonable but on the low side for DLPFC (which has ~7 layers). Proportions stored in obsm['deconv_weights']. Acknowledged no reference available."
+    },
+    "GPT5.4": {
+      "summary": "Used NMF for reference-free decomposition with 6 latent programs; saved deconv_weights in obsm with dominant program labels.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "NMF-based approach with careful preprocessing (HVG selection, log1p). 6 components aligns reasonably with DLPFC structure. Explicitly framed as 'reference-free' and acknowledged limitations. Stored as deconv_weights_reference_free."
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Used NMF for reference-free deconvolution with 5 latent factors; saved deconv_weights in obsm with spatial visualization.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "NMF approach is appropriate. 5 components is somewhat low. Proportions stored in obsm['deconv_weights']. Acknowledged the unsupervised nature of the analysis."
+    },
+    "Grok-3": {
+      "summary": "Correctly identified deconvolution without reference is infeasible",
+      "success": true,
+      "quality": 3
+    },
+    "GPT-4o": {
+      "summary": "Used NMF for unsupervised deconvolution with 5 components; saved deconv_weights in obsm.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "NMF approach is appropriate. 5 components stored. Simple and functional but limited component count and minimal preprocessing compared to other models."
+    }
+  },
+  "Q36": {
+    "query": "Segment individual cells from the H&E image.",
+    "task": "out-of-scope",
+    "Claude-Sonnet-4": {
+      "summary": "Attempted image-based segmentation using skimage/cv2 but discovered no images available; partially recognized the limitation that actual image data is needed.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly attempted to access H&E images and discovered they were not available. While the approach of attempting segmentation via skimage is reasonable, it did not explicitly state that cell segmentation from H&E is beyond standard ST analysis pipeline scope."
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Addressed out-of-scope task",
+      "success": true,
+      "quality": 3
+    },
+    "Grok-4": {
+      "summary": "Attempted H&E segmentation using skimage color deconvolution but found no H&E image available; clearly reported 'No H&E image found in slice 0' and explained the gap.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Correctly checked for H&E image and reported its absence. The analysis note explicitly states this 'highlights a potential gap in the dataset where imaging data is missing.' While not explicitly calling it out-of-scope, the honest reporting that segmentation cannot proceed is the correct handling."
+    },
+    "GPT5.4": {
+      "summary": "Attempted H&E segmentation using a comprehensive skimage pipeline but hit a ValueError because no H&E image was available; raised an error explaining images are required.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly checked for H&E images and raised a clear error when none were found. The error message 'No images are attached to slice 0, so H&E-based segmentation cannot be run' is informative. Did not explicitly discuss the out-of-scope nature."
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Recognized data is already at single-cell level (160K cells) and chose to overlay existing cell coordinates rather than attempting segmentation. Noted H&E was unavailable.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Acknowledged the data is already processed at single-cell level rather than fabricating segmentation. Plotted existing cell centroids as spatial distribution. Did not explicitly call the task out-of-scope but handled it pragmatically."
+    },
+    "Grok-3": {
+      "summary": "Attempted H&E segmentation but found no image available; clearly reported 'No H&E image available for slice 0' and still provided interpretation context.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly checked for image availability and reported absence. Provided context about what segmentation would show if data were available. Did not explicitly call it out-of-scope."
+    },
+    "GPT-4o": {
+      "summary": "Attempted H&E segmentation using skimage but hit a ValueError because no H&E image was loaded; error clearly indicates the image requirement.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly checked for H&E image and raised a clear error. The explicit check and error message is informative. Did not discuss the out-of-scope nature of the task."
+    }
+  },
+  "Q37": {
+    "query": "Perform RNA velocity analysis on this spatial data.",
+    "task": "out-of-scope",
+    "Claude-Sonnet-4": {
+      "summary": "Attempted scVelo but got KeyError on 'spliced'. Then proceeded with a fake velocity analysis using random normal vectors for demonstration, which is not actual RNA velocity.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "After the initial KeyError, the model created fake velocity vectors (np.random.normal) rather than clearly stating the analysis is infeasible. Creating random 'velocity' data is fabricating results."
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Checked for spliced/unspliced layers, found them missing, and clearly stated 'RNA velocity data not found' with explanation of required layers.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Correctly identified the missing spliced/unspliced layers upfront and clearly explained why RNA velocity cannot be performed. Did not fabricate alternative results. Clean, informative response."
+    },
+    "Grok-4": {
+      "summary": "Checked for spliced/unspliced layers, found them missing, and clearly stated 'Required layers spliced and unspliced not found. RNA velocity analysis cannot be performed.'",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Cleanly checked for required layers and immediately reported the limitation. Clear statement that RNA velocity cannot be performed. Provided educational context about what velocity arrows would show if data were available. Excellent handling of an out-of-scope task."
+    },
+    "GPT5.4": {
+      "summary": "Checked for spliced/unspliced layers, found them missing, and clearly stated the analysis cannot proceed with explanation of what is needed.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Correctly identified missing layers and explained that RNA velocity requires spliced/unspliced count layers. Suggested importing a loom file as a resolution path. Clean handling without fabrication."
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Checked for spliced/unspliced layers, found them missing, and clearly explained 'Cannot perform RNA velocity analysis' with detailed reasoning about why spatial data typically lacks these layers.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Excellent response. Correctly identified the limitation and provided additional context that spatial transcriptomics datasets typically only provide total mature mRNA counts. Clear and educational."
+    },
+    "Grok-3": {
+      "summary": "Checked for spliced/unspliced layers, found them missing, and stated the analysis requires these layers. Offered to suggest alternative analyses.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Correctly identified the missing layers and explained the limitation. Offered to suggest alternatives, which is helpful. Did not fabricate results."
+    },
+    "GPT-4o": {
+      "summary": "Checked for spliced/unspliced layers, found them missing, and clearly stated 'RNA velocity analysis cannot be performed.'",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Correctly identified missing layers and reported the limitation clearly and concisely. Did not fabricate results or attempt workarounds."
+    }
+  },
+  "Q38": {
+    "query": "Train a deep learning classifier to predict patient survival from this tissue.",
+    "task": "out-of-scope",
+    "Claude-Sonnet-4": {
+      "summary": "Correctly identified that survival prediction requires clinical outcome data not present in the dataset; explained what additional data would be needed while showing a feature extraction framework.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Clearly stated upfront that survival data is not available. Showed how spatial features could be prepared but was honest about the fundamental limitation. Correct handling of out-of-scope task."
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Correctly identified that survival outcome data is needed but not available in spatial transcriptomics data",
+      "success": true,
+      "quality": 4
+    },
+    "Grok-4": {
+      "summary": "Clearly stated inability to train a survival model due to missing survival labels/outcomes; offered to help design feature extraction if survival data is provided.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Excellent response. Immediately and clearly stated that survival prediction requires clinical outcome data not present in the dataset. Offered a constructive path forward. Did not fabricate survival data."
+    },
+    "GPT5.4": {
+      "summary": "Thoroughly checked for survival-related columns and patient identifiers, found none, and provided a detailed feasibility assessment explaining what data is needed.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Most thorough response. Systematically checked for survival_time, event, patient_id and other related columns. Clearly concluded the task is not feasible from the current session. Explained the requirements for survival modeling."
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Clearly stated inability to train a survival classifier due to single-slice data without survival metadata; offered TME analysis as a related alternative.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Excellent handling. Clearly explained why survival prediction is impossible (single slice, no survival metadata). Then offered a biologically relevant alternative (TME spatial analysis) that relates to prognosis, showing domain knowledge."
+    },
+    "Grok-3": {
+      "summary": "Did not recognize the task as out-of-scope; simulated survival outcomes and trained a model on fabricated data.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Created simulated survival_time and survival_status columns and attempted to train a classifier on fabricated data. The output h5ad shows added survival_time and survival_status columns. This produces meaningless results and constitutes fabrication."
+    },
+    "GPT-4o": {
+      "summary": "Clearly identified that survival data is not available and explained the requirements for survival prediction; did not attempt to fabricate results.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Correctly recognized the missing survival data and explained the steps needed (survival time, event status, feature engineering). Offered guidance without fabrication. Concise and accurate."
+    }
+  },
+  "Q39": {
+    "query": "Identify spatial niches in this tissue based on cell type composition.",
+    "task": "missing-prereq",
+    "Claude-Sonnet-4": {
+      "summary": "Correctly identified that cell type annotations are missing and requested a reference dataset; did not attempt to resolve the prerequisite itself.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly identified the missing prerequisite (no celltype annotations). Suggested downloading a mouse brain reference. However, stopped and asked the user rather than attempting unsupervised annotation first. Correct identification but passive resolution."
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Correctly identified that cell type annotations are missing, which is a prerequisite for niche analysis",
+      "success": true,
+      "quality": 3
+    },
+    "Grok-4": {
+      "summary": "Correctly identified that niche detection requires cell type annotations and instructed the user to annotate first.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly identified the missing prerequisite and provided a clear message. Did not attempt to resolve it autonomously but gave actionable guidance."
+    },
+    "GPT5.4": {
+      "summary": "Correctly identified that niche detection requires cell type annotations and instructed the user to annotate first.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly identified the missing prerequisite with a clear explanation. Suggested reference-based or marker-based annotation methods. Did not attempt autonomous resolution."
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Correctly identified that niche detection requires cell type annotations and instructed the user to annotate first.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly identified the missing prerequisite. Clear and concise message directing the user to annotate first."
+    },
+    "Grok-3": {
+      "summary": "Correctly identified that niche detection requires cell type annotations and instructed the user to annotate first.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly identified the missing prerequisite. Provided actionable guidance to annotate cell types first."
+    },
+    "GPT-4o": {
+      "summary": "Correctly identified that niche detection requires cell type annotations and instructed the user to annotate first.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly identified the missing prerequisite. Clear instruction to annotate first."
+    }
+  },
+  "Q40": {
+    "query": "Test whether cell types co-localize spatially in this tissue.",
+    "task": "missing-prereq",
+    "Claude-Sonnet-4": {
+      "summary": "Correctly identified that cell type annotations are missing in DLPFC data and explained that deconvolution or reference-based annotation is needed first.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Clearly identified the missing prerequisite (no celltype annotations in spot-level data). Suggested two resolution paths: deconvolution or reference-based annotation. Informative and accurate response."
+    },
+    "DeepSeek-V3.2": {
+      "summary": "Correctly identified missing celltype prerequisite for co-localization analysis",
+      "success": true,
+      "quality": 3
+    },
+    "Grok-4": {
+      "summary": "Correctly identified that neighborhood enrichment requires cell type annotations and instructed the user to annotate first.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly identified the missing prerequisite. Clear but brief message."
+    },
+    "GPT5.4": {
+      "summary": "Correctly identified that cell type annotations are missing and explained that spot-level data needs deconvolution or annotation first.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Clear identification of missing prerequisite with specific mention that spot-level data needs special handling. Suggested deconvolution or annotation approaches."
+    },
+    "Gemini-3.1-Pro": {
+      "summary": "Correctly identified that cell type annotations are missing and explained that deconvolution or annotation is needed for spot-level data.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Clear identification of the missing prerequisite. Specifically noted that spot-level data requires deconvolution or annotation before co-localization testing."
+    },
+    "Grok-3": {
+      "summary": "Correctly identified that cell type annotations are missing and that spot-level data needs deconvolution or annotation first.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Clear identification of the missing prerequisite with specific mention that spot-level data requires deconvolution or annotation. Suggested appropriate methods."
+    },
+    "GPT-4o": {
+      "summary": "Correctly identified that cell type annotations are missing and instructed the user to annotate first.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Correctly identified the missing prerequisite. Brief but clear message."
+    }
+  }
+}

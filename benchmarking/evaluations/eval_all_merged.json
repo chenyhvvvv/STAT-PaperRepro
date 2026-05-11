@@ -1,0 +1,1312 @@
+{
+  "Q01": {
+    "query": "Annotate cell types on this tissue. It is a mouse brain cortex sample.",
+    "task": "T1",
+    "dataset": "D2 (mouse brain MERFISH, 31982 cells, 1122 genes, no celltype)",
+    "A_vanilla": {
+      "summary": "Ran Leiden clustering and marker-based annotation but output h5ad contains only 1463 of 31982 cells, with 6 cell types identified.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Output contains only 1463 cells (4.6% of data), likely due to timeout or partial write. Incomplete result is unusable."
+    },
+    "B_biomni": {
+      "summary": "Performed Leiden clustering at multiple resolutions and annotated 9 cell types (Oligodendrocytes, Excitatory_Neurons, Astrocytes, Endothelial, Pericytes, Inhibitory_Neurons, OPCs, Microglia, Choroid_Plexus) across 31941 cells.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Comprehensive annotation with 9 biologically meaningful cell types covering all major brain cell populations. Processed nearly all cells. Multiple resolution analysis adds robustness."
+    },
+    "C_spatialagent": {
+      "summary": "Performed Leiden clustering and annotated 7 cell types (Excitatory neuron, Inhibitory neuron, Mixed neuron, etc.) across 31966 cells.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Good annotation with meaningful cell types across nearly all cells. Fewer cell types than B_biomni (7 vs 9) - missing some distinct populations like OPCs and Microglia."
+    },
+    "D_stat": {
+      "summary": "Used LLM-based clustering annotation to identify 22 cell types including layer-specific excitatory neurons across 31757 cells.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Produced detailed layer-specific neuron subtypes (Layer 2/3, Layer 4, etc.) which is biologically sophisticated. However, 22 types may be over-segmented for MERFISH data. Processed slightly fewer cells (31757 vs 31982)."
+    }
+  },
+  "Q02": {
+    "query": "Identify cell types in this breast cancer tissue sample. I have a single-cell reference dataset at './breast_cancer_reference.h5ad'.",
+    "task": "T1",
+    "dataset": "D3 (breast cancer, 160286 cells, 306 genes, with reference)",
+    "A_vanilla": {
+      "summary": "Used reference-based label transfer to annotate 17 cell types including Invasive Tumor, Macrophages, T cells, etc.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Successfully used the reference dataset for label transfer. Identified all 17 cell types. Added confidence scores."
+    },
+    "B_biomni": {
+      "summary": "Applied reference-based annotation transferring 17 cell types from the scRNA-seq reference, with prediction scores and filtering.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Comprehensive reference-based annotation with QC filtering and confidence scores. All 17 cell types transferred correctly."
+    },
+    "C_spatialagent": {
+      "summary": "Used KNN classification to transfer 17 cell types from reference to spatial data.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Successfully identified all 17 cell types using KNN-based transfer. Straightforward and effective approach."
+    },
+    "D_stat": {
+      "summary": "Used scANVI deep learning model for reference-based label transfer, identifying 17 cell types.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used scANVI which is a state-of-the-art method for label transfer that accounts for batch effects. All 17 cell types correctly identified. Though slower (686s), method is more robust."
+    }
+  },
+  "Q03": {
+    "query": "What cell types are present in this tissue?",
+    "task": "T1",
+    "dataset": "D2 (mouse brain MERFISH, 31982 cells, 1122 genes, no celltype)",
+    "A_vanilla": {
+      "summary": "Filtered to only 1463 cells, produced 20 cluster numbers as celltype labels (0-19) with only 3 named predicted_celltype values.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Only processed 1463 of 31982 cells. The celltype column contains cluster numbers (0-19), not meaningful cell type names. The predicted_celltype has only 3 types for a subset. Fundamentally incomplete."
+    },
+    "B_biomni": {
+      "summary": "Performed clustering and annotated 9 cell types (Oligodendrocytes, Excitatory_neurons, Pericytes, Endothelial, Astrocytes, Inhibitory_neurons, OPCs, Ependymal, Unknown) across all 31982 cells.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Good annotation with 9 meaningful cell types across all cells. Includes an 'Unknown' category which is honest. Comprehensive brain cell type coverage."
+    },
+    "C_spatialagent": {
+      "summary": "Clustered and annotated 11 cell types including Glutamatergic_Neurons, Neurons, GABAergic_Neurons across 31941 cells.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Good annotation with 11 cell types across nearly all cells. Some types like generic 'Neurons' are less informative than B_biomni's more specific labels."
+    },
+    "D_stat": {
+      "summary": "Used LLM-based annotation to identify 22 cell types with layer-specific neuron subtypes across 31757 cells.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Detailed layer-specific annotations are biologically meaningful. 22 types may be over-segmented but captures fine structure. Slightly fewer cells processed."
+    }
+  },
+  "Q04": {
+    "query": "Can you identify the different cell populations here? I have a reference scRNA-seq dataset at './breast_cancer_reference.h5ad'.",
+    "task": "T1",
+    "dataset": "D3 (breast cancer, 160286 cells, 306 genes, with reference)",
+    "A_vanilla": {
+      "summary": "Code timed out without producing an output h5ad file.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "TIMEOUT - no output produced. Complete failure."
+    },
+    "B_biomni": {
+      "summary": "Used reference-based annotation to transfer 17 cell types from scRNA-seq reference dataset.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Successfully transferred all 17 cell types using the reference. Included confidence metrics and validation."
+    },
+    "C_spatialagent": {
+      "summary": "Identified 17 cell types using the reference dataset, with confidence scores for each cell.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Good reference-based annotation with all 17 cell types. Added confidence scores."
+    },
+    "D_stat": {
+      "summary": "Used scANVI for deep learning-based label transfer from reference, identifying 17 cell types.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "State-of-the-art scANVI method for label transfer. All 17 cell types correctly identified."
+    }
+  },
+  "Q05": {
+    "query": "Identify spatial domains in this brain tissue. There should be about 7 distinct regions including cortical layers and white matter.",
+    "task": "T2",
+    "dataset": "D1 (DLPFC Visium, 3611 spots, 33538 genes, ground truth: 7 layers)",
+    "A_vanilla": {
+      "summary": "Code errored with KeyError for missing 'neighbors' in .uns after building spatial graph.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Runtime error - pipeline failed to build neighbors graph correctly before Leiden clustering."
+    },
+    "B_biomni": {
+      "summary": "Identified spatial domains but only found 4 (L3, L5, WM, L6) instead of the expected 7 cortical layers + WM.",
+      "success": true,
+      "quality": 2,
+      "rank": 3,
+      "reason": "Only 4 spatial domains found when 7 were expected. Missing L1, L2, L4. Significantly under-segmented despite extensive clustering attempts at multiple resolutions."
+    },
+    "C_spatialagent": {
+      "summary": "Identified 8 spatial domains (close to the target of 7) with cortical layer annotations.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Found 8 domains, close to the expected 7. Reasonable spatial domain identification with biological annotations."
+    },
+    "D_stat": {
+      "summary": "Used SpaGCN to identify exactly 7 spatial domains matching the expected cortical layer structure.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used SpaGCN (specialized spatial domain tool) and found exactly 7 domains matching the expected cortical layers + WM. Best match to ground truth."
+    }
+  },
+  "Q06": {
+    "query": "Can you find the spatial structure in this tissue?",
+    "task": "T2",
+    "dataset": "D1 (DLPFC Visium, 3611 spots, 33538 genes, ground truth: 7 layers)",
+    "A_vanilla": {
+      "summary": "Code errored with KeyError trying to access 'leiden_0.5' column that doesn't exist in obs.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Runtime error - code generated invalid column reference. No output produced."
+    },
+    "B_biomni": {
+      "summary": "Identified 7 spatial domains with descriptive names (Deep_Layer, Superficial_Layer, White_Matter_Core, etc.).",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Found 7 domains matching expected count. Descriptive domain names though they don't directly correspond to cortical layers (e.g., 'Layer_Transition' vs 'L2')."
+    },
+    "C_spatialagent": {
+      "summary": "Used GraphST and identified 10 spatial domains, over-segmenting the expected 7 layers.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Found 10 domains, somewhat over-segmented compared to 7 expected. Numeric domain labels without biological annotation."
+    },
+    "D_stat": {
+      "summary": "Used SpaGCN to identify exactly 7 spatial domains matching the cortical layer structure.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "SpaGCN correctly identified 7 domains. Best match to the expected cortical layer architecture."
+    }
+  },
+  "Q07": {
+    "query": "Identify distinct tissue regions based on spatial gene expression.",
+    "task": "T2",
+    "dataset": "D2 (mouse brain MERFISH, 31982 cells, 1122 genes)",
+    "A_vanilla": {
+      "summary": "Code timed out without producing an output h5ad file.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "TIMEOUT - no output produced."
+    },
+    "B_biomni": {
+      "summary": "Identified 12 tissue regions using combined PCA and K-means spatial clustering with biological annotations.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Found 12 distinct regions with tissue annotations and marker genes. Comprehensive analysis with region centroids stored."
+    },
+    "C_spatialagent": {
+      "summary": "Used Leiden clustering to identify 14 spatial domains with biological annotations including oligodendrocytes, endothelial, astrocyte regions.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Found 14 domains with meaningful biological annotations. Good spatial domain identification for MERFISH data."
+    },
+    "D_stat": {
+      "summary": "Used KMeans clustering on gene expression to identify spatial regions stored in 'spatial_region' column.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Produced spatial regions but used basic KMeans rather than spatial-aware methods. No biological annotation of regions in the output."
+    }
+  },
+  "Q08": {
+    "query": "Find genes that show significant spatial expression patterns across this tissue.",
+    "task": "T3",
+    "dataset": "D1 (DLPFC Visium, 3611 spots, 33538 genes)",
+    "A_vanilla": {
+      "summary": "Attempted Moran's I via Squidpy but crashed with RuntimeError during computation.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Runtime error during Squidpy spatial analysis (multiprocessing EOFError). No SVG results produced."
+    },
+    "B_biomni": {
+      "summary": "Identified spatially variable genes using spatial statistics, results stored in uns['spatial_analysis'].",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Successfully identified SVGs with spatial statistics. Results stored in AnnData. Used appropriate methods."
+    },
+    "C_spatialagent": {
+      "summary": "Computed Moran's I for spatial autocorrelation, results stored in uns['moranI'] and uns['spatial_analysis_summary'].",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Used Moran's I which is a standard SVG detection method. Results properly stored with p-values."
+    },
+    "D_stat": {
+      "summary": "Used SpatialDE (Gaussian process regression) to identify SVGs, with results stored as DataFrame in uns['spatialde_results'].",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "SpatialDE is a gold-standard method specifically designed for SVG detection in spatial transcriptomics. Produces proper statistical framework with model-based p-values."
+    }
+  },
+  "Q09": {
+    "query": "Which genes have interesting spatial patterns?",
+    "task": "T3",
+    "dataset": "D1 (DLPFC Visium, 3611 spots, 33538 genes)",
+    "A_vanilla": {
+      "summary": "Attempted Moran's I via Squidpy but crashed with RuntimeError during computation.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Runtime error during Squidpy spatial analysis. Same issue as Q08."
+    },
+    "B_biomni": {
+      "summary": "Identified top spatially variable genes using spatial coefficient of variation (MAG, MOBP, PPP1R14A, TF, etc.).",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Identified biologically relevant SVGs but used a simplistic 'Spatial CV' metric rather than proper spatial statistics like Moran's I or SpatialDE. No formal statistical testing stored in the h5ad."
+    },
+    "C_spatialagent": {
+      "summary": "Computed Moran's I identifying top SVGs (SCGB2A2, MOBP, GFAP, TF, CNP, MAG, etc.).",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Used proper Moran's I spatial autocorrelation. Identified biologically meaningful genes. MOBP, GFAP, MAG are well-known spatially patterned genes in brain."
+    },
+    "D_stat": {
+      "summary": "Used SpatialDE Gaussian process regression to identify SVGs with full statistical results stored.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "SpatialDE is the gold-standard SVG method. Full statistical results (DataFrame) stored in uns. Proper model-based inference."
+    }
+  },
+  "Q10": {
+    "query": "Identify spatially variable genes in this mouse brain section.",
+    "task": "T3",
+    "dataset": "D2 (mouse brain MERFISH, 31982 cells, 1122 genes, with celltype)",
+    "A_vanilla": {
+      "summary": "Attempted Moran's I via Squidpy but crashed with RuntimeError during computation.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Runtime error during Squidpy spatial analysis. Same multiprocessing issue as Q08/Q09."
+    },
+    "B_biomni": {
+      "summary": "Identified SVGs using spatial variability scores (correlation with spatial coordinates), stored in uns['spatial_variable_genes'].",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Found SVGs but used simplistic correlation with spatial coordinates rather than proper spatial autocorrelation methods. Found 65 genes with score > 0.2."
+    },
+    "C_spatialagent": {
+      "summary": "Computed Moran's I for 1000 genes, finding 947 significant (p<0.05), with top hits including Htr7, Gzmk, Arhgap36.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Used proper Moran's I with permutation testing. 947/1000 significant suggests possible multiple testing issue, but identified meaningful SVGs."
+    },
+    "D_stat": {
+      "summary": "Used Moran's I via Squidpy for all 1122 genes, finding 1060 significant SVGs, stored results in adata.var and uns.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Properly used Moran's I for the large dataset (>10K cells), correctly chose it over SpatialDE for scalability. Tested all genes. Results properly stored in adata.var for per-gene access."
+    }
+  },
+  "Q11": {
+    "query": "Analyze ligand-receptor interactions between cell types in this mouse brain tissue.",
+    "task": "T4",
+    "A_vanilla": {
+      "summary": "Attempted LIANA analysis but failed with TypeError on rank_aggregate methods parameter; no output h5ad produced.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Code crashed due to incorrect LIANA API usage (wrong keyword argument 'methods'). No LR interaction results saved."
+    },
+    "B_biomni": {
+      "summary": "Performed custom ligand-receptor analysis identifying 3 LR pairs (Ntf3-Ntrk3, Wnt5a-Fzd2, Sema6a-Epha10) with spatial interaction scoring across 28 cell types.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Completed analysis but used only 3 manually curated LR pairs rather than a comprehensive database. Results are biologically reasonable but limited in scope compared to standard CCI tools."
+    },
+    "C_spatialagent": {
+      "summary": "Ran LIANA with multiple algorithms (CellPhoneDB, Connectome, NATMI) detecting 4,089 total interactions with 2,431 significant, identifying dominant neuropeptide signaling pathways.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used proper LIANA multi-method consensus approach with comprehensive LR database. Identified biologically meaningful pathways (Penk signaling, opioid receptors) with statistical testing. Results stored in uns['liana_analysis']."
+    },
+    "D_stat": {
+      "summary": "Ran LIANA+ with mouse-specific LR database on the brain tissue, identifying significant communication pathways between cell populations with proper species configuration.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used LIANA+ with correct mouse species database, proper preprocessing, and stored comprehensive results in uns['liana_res']. Efficient execution (87s vs 376s for C)."
+    }
+  },
+  "Q12": {
+    "query": "Find cell-cell communication patterns between tumor and immune cells in this human breast cancer sample.",
+    "task": "T4",
+    "A_vanilla": {
+      "summary": "Attempted LIANA but it failed; fell back to spatial proximity analysis between tumor (Invasive/Prolif) and immune cells (Macrophages only), computing distances but no actual LR interactions.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "LIANA failed and fallback only computed spatial distances between 2 tumor and 2 immune types. Missed most immune types (T cells, B cells, DCs). No actual ligand-receptor interaction analysis performed."
+    },
+    "B_biomni": {
+      "summary": "Analyzed tumor-immune communication identifying 57,377 tumor and 50,385 immune cells with spatial neighborhood analysis and LR pair detection.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Correctly identified all tumor and immune cell categories. Performed spatial neighborhood and LR analysis. Good biological interpretation but custom implementation rather than established CCI tool."
+    },
+    "C_spatialagent": {
+      "summary": "Comprehensive CCI analysis detecting 179 LR interactions between tumor and immune cells, identifying spatial avoidance patterns (immune exclusion) and molecular communication despite separation.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Excellent analysis combining spatial co-occurrence (z-scores for avoidance) with molecular LR interactions. Identified immune exclusion pattern which is biologically important in breast cancer. Stored results in uns."
+    },
+    "D_stat": {
+      "summary": "Ran LIANA+ with human LR database identifying significant ligand-receptor interactions between all 17 cell types including tumor-immune communication patterns.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used proper LIANA+ framework with human species database and comprehensive cell type coverage. Stored results in uns['liana_res'] and uns['cell_communication']. Fast execution (174s)."
+    }
+  },
+  "Q13": {
+    "query": "How are the cells communicating with each other?",
+    "task": "T4",
+    "A_vanilla": {
+      "summary": "Ran LIANA but execution appears to have stalled during cell type proximity computation; no output h5ad produced.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "LIANA ran but process did not complete within time limit. No output file saved. Progress stuck at computing cell type proximities."
+    },
+    "B_biomni": {
+      "summary": "Built spatial neighborhood graphs at multiple radii (30/50/100um) and analyzed LR expression patterns across 17 cell types with interaction matrices.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Good multi-scale spatial analysis with neighborhood diversity metrics. Stored communication summary and LR expression by cell type. Interpreted vague query correctly as CCI analysis."
+    },
+    "C_spatialagent": {
+      "summary": "Performed comprehensive LIANA analysis identifying dominant S100A4-ERBB2 and CXCL12-CXCR4 signaling pathways with 148 immune-to-tumor and 31 tumor-to-immune interactions.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Excellent interpretation of vague query. Identified biologically significant pathways (S100A4-ERBB2 for tumor progression, CXCL12-CXCR4 for immune recruitment). Detailed breakdown by cell type pairs."
+    },
+    "D_stat": {
+      "summary": "Ran LIANA+ with human LR database identifying significant ligand-receptor interactions between all 17 cell types in the breast cancer dataset.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Correctly interpreted vague query as CCI task and used LIANA+ with proper human species config. Results stored in uns['liana_res']. Efficient (103s)."
+    }
+  },
+  "Q14": {
+    "query": "Test whether certain cell types tend to co-localize or avoid each other spatially in this mouse brain tissue.",
+    "task": "T5",
+    "A_vanilla": {
+      "summary": "Attempted squidpy co_occurrence but crashed with TypeError on spatial_connectivities_key parameter.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Code error due to incorrect squidpy API usage. No co-localization results produced."
+    },
+    "B_biomni": {
+      "summary": "Performed KNN-based spatial analysis (k=10) on 16 cell types with chi-square testing, finding 205/240 significant pairs including 38 co-localized and 167 avoidance patterns.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Good statistical approach with FDR correction. Identified biologically meaningful patterns (HY GABA-HY Glut co-localization). Stored results in uns['spatial_colocalization_summary']."
+    },
+    "C_spatialagent": {
+      "summary": "Ran neighborhood enrichment analysis identifying strong co-localization (HY GABA-HY Glut z=35.2) and avoidance (IT-ET Glut-OPC-Oligo z=-70.04) patterns with z-score statistics.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used squidpy neighborhood enrichment with permutation testing. Excellent biological interpretation of cortical laminar structure, neurovascular units, and gray/white matter segregation. Z-scores stored properly."
+    },
+    "D_stat": {
+      "summary": "Performed squidpy neighborhood enrichment analysis with permutation testing on all 28 cell types, computing z-scores for spatial relationships.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used proper squidpy nhood_enrichment with permutation-based statistical testing. Results stored in uns['celltype_nhood_enrichment'] and uns['nhood_enrichment_zscore']. Fast execution (52s)."
+    }
+  },
+  "Q15": {
+    "query": "Analyze spatial co-localization patterns between cell types in this breast cancer sample.",
+    "task": "T5",
+    "A_vanilla": {
+      "summary": "Started squidpy spatial_neighbors and co-occurrence analysis but crashed with multiprocessing error during execution.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Execution failed with multiprocessing spawn error. No results produced despite correct approach selection."
+    },
+    "B_biomni": {
+      "summary": "Analyzed spatial neighborhoods computing mean neighbor distances and nearest-neighbor distances for each cell type, detecting tumor-immune interactions with 8-10x enrichment.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Completed analysis but methodology is simplistic (distance-based rather than permutation-based). Claims 8-10x enrichment but storage suggests limited statistical rigor."
+    },
+    "C_spatialagent": {
+      "summary": "Comprehensive analysis with neighborhood enrichment, interaction matrices, and Ripley's L function detecting tumor co-localization (z=251.2), immune clustering (CD8-CD4 z=94.4), and immune exclusion patterns.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used multiple methods (squidpy nhood enrichment, co-occurrence, Ripley's L). Excellent biological interpretation of immune exclusion and tumor spatial organization. Most comprehensive analysis."
+    },
+    "D_stat": {
+      "summary": "Performed squidpy neighborhood enrichment analysis with permutation testing across all 17 cell types, computing z-scores stored in structured format.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used proper squidpy nhood_enrichment with permutation testing. Results well-stored in uns. Very fast execution (58s vs 1043s for C) while maintaining statistical rigor."
+    }
+  },
+  "Q16": {
+    "query": "Are certain cell types found near each other in this tissue?",
+    "task": "T5",
+    "A_vanilla": {
+      "summary": "Attempted to compute full pairwise distance matrix for 31,982 cells which caused a timeout (memory/compute explosion).",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Tried to compute a 32K x 32K distance matrix using scipy pdist, which is computationally infeasible. Timed out at 338s."
+    },
+    "B_biomni": {
+      "summary": "Analyzed spatial enrichment with diversity and homogeneity metrics, identifying hypothalamic neuron co-localization (3.9x enrichment) and neurovascular units.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Good results with spatial enrichment matrix and significance tests stored in uns. Identified biologically meaningful patterns. Clear presentation for vague query."
+    },
+    "C_spatialagent": {
+      "summary": "Performed neighborhood enrichment analysis with z-scores identifying strong co-localization (HY GABA-HY Glut z=35.59) and avoidance (IT-ET Glut-OPC-Oligo z=-70.04) patterns.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used proper squidpy neighborhood enrichment. Excellent biological interpretation including E-I balance, striatal GABAergic organization, and perivascular niches. Comprehensive z-score reporting."
+    },
+    "D_stat": {
+      "summary": "Performed squidpy neighborhood enrichment analysis with permutation-based z-scores across 25 cell types in the brain tissue.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Correct method (squidpy nhood_enrichment), proper statistical testing, well-structured output. Fastest execution (49s). Correctly interpreted vague query."
+    }
+  },
+  "Q17": {
+    "query": "Estimate cell type proportions for each spot in this Visium tissue. I have a single-cell reference dataset at './dlpfc_reference.h5ad' with cell type annotations.",
+    "task": "T6",
+    "A_vanilla": {
+      "summary": "Implemented custom NNLS-based deconvolution using reference cell type signatures, estimating proportions for all 33 reference cell types across 3,611 spots.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Custom NNLS implementation works but lacks the statistical rigor of dedicated deconvolution tools (RCTD, cell2location). Proportions stored in obs columns. Reasonable results but not optimal."
+    },
+    "B_biomni": {
+      "summary": "Performed NNLS deconvolution with reference data, finding Mix_1 dominant in 92.5% of spots with limited diversity in detected cell types.",
+      "success": true,
+      "quality": 2,
+      "rank": 4,
+      "reason": "NNLS deconvolution completed but results show poor diversity (Mix_1 at 92.5% of spots). This suggests the deconvolution did not properly resolve cell type mixtures within spots."
+    },
+    "C_spatialagent": {
+      "summary": "Used scanpy ingest label transfer followed by neighborhood-based spatial deconvolution to estimate proportions for all 33 cell types.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Label transfer + neighborhood approach is a reasonable fallback when dedicated tools fail, but is less rigorous than proper deconvolution. Proportions stored in obsm['cell_type_proportions']. Results reasonable."
+    },
+    "D_stat": {
+      "summary": "Used RCTD (a dedicated spatial deconvolution tool) with the single-cell reference to estimate cell type proportions per spot, stored in obsm['deconv_weights'].",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used RCTD, a purpose-built deconvolution method designed for spatial transcriptomics. This is the gold standard approach. Results properly stored in obsm['deconv_weights']. Has celltype assigned per spot."
+    }
+  },
+  "Q18": {
+    "query": "What cell types make up each spot in this tissue?",
+    "task": "T6",
+    "A_vanilla": {
+      "summary": "Performed custom deconvolution using reference cell type signatures with correlation-based scoring, estimating proportions stored in obs columns.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Custom implementation completed and produced proportions, but lacks statistical rigor of dedicated tools. Used the reference dataset correctly."
+    },
+    "B_biomni": {
+      "summary": "Used marker gene scoring and KNN label transfer, finding Ex_5_L5 dominant in 75.5% of spots with very limited cell type diversity.",
+      "success": true,
+      "quality": 2,
+      "rank": 4,
+      "reason": "Results show extremely poor resolution - 75.5% assigned to a single type. More a label transfer than deconvolution. Misses the point that spots contain mixtures of cell types."
+    },
+    "C_spatialagent": {
+      "summary": "Used correlation-based deconvolution with both Pearson and cosine similarity to reference profiles, estimating proportions for 33 cell types.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Correlation-based approach is reasonable but not a proper deconvolution method. Stored correlation and cosine scores per cell type in obs. Results provide relative composition but not calibrated proportions."
+    },
+    "D_stat": {
+      "summary": "Used RCTD deconvolution with the single-cell reference dataset to decompose each spot into cell type proportions.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used RCTD, the dedicated deconvolution method. Properly interpreted vague query as requiring deconvolution for spot-level data. Results in obsm['deconv_weights'] with celltype assignments."
+    }
+  },
+  "Q19": {
+    "query": "Identify spatial microenvironments (niches) based on the local cell type composition in this mouse brain tissue.",
+    "task": "T7",
+    "A_vanilla": {
+      "summary": "Used squidpy spatial neighbors + KMeans clustering on neighborhood composition to identify 12 niches, with niche proportions and compactness metrics.",
+      "success": true,
+      "quality": 4,
+      "rank": 3,
+      "reason": "Sound approach using neighborhood composition + KMeans. Identified 12 niches with characterization. Some niches have very few cells (7-8), suggesting suboptimal k selection. Results saved properly."
+    },
+    "B_biomni": {
+      "summary": "Identified 15 niches using neighborhood composition analysis with 0.2-unit radius and KMeans clustering (silhouette=0.286), characterizing dominant cell types per niche.",
+      "success": true,
+      "quality": 4,
+      "rank": 3,
+      "reason": "Good approach with silhouette score optimization. 15 niches with characterization. Silhouette score of 0.286 is low but acceptable for complex tissue. Niche compositions stored in obs columns."
+    },
+    "C_spatialagent": {
+      "summary": "Identified 10 niches using neighborhood composition clustering, characterizing major regions including vascular-rich (27%), white matter (23.8%), and cortical excitatory (25.4%) zones.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Good niche identification with biologically meaningful annotation (white matter, cortical regions, vascular). 10 niches with clear dominant cell type characterization. Niche annotations stored in obs."
+    },
+    "D_stat": {
+      "summary": "Used Harmonics hierarchical model (specialized niche detection tool) to identify spatial niches based on cell type composition and spatial proximity patterns.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used a dedicated niche detection method (Harmonics) rather than generic KMeans on composition. This is a specialized spatial tool that accounts for hierarchical structure. Results stored in obs['niche_label']."
+    }
+  },
+  "Q20": {
+    "query": "Find the spatial neighborhoods in this tissue.",
+    "task": "T7",
+    "A_vanilla": {
+      "summary": "Started squidpy spatial analysis but crashed with multiprocessing error during spatial autocorrelation computation.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Execution failed with multiprocessing spawn error. No niche identification results produced."
+    },
+    "B_biomni": {
+      "summary": "Identified 8 spatial domains using neighborhood composition clustering with KNN and distance-based methods, computing diversity and purity metrics.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Good spatial domain detection with 8 regions. Computed diversity, purity, and boundary cell metrics. Stored spatial_domain in obs and analysis details in uns."
+    },
+    "C_spatialagent": {
+      "summary": "Identified 15 spatial neighborhoods using local composition analysis with 50-cell neighborhoods and KMeans clustering, characterizing glutamatergic, oligodendrocyte, and specialized regions.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Comprehensive neighborhood detection with 15 distinct regions. Excellent biological characterization including white matter tracts (80.8% oligo), dentate gyrus (78% DG neurons), and cortical layering. Multiple analysis outputs stored."
+    },
+    "D_stat": {
+      "summary": "Performed neighborhood enrichment analysis computing co-localization z-scores between all cell type pairs using squidpy.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Neighborhood enrichment is a valid interpretation of 'find spatial neighborhoods'. Correctly identified which cell types co-localize or avoid each other spatially."
+    }
+  },
+  "Q21": {
+    "query": "Find differentially expressed genes between the different spatial domains in this tissue.",
+    "task": "T8",
+    "dataset": "D1",
+    "difficulty": "clear",
+    "A_vanilla": {
+      "summary": "Used existing layer annotations to run Wilcoxon DE test with scanpy, producing 700 significant DE gene-layer pairs with clear per-layer results.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Correct method (Wilcoxon rank-sum), leveraged existing layer annotations, produced clear per-layer DE results with statistics. Single LLM call, efficient execution."
+    },
+    "B_biomni": {
+      "summary": "Performed full DE analysis using Wilcoxon test on 19140 filtered genes across 7 cortical layers, producing 646 significant gene-layer pairs with biological interpretation.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Proper preprocessing with gene filtering, comprehensive DE with biological interpretation of layer-specific markers. Strong statistical summary and biologically meaningful results."
+    },
+    "C_spatialagent": {
+      "summary": "Completed DE analysis identifying 700 significant marker genes across 7 cortical layers with detailed biological interpretation of layer-specific signatures.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Thorough analysis with gene filtering, comprehensive biological interpretation of each layer's markers, and strong summary of findings consistent with known cortical biology."
+    },
+    "D_stat": {
+      "summary": "Ran Wilcoxon DE on layer groups, reporting top 10 DE genes per layer with scores, adjusted p-values, and fold changes.",
+      "success": true,
+      "quality": 5,
+      "rank": 2,
+      "reason": "Correct approach using existing layer annotations and Wilcoxon test. Results are clear and statistically sound. Less biological interpretation than B and C but solid execution."
+    }
+  },
+  "Q22": {
+    "query": "What genes distinguish the tumor regions from the surrounding stroma?",
+    "task": "T8",
+    "dataset": "D3",
+    "difficulty": "vague",
+    "A_vanilla": {
+      "summary": "Categorized cell types into tumor vs stroma groups using keyword matching, then ran Wilcoxon DE to identify distinguishing genes.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Good approach to define tumor/stroma categories from cell types, ran proper DE analysis. Reasonable biological grouping of cell types."
+    },
+    "B_biomni": {
+      "summary": "Identified tumor vs stroma regions and performed DE analysis, finding 65 tumor-enriched and 126 stroma-enriched genes with detailed biological interpretation.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Excellent analysis with clear tumor/stroma classification, comprehensive gene lists with fold changes, and strong biological interpretation including clinical significance."
+    },
+    "C_spatialagent": {
+      "summary": "Performed tumor vs stroma DE analysis identifying key tumor markers (KRT7, EPCAM, ERBB2) and stromal markers (LUM, POSTN, MMP2) with detailed biological interpretation.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Comprehensive analysis with biologically accurate tumor and stroma gene signatures, proper log2FC values, and insightful biological interpretation."
+    },
+    "D_stat": {
+      "summary": "Defined tumor and stromal cell type groups, ran Wilcoxon DE between them on 100K+ cells, identifying top DE genes for each compartment.",
+      "success": true,
+      "quality": 5,
+      "rank": 2,
+      "reason": "Correct approach with explicit tumor vs stromal grouping and proper statistical testing. Clear results but less biological interpretation than B and C."
+    }
+  },
+  "Q23": {
+    "query": "Run gene ontology enrichment analysis on these marker genes: RELN, CUX2, PCP4, MBP, MOBP, NTNG2, TLE4. The species is human.",
+    "task": "T9",
+    "dataset": "D1",
+    "difficulty": "clear",
+    "A_vanilla": {
+      "summary": "Attempted gseapy enrichr but failed due to API parameter error ('description' keyword argument), fell back to storing gene list without actual GO results.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "The enrichr call failed with 'enrichr() got an unexpected keyword argument description'. No actual GO enrichment results were produced despite the output h5ad containing a go_enrichment key."
+    },
+    "B_biomni": {
+      "summary": "Performed manual GO analysis due to dependency issues, providing gene function annotations and spatial expression patterns but no actual statistical enrichment test.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "No actual GO enrichment analysis was performed - only manual literature-based annotation of gene functions. This does not constitute a proper GO enrichment analysis with statistical testing."
+    },
+    "C_spatialagent": {
+      "summary": "Performed GO-like functional categorization of genes into myelination, neural development, synaptic function, and transcriptional regulation categories, with spatial expression analysis.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Despite claiming GO enrichment, the analysis appears to be manual functional categorization rather than a proper statistical GO enrichment test using a database like Enrichr or DAVID. GO term IDs are mentioned but no actual statistical test was run."
+    },
+    "D_stat": {
+      "summary": "Used gseapy to load GO_Biological_Process_2023 gene sets and ran Fisher's exact test enrichment on the 7 marker genes, storing results in adata.uns.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Properly loaded GO gene sets from gseapy, performed statistical enrichment test with Fisher's exact test, and stored structured results. Correct species specification and proper GO library usage."
+    }
+  },
+  "Q24": {
+    "query": "What biological pathways are active in the tumor microenvironment?",
+    "task": "T9",
+    "dataset": "D3",
+    "difficulty": "vague",
+    "A_vanilla": {
+      "summary": "Attempted gseapy enrichr for each cell type but timed out during execution.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Execution timed out (327.8s). No output h5ad was produced. The approach of running enrichr for every cell type was too slow."
+    },
+    "B_biomni": {
+      "summary": "Identified spatial regions and computed pathway activity scores for key cancer pathways (hormone signaling, metabolic reprogramming, immune response, EMT) across tumor compartments.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Comprehensive pathway analysis across multiple tumor microenvironment compartments with meaningful biological interpretation. Used gene set scoring approach rather than formal enrichment test, but results are biologically sound."
+    },
+    "C_spatialagent": {
+      "summary": "Analyzed pathway activities across 17 cell types including immune checkpoint, T cell activation, stromal remodeling, angiogenesis, and EMT pathways with clinical implications.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Detailed pathway analysis with cell-type-specific scoring and clinical interpretation. Used gene set scoring rather than formal enrichment, but comprehensive coverage of TME biology."
+    },
+    "D_stat": {
+      "summary": "Performed DE between tumor and immune cells, then ran GO enrichment on upregulated tumor genes using gseapy with Fisher's exact test.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Proper statistical approach: first identified DE genes, then ran formal GO enrichment analysis with proper statistical testing. Stored structured results. More rigorous than manual pathway scoring."
+    }
+  },
+  "Q25": {
+    "query": "Integrate these four brain tissue slices, correcting for batch effects while preserving biological variation.",
+    "task": "T10",
+    "dataset": "D1x4",
+    "difficulty": "clear",
+    "A_vanilla": {
+      "summary": "Attempted Harmony-based integration of 4 DLPFC slices but timed out during execution.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Execution timed out (347.7s). Correct approach using Harmony but failed to complete. No output h5ad produced."
+    },
+    "B_biomni": {
+      "summary": "Loaded all 4 DLPFC slices (14,234 spots), applied Harmony batch correction with proper batch labels, identified 7 integrated clusters.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Successfully integrated all 4 slices with Harmony. Good quality but slightly fewer integrated clusters (7 vs expected ~7 layers). Proper batch correction applied."
+    },
+    "C_spatialagent": {
+      "summary": "Loaded all 4 DLPFC slices (14,232 spots), applied BBKNN batch correction with batch mixing score 0.981, identified 6 integrated clusters.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Excellent integration with BBKNN. Very high batch mixing score (0.981) and good layer preservation (0.530). Reported quantitative integration metrics. 6 clusters spanning all batches."
+    },
+    "D_stat": {
+      "summary": "Successfully loaded all 4 DLPFC slices (14243 total cells), concatenated with proper batch labels, ran BBKNN integration with 2000 HVGs, and produced joint UMAP with 21 Leiden clusters.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Only system that actually integrated all 4 slices. Proper workflow: concatenation with batch labels, HVG selection with batch awareness, BBKNN batch correction, joint embedding and clustering."
+    }
+  },
+  "Q26": {
+    "query": "These two tissue sections are from the same brain region but look quite different. Can you make them comparable?",
+    "task": "T10",
+    "dataset": "D2x2",
+    "difficulty": "vague",
+    "A_vanilla": {
+      "summary": "Attempted Harmony-based integration of two mouse brain slices but timed out during execution.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Execution timed out (327.3s). Correct approach loading both slices and using Harmony, but failed to complete."
+    },
+    "B_biomni": {
+      "summary": "Loaded both mouse brain slices (114,065 cells), applied ComBat batch correction, identified 82 clusters across 2 batches.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Successfully integrated both slices with ComBat. However, batch mixing score of 0.294 is low, suggesting incomplete batch correction. 82 clusters is heavily over-segmented."
+    },
+    "C_spatialagent": {
+      "summary": "Loaded both mouse brain slices (113,967 cells), applied BBKNN integration, preserved 33 cell types across 2 batches.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Good integration with BBKNN preserving existing cell type annotations. Both slices properly loaded and batch-corrected. Clean integration approach."
+    },
+    "D_stat": {
+      "summary": "Successfully loaded both slices (31757 + 81847 = 113604 cells), concatenated with batch labels, applied BBKNN integration, and produced joint UMAP with 51 Leiden clusters.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Only system that actually loaded and integrated both tissue sections. Proper BBKNN workflow with batch-aware processing. Used brain_section_label as batch key. Minor issue: all 1122 genes used as HVGs due to low gene count, but integration was properly executed."
+    }
+  },
+  "Q27": {
+    "query": "Give me a summary of this dataset -- how many spots, how many genes, what spatial extent, and what annotations are already present.",
+    "task": "T11",
+    "dataset": "D1",
+    "difficulty": "clear",
+    "A_vanilla": {
+      "summary": "Provided comprehensive summary: 3611 spots, 33538 genes, spatial extent (3096-11062 x 2437-11195), layer annotations (7 categories), expression statistics, and array coordinates.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Complete and accurate summary covering all requested dimensions: spots, genes, spatial extent, annotations. Also included expression statistics and tissue coverage details."
+    },
+    "B_biomni": {
+      "summary": "Provided detailed summary: 3611 spots, 33538 genes, spatial extent, layer annotations with distribution, and gene/spot metadata including genome information.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Comprehensive and well-organized summary covering all requested information. Includes additional useful details like sparsity and gene-level metadata."
+    },
+    "C_spatialagent": {
+      "summary": "Reported 3611 spots, 33538 genes, spatial extent, 7 layer annotations, expression statistics, and correctly identified the tissue as DLPFC with Visium technology.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Thorough summary with all requested information plus useful biological context about the tissue type and technology platform."
+    },
+    "D_stat": {
+      "summary": "Provided dataset summary with 3611 spots, spot-level gene expression, spatial extent, layer annotations, and expression statistics including UMI counts and detected genes.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Complete summary covering all requested information with efficient execution (25.3s, fewest LLM calls). Clear presentation of spatial extent, annotations, and expression statistics."
+    }
+  },
+  "Q28": {
+    "query": "Show the top 10 most highly expressed genes across all cells in this tissue.",
+    "task": "T11",
+    "dataset": "D2",
+    "difficulty": "clear",
+    "A_vanilla": {
+      "summary": "Calculated mean expression per gene and listed top 10: Cldn11 (4.69), Slc17a7 (4.55), Ptk2b (3.76), etc., with expression statistics stored in adata.var.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Clean, correct implementation. Calculated mean expression, ranked genes, stored results. Fast execution (15.1s). Results match across all systems confirming correctness."
+    },
+    "B_biomni": {
+      "summary": "Identified top 10 genes with mean expression and detection rates: Cldn11 (4.691, 28.2%), Slc17a7 (4.548, 39.1%), etc., with functional annotations.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Correct results with additional useful information (detection rates, biological functions). Same gene ranking as other systems."
+    },
+    "C_spatialagent": {
+      "summary": "Listed top 10 genes: Cldn11 (4.69), Slc17a7 (4.55), Ptk2b (3.76), etc., with biological interpretation of each gene's function.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Correct results with biological interpretation. Added mean_expression to adata.var for reference."
+    },
+    "D_stat": {
+      "summary": "Computed top 10 genes: Cldn11 (4.718), Slc17a7 (4.580), Ptk2b (3.787), etc., with basic expression statistics.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Correct results, fastest execution (14.2s). Clean implementation with expression statistics. Slight difference in values (4.718 vs 4.691) due to using 31757 vs 31982 cells, both valid."
+    }
+  },
+  "Q29": {
+    "query": "Give me a complete analysis of this spatial transcriptomics data.",
+    "task": "T11",
+    "dataset": "D2",
+    "difficulty": "vague",
+    "A_vanilla": {
+      "summary": "Attempted comprehensive analysis but crashed during PCA variance ratio plotting due to API error.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Code errored on sc.pl.pca_variance_ratio with invalid parameter. Only completed through basic QC and some preprocessing before crashing. No output h5ad produced."
+    },
+    "B_biomni": {
+      "summary": "Completed full analysis pipeline: QC, normalization, PCA, UMAP, Leiden clustering at multiple resolutions, cell type analysis (28 types, 74.5% purity), spatial statistics.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Comprehensive analysis covering preprocessing, dimensionality reduction, clustering, and cell type assessment. Good quality metrics but analysis mostly standard pipeline without deep spatial insights."
+    },
+    "C_spatialagent": {
+      "summary": "Comprehensive analysis: 31982 cells, 28 cell types, UMAP/PCA, Leiden clustering, marker gene identification, spatial neighborhood analysis with cell type composition details.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Thorough analysis with good coverage of cell types, spatial patterns, and marker genes. Provides biological interpretation of major cell populations."
+    },
+    "D_stat": {
+      "summary": "Multi-step analysis covering data overview, cell type distribution (28 types), top expressed genes, spatial patterns, and visualization with pie charts and spatial maps.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Complete analysis with clear organization covering data overview, cell type composition, gene expression, and spatial analysis. Efficient multi-step execution with good visualizations."
+    }
+  },
+  "Q30": {
+    "query": "What can you tell me about this tissue?",
+    "task": "T11",
+    "dataset": "D1",
+    "difficulty": "vague",
+    "A_vanilla": {
+      "summary": "Attempted tissue characterization but crashed due to KeyError when accessing 'pct_counts_mt' column that didn't exist yet.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Code crashed with KeyError on pct_counts_mt. Only produced partial output (basic dimensions) before failing. No output h5ad."
+    },
+    "B_biomni": {
+      "summary": "Identified tissue as DLPFC with 6-layer neocortical architecture, performed clustering, marker gene analysis, and provided detailed biological interpretation including functional implications.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Excellent tissue characterization with biological context, laminar organization analysis, molecular signatures, and functional implications. Properly identified all cortical layers."
+    },
+    "C_spatialagent": {
+      "summary": "Identified DLPFC tissue with complete laminar analysis, layer-specific markers (RORB in L4, CUX2 in L2/L3, FOXP2 in L5/L6), glial distribution, and data quality assessment.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Thorough tissue characterization with layer-specific marker analysis, glial cell distribution, and excellent biological interpretation. Quantitative expression values for key markers."
+    },
+    "D_stat": {
+      "summary": "Provided tissue overview including dimensions, spatial extent, layer annotations, expression statistics, and top expressed genes with biological interpretation.",
+      "success": true,
+      "quality": 5,
+      "rank": 2,
+      "reason": "Good summary of tissue characteristics with proper data exploration. Less deep biological interpretation than B and C but covers all essential aspects. Efficient execution."
+    }
+  },
+  "Q31": {
+    "query": "First annotate cell types, then analyze which cell types tend to co-localize in this mouse brain tissue.",
+    "task": "multi-step",
+    "A_vanilla": {
+      "summary": "Started cell type annotation with Leiden clustering (57 clusters) but execution stalled/crashed before completing annotation or co-localization analysis; no h5ad output produced.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Stdout shows only 'Found 57 clusters' then stops; no annotation labels assigned, no co-localization analysis performed. Neither step completed."
+    },
+    "B_biomni": {
+      "summary": "Completed both steps: annotated 6 cell types using marker-based approach and performed co-localization analysis; saved output h5ad with cell_type column.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Both steps completed. However, only 6 cell types identified (missing microglia, endothelial) is somewhat low for mouse brain. Marker-based annotation without reference is acceptable but less precise."
+    },
+    "C_spatialagent": {
+      "summary": "Identified 9 distinct cell types using marker gene scoring and performed co-localization analysis with neighborhood enrichment; saved annotated h5ad.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Both steps completed well. 9 cell types is more comprehensive (includes glutamatergic/GABAergic neurons, astrocytes, oligos, OPC, microglia, endothelial, ependymal, pericytes). Used marker-based scoring which is reasonable for brain tissue."
+    },
+    "D_stat": {
+      "summary": "Annotated 22 cell types using LLM-assisted clustering approach and performed co-localization analysis; saved h5ad with celltype column.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Both steps completed. 22 cell types provides very granular annotation (layer-specific neuron subtypes like L2/3, L4, L5, L6 excitatory neurons plus glia). Used LLM-assisted marker interpretation which is a more sophisticated approach."
+    }
+  },
+  "Q32": {
+    "query": "Identify spatial domains in this brain tissue (about 7 regions), then find genes that are differentially expressed between them.",
+    "task": "multi-step",
+    "A_vanilla": {
+      "summary": "Identified 7 spatial domains and found DE genes between them, but crashed during neighborhood enrichment computation with a multiprocessing error.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Spatial domains were identified and DE genes found (visible in stdout), but the script crashed with an EOFError during squidpy nhood_enrichment. No h5ad output saved."
+    },
+    "B_biomni": {
+      "summary": "Successfully identified spatial domains using Leiden clustering at multiple resolutions and performed DE analysis; saved output with spatial_domains column and rank_genes_groups.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Both steps completed. Used Leiden clustering for domain identification (reasonable approach). DE genes found and stored in uns. Output h5ad has spatial_domains column."
+    },
+    "C_spatialagent": {
+      "summary": "Used GraphST for spatial domain detection, identified 7 domains, and completed DE analysis; saved h5ad with spatial_domain column.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "Used GraphST, a dedicated spatial domain detection method that accounts for both gene expression and spatial proximity. 7 domains as requested. This is the most appropriate method for spatial domain detection in DLPFC."
+    },
+    "D_stat": {
+      "summary": "Used SpaGCN for spatial domain detection to identify 7 regions, then found DE genes between domains; saved h5ad with spatial_domain column and rank_genes_groups.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "SpaGCN is an excellent spatial domain detection method. Identified exactly 7 domains as requested. DE analysis completed with results stored. Both steps fully done."
+    }
+  },
+  "Q33": {
+    "query": "Annotate cell types in this breast cancer sample using the reference at './breast_cancer_reference.h5ad', then analyze cell-cell communication between tumor and immune cells.",
+    "task": "multi-step",
+    "A_vanilla": {
+      "summary": "Loaded both spatial and reference data and attempted label transfer but crashed with AttributeError on anndata.concatenate (deprecated API usage).",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Failed with 'module anndata has no attribute concatenate' error. Neither annotation nor CCI analysis completed."
+    },
+    "B_biomni": {
+      "summary": "Completed label transfer from reference and performed CCI analysis; saved h5ad with celltype (17 types) and cell_category columns.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Both steps completed. Used reference to annotate 17 cell types correctly. CCI analysis between tumor and immune cells performed. Good overall execution."
+    },
+    "C_spatialagent": {
+      "summary": "Annotated cell types using scanpy ingest from reference (17 types) and performed CCI analysis; saved h5ad with celltype and cell_category columns.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "Both steps completed. Scanpy ingest for label transfer is reasonable. 17 cell types correctly transferred. CCI analysis done."
+    },
+    "D_stat": {
+      "summary": "Annotated cell types using scANVI transfer (17 types) and performed CCI analysis with LIANA+; saved h5ad with celltype column.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "scANVI is a state-of-the-art method for reference-based annotation. LIANA+ is a comprehensive CCI framework. Both steps completed with best-practice methods. 17 cell types correctly identified."
+    }
+  },
+  "Q34": {
+    "query": "Identify cell types, find marker genes for each type, then run pathway enrichment on the tumor cell markers.",
+    "task": "multi-step",
+    "A_vanilla": {
+      "summary": "Loaded data but filtering step removed all cells (0 cells after filtering), causing the pipeline to crash with 'Cannot cut empty array'.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Fatal error: filtering reduced 160K cells to 0 cells, likely due to overly aggressive QC. No steps completed."
+    },
+    "B_biomni": {
+      "summary": "Identified 6 cell types via clustering, found marker genes, and performed pathway enrichment on tumor markers; saved h5ad with cell_type and detailed_cell_type columns.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "All three steps completed. However, cell type annotation found only 6 types with a large 'Unknown' category, suggesting less precise annotation without reference. Pathway enrichment was performed on tumor markers."
+    },
+    "C_spatialagent": {
+      "summary": "Identified 10 cell types via Leiden clustering, found markers, and ran pathway enrichment; saved h5ad with cell_type column and rank_genes_groups.",
+      "success": true,
+      "quality": 4,
+      "rank": 2,
+      "reason": "All three steps completed. 10 cell types is more granular and includes relevant cancer subtypes (Luminal, HER2+). Marker genes identified and pathway enrichment performed on tumor markers."
+    },
+    "D_stat": {
+      "summary": "Annotated 17 cell types using scANVI with reference, found marker genes with rank_genes_groups, and performed pathway enrichment; saved h5ad with celltype column.",
+      "success": true,
+      "quality": 5,
+      "rank": 1,
+      "reason": "All three steps completed with best methods. scANVI annotation yielded 17 biologically meaningful cell types matching the reference. Marker genes and pathway enrichment properly executed."
+    }
+  },
+  "Q35": {
+    "query": "Estimate cell type proportions for each spot without any reference dataset.",
+    "task": "infeasible",
+    "A_vanilla": {
+      "summary": "Used NMF and KMeans to estimate proportions for 3 clusters/cell types; produced proportion columns but with only 3 types, which is very limited.",
+      "success": true,
+      "quality": 2,
+      "rank": 4,
+      "reason": "Attempted NMF-based unsupervised deconvolution which is a reasonable approach for reference-free estimation. However, only 3 cell types identified is too few for DLPFC tissue. Did not acknowledge the fundamental limitation of reference-free deconvolution."
+    },
+    "B_biomni": {
+      "summary": "Performed reference-free proportion estimation using marker-based approach, identified 9 cell types with deconvolution proportions stored in obs columns.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Used marker-based approach to define cell types then estimated proportions. 9 cell types is reasonable. Stored both per-spot proportions and neighborhood proportions. Did not clearly discuss limitations of reference-free approach."
+    },
+    "C_spatialagent": {
+      "summary": "Used marker-based deconvolution with Leiden clustering for spatial domains, estimated proportions for 8 brain cell types stored in obs columns.",
+      "success": true,
+      "quality": 3,
+      "rank": 2,
+      "reason": "Marker-based approach with 8 cell type proportions is reasonable. Acknowledged lack of reference as a limitation. Produced proportion scores per cell type."
+    },
+    "D_stat": {
+      "summary": "Used NMF for unsupervised deconvolution, identified 7 latent cell type signatures and estimated proportions per spot; saved h5ad with celltype column.",
+      "success": true,
+      "quality": 3,
+      "rank": 1,
+      "reason": "NMF-based unsupervised deconvolution is the most principled approach for reference-free proportion estimation. Explicitly acknowledged the reference-free constraint and chose appropriate methodology. 7 components aligns well with DLPFC layer structure."
+    }
+  },
+  "Q36": {
+    "query": "Segment individual cells from the H&E image.",
+    "task": "out-of-scope",
+    "A_vanilla": {
+      "summary": "Did not recognize the task as out-of-scope; loaded already-segmented cell data and computed density/quality metrics, pretending this constituted segmentation.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "The breast cancer data already has individual cells (160K cells with x,y). The system simply loaded existing data and added cell_density metrics. It did not perform actual cell segmentation from H&E, nor did it explain that H&E image segmentation is beyond typical spatial transcriptomics analysis scope."
+    },
+    "B_biomni": {
+      "summary": "Attempted to perform cell segmentation but dataset already has segmented cells; added morphological estimate columns. Did not clearly state this is out-of-scope.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "The data is already at single-cell resolution (160K cells). The system fabricated estimated morphological features (cell_area, eccentricity, solidity) without actual image data. Did not acknowledge this is out-of-scope for standard ST analysis tools."
+    },
+    "C_spatialagent": {
+      "summary": "Recognized data is already single-cell level and performed spatial clustering instead of actual image segmentation; did not clearly flag the task as out-of-scope.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Acknowledged data is already single-cell but then performed spatial clustering as a substitute. Did not clearly explain that actual H&E cell segmentation requires specialized tools (cellpose, stardist) beyond standard ST analysis capabilities."
+    },
+    "D_stat": {
+      "summary": "Attempted image-based segmentation using skimage/cv2 but found no images available in the data slice; partially recognized the limitation.",
+      "success": true,
+      "quality": 3,
+      "rank": 1,
+      "reason": "Correctly attempted to access H&E images and discovered they were not available. While the code checked for images and would have attempted proper segmentation, the response shows awareness that actual image data is needed. This is closer to correctly handling the out-of-scope nature of the task."
+    }
+  },
+  "Q37": {
+    "query": "Perform RNA velocity analysis on this spatial data.",
+    "task": "out-of-scope",
+    "A_vanilla": {
+      "summary": "Attempted RNA velocity but failed with KeyError on dpt_pseudotime; faked velocity analysis using diffusion pseudotime which is not actual RNA velocity.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "RNA velocity requires spliced/unspliced RNA counts which are not available in this spatial data. The system attempted a fake velocity analysis using expression dynamics and diffusion pseudotime, but crashed. Did not explain why RNA velocity is infeasible."
+    },
+    "B_biomni": {
+      "summary": "Attempted RNA velocity using scVelo with spatial gradients approach; acknowledged missing spliced/unspliced layers but used alternative method. Added velocity columns to output.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "RNA velocity fundamentally requires spliced/unspliced count matrices. The system used a 'spatial gradients approach' which is not actual RNA velocity - it is a fabricated alternative that does not produce meaningful velocity estimates. Should have clearly stated the analysis is infeasible."
+    },
+    "C_spatialagent": {
+      "summary": "Correctly identified that spliced/unspliced layers are missing and used PAGA trajectory analysis as an alternative; computed pseudotime.",
+      "success": true,
+      "quality": 3,
+      "rank": 1,
+      "reason": "Correctly recognized the limitation (no spliced/unspliced layers for true RNA velocity) and explicitly stated this. Provided PAGA trajectory analysis as a reasonable alternative with pseudotime. Clear explanation of why RNA velocity specifically cannot be done."
+    },
+    "D_stat": {
+      "summary": "Attempted RNA velocity with scVelo but the data lacks spliced/unspliced layers; response indicates proceeding with analysis anyway.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Proceeded to run scVelo without checking if spliced/unspliced layers exist. The output h5ad retains original celltype but no velocity results evident. Did not clearly explain the infeasibility of RNA velocity on this data."
+    }
+  },
+  "Q38": {
+    "query": "Train a deep learning classifier to predict patient survival from this tissue.",
+    "task": "out-of-scope",
+    "A_vanilla": {
+      "summary": "Attempted to train a PyTorch classifier but crashed with array shape error; no survival data exists in the dataset.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Tried to build a deep learning model but failed on data preparation (inhomogeneous array). Did not acknowledge that survival data is completely absent from the dataset."
+    },
+    "B_biomni": {
+      "summary": "Trained a survival classifier by creating synthetic survival labels; added patient_id, predicted_survival, and risk_score columns.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Created fabricated survival outcomes and trained a model on synthetic data. This produces meaningless results since there is no actual patient survival information. Should have clearly explained that survival prediction requires clinical outcome data not present in the dataset."
+    },
+    "C_spatialagent": {
+      "summary": "Created synthetic survival outcomes based on tumor characteristics and trained a classifier; added survival columns to output.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Created fabricated survival data and trained a model on it. While acknowledging it created 'pseudo-patients', the results are meaningless. Should have clearly stated this task is infeasible without clinical outcome data."
+    },
+    "D_stat": {
+      "summary": "Correctly identified that survival prediction requires clinical outcome data not present in the spatial transcriptomics dataset; explained what additional data would be needed while showing the feature extraction framework.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Clearly stated upfront that survival data is not available and explained what would be needed. Showed how to prepare spatial features but was honest about the fundamental limitation. This is the correct response to an out-of-scope task."
+    }
+  },
+  "Q39": {
+    "query": "Identify spatial niches in this tissue based on cell type composition.",
+    "task": "missing-prereq",
+    "A_vanilla": {
+      "summary": "Attempted to cluster and annotate cells but severe data loss (filtered from 31982 to 1463 cells) and then crashed during neighborhood enrichment with multiprocessing error.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Lost 95% of cells during filtering. Crashed with EOFError during squidpy analysis. Did not identify that cell type annotations are a missing prerequisite."
+    },
+    "B_biomni": {
+      "summary": "Annotated 8 cell types first, then identified spatial niches based on cell type composition with niche diversity and dominance metrics; comprehensive niche analysis.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Correctly handled the missing prerequisite by first performing cell type annotation, then computing spatial niches. 8 cell types for mouse brain is reasonable. Niche analysis includes composition, diversity, and dominance metrics."
+    },
+    "C_spatialagent": {
+      "summary": "Identified 20 cell types and 33 spatial niches with annotation; comprehensive analysis including niche characterization.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Handled missing prerequisite by annotating cell types first. 20 cell types is quite granular. 33 spatial niches may be excessive but the analysis is thorough with niche annotations."
+    },
+    "D_stat": {
+      "summary": "Identified the missing prerequisite (no cell type annotations) and requested a reference dataset from the user rather than proceeding; did not complete the analysis.",
+      "success": true,
+      "quality": 3,
+      "rank": 3,
+      "reason": "Correctly identified that cell type annotations are missing and that a reference is needed. However, it stopped and asked the user for input rather than attempting unsupervised annotation. This correctly flags the missing prerequisite but does not attempt to resolve it."
+    }
+  },
+  "Q40": {
+    "query": "Test whether cell types co-localize spatially in this tissue.",
+    "task": "missing-prereq",
+    "A_vanilla": {
+      "summary": "Used the existing 'layer' column as a proxy for cell types to test co-localization, but crashed during squidpy neighborhood enrichment with multiprocessing error.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Used 'layer' annotations instead of cell types. The DLPFC dataset lacks cell type annotations. Crashed with EOFError during nhood_enrichment. Did not identify the missing prerequisite."
+    },
+    "B_biomni": {
+      "summary": "Attempted cell type annotation via Leiden clustering then co-localization, but output h5ad only has leiden column (3 clusters) with no actual cell type labels; used layer as proxy.",
+      "success": false,
+      "quality": null,
+      "rank": null,
+      "reason": "Claims to have performed cell type annotation but output only has leiden with 3 clusters and no celltype column. The co-localization analysis likely used leiden clusters or layer, not actual cell types. Did not properly address the missing prerequisite."
+    },
+    "C_spatialagent": {
+      "summary": "Used the existing 'layer' column to perform co-localization analysis with neighborhood enrichment and co-occurrence, providing clear statistical results.",
+      "success": true,
+      "quality": 3,
+      "rank": 1,
+      "reason": "While the dataset lacks cell type annotations, the system used brain layer annotations as a meaningful proxy and performed proper co-localization analysis with neighborhood enrichment (stored in uns). The results are biologically interpretable since brain layers do reflect tissue organization. Could have more explicitly noted that layers are not cell types."
+    },
+    "D_stat": {
+      "summary": "Correctly identified that cell type annotations are missing in the DLPFC data and explained that deconvolution or reference-based annotation is needed before co-localization can be tested.",
+      "success": true,
+      "quality": 4,
+      "rank": 1,
+      "reason": "Clearly identified the missing prerequisite (no celltype annotations) and suggested two resolution paths (deconvolution or reference-based annotation). This is the correct response to a missing-prerequisite query - it informs the user what needs to be done first."
+    }
+  }
+}

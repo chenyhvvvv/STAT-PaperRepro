@@ -1,0 +1,1198 @@
+[
+  {
+    "query_id": "PA01",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Find spatially variable genes.",
+    "session": "1-spot",
+    "category": "basic",
+    "edge_case": "single_implicit",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Find spatially variable genes in slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.9
+  },
+  {
+    "query_id": "PA02",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Run neighborhood enrichment analysis.",
+    "session": "1-cell",
+    "category": "basic",
+    "edge_case": "single_implicit",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Run neighborhood enrichment analysis on slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.7
+  },
+  {
+    "query_id": "PA03",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Annotate cell types on slice 1.",
+    "session": "2-cell",
+    "category": "basic",
+    "edge_case": "explicit_id",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          1
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Annotate cell types on slice 1"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          1
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.2
+  },
+  {
+    "query_id": "PA04",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Detect spatial niches on the first section.",
+    "session": "2-cell",
+    "category": "basic",
+    "edge_case": "ordinal_first",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Detect spatial niches on the first section"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.2
+  },
+  {
+    "query_id": "PA05",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Run deconvolution on slice 0.",
+    "session": "mixed",
+    "category": "basic",
+    "edge_case": "explicit_id_mixed",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Run deconvolution on slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.6
+  },
+  {
+    "query_id": "PA06",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Analyze communication in the breast cancer tissue.",
+    "session": "mixed",
+    "category": "basic",
+    "edge_case": "tissue_name_ref",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          1
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Analyze communication in the breast cancer tissue on slice 1"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          1
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.6
+  },
+  {
+    "query_id": "PA07",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Run SpatialDE on the third slice.",
+    "session": "4-spot",
+    "category": "basic",
+    "edge_case": "ordinal_third",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          2
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Run SpatialDE on the third slice"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          2
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.9
+  },
+  {
+    "query_id": "PA08",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Detect niches on slice 0.",
+    "session": "mixed",
+    "category": "basic",
+    "edge_case": "explicit_id_mixed",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Detect niches on slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.6
+  },
+  {
+    "query_id": "PA09",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Analyze the cortical layers in this DLPFC tissue.",
+    "session": "1-spot",
+    "category": "basic",
+    "edge_case": "indirect_phrasing",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Analyze the cortical layers in DLPFC tissue on slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.5
+  },
+  {
+    "query_id": "PA10",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Run domain detection on slices 1 and 3.",
+    "session": "4-spot",
+    "category": "basic",
+    "edge_case": "explicit_non_adjacent",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Run domain detection on slice 1",
+        "Run domain detection on slice 3"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.5
+  },
+  {
+    "query_id": "PA11",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Find SVGs on both slices.",
+    "session": "2-cell",
+    "category": "multi_target",
+    "edge_case": "both_keyword",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Find SVGs on slice 0",
+        "Find SVGs on slice 1"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.8
+  },
+  {
+    "query_id": "PA12",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Detect spatial domains on each slice with 7 clusters.",
+    "session": "4-spot",
+    "category": "multi_target",
+    "edge_case": "each_keyword",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 4,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Detect spatial domains on slice 0 with 7 clusters",
+        "Detect spatial domains on slice 1 with 7 clusters",
+        "Detect spatial domains on slice 2 with 7 clusters",
+        "Detect spatial domains on slice 3 with 7 clusters"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 4,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 4.0
+  },
+  {
+    "query_id": "PA13",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Integrate all four slices.",
+    "session": "4-spot",
+    "category": "multi_target",
+    "edge_case": "all_cross_slice",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Integrate all four slices"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.6
+  },
+  {
+    "query_id": "PA14",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Compare gene expression between the two sections.",
+    "session": "2-cell",
+    "category": "multi_target",
+    "edge_case": "compare_cross_slice",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0,
+          1
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Compare gene expression between the two sections"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.4
+  },
+  {
+    "query_id": "PA15",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Which slice has more oligodendrocytes?",
+    "session": "2-cell",
+    "category": "multi_target",
+    "edge_case": "comparative_question",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0,
+          1
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Which slice has more oligodendrocytes?"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.4
+  },
+  {
+    "query_id": "PA16",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Annotate cell types on every section except slice 2.",
+    "session": "4-spot",
+    "category": "multi_target",
+    "edge_case": "exclusion_except",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 3,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Annotate cell types on slice 0",
+        "Annotate cell types on slice 1",
+        "Annotate cell types on slice 3"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 3,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.8
+  },
+  {
+    "query_id": "PA17",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Annotate cell types.",
+    "session": "2-cell",
+    "category": "ambiguity",
+    "edge_case": "which_slice",
+    "actual": {
+      "needs_clarification": true,
+      "num_steps": null,
+      "target_slice_ids": null,
+      "clarification_question": "Which slice would you like to annotate cell types for? We have slice 0 (mouse brain section A) and slice 1 (mouse brain section B). Or would you like to annotate both?",
+      "refined_queries": null
+    },
+    "expected": {
+      "needs_clarification": true,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.3
+  },
+  {
+    "query_id": "PA18",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Run spatial statistics.",
+    "session": "mixed",
+    "category": "ambiguity",
+    "edge_case": "which_tissue",
+    "actual": {
+      "needs_clarification": true,
+      "num_steps": null,
+      "target_slice_ids": null,
+      "clarification_question": "Which slice would you like to run spatial statistics on? We have slice 0 (DLPFC) and slice 1 (breast cancer). Or would you like to run the analysis on both slices?",
+      "refined_queries": null
+    },
+    "expected": {
+      "needs_clarification": true,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.0
+  },
+  {
+    "query_id": "PA19",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Detect domains on one of the slices.",
+    "session": "4-spot",
+    "category": "ambiguity",
+    "edge_case": "one_of_ambiguous",
+    "actual": {
+      "needs_clarification": true,
+      "num_steps": null,
+      "target_slice_ids": null,
+      "clarification_question": "Which slice would you like to detect domains on? We have slice 0 (DLPFC section 1), slice 1 (DLPFC section 2), slice 2 (DLPFC section 3), and slice 3 (DLPFC section 4). Or would you like to detect domains on all slices?",
+      "refined_queries": null
+    },
+    "expected": {
+      "needs_clarification": true,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.2
+  },
+  {
+    "query_id": "PA20",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "I want to analyze this data.",
+    "session": "2-cell",
+    "category": "ambiguity",
+    "edge_case": "completely_vague",
+    "actual": {
+      "needs_clarification": true,
+      "num_steps": null,
+      "target_slice_ids": null,
+      "clarification_question": "Which slice would you like to analyze? We have slice 0 (mouse brain section A) and slice 1 (mouse brain section B). Or would you like to analyze both?",
+      "refined_queries": null
+    },
+    "expected": {
+      "needs_clarification": true,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.1
+  },
+  {
+    "query_id": "PA21",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "First annotate cell types, then analyze niches.",
+    "session": "1-cell-noCT",
+    "category": "multi_step",
+    "edge_case": "sequential_same_slice",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Annotate cell types on slice 0",
+        "Analyze niches on slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.4
+  },
+  {
+    "query_id": "PA22",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Annotate slice 0 then run niche detection on slice 1.",
+    "session": "2-cell",
+    "category": "multi_step",
+    "edge_case": "sequential_diff_slices",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Annotate slice 0",
+        "Run niche detection on slice 1"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.9
+  },
+  {
+    "query_id": "PA23",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Annotate cells, find DE genes between cell types, and run GO enrichment on the DE results.",
+    "session": "1-cell-noCT",
+    "category": "multi_step",
+    "edge_case": "three_step_chain",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 3,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Annotate cells on slice 0",
+        "Find DE genes between cell types on slice 0",
+        "Run GO enrichment on DE results from slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 3.2
+  },
+  {
+    "query_id": "PA24",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Detect spatial domains, then find marker genes for each domain.",
+    "session": "1-spot",
+    "category": "multi_step",
+    "edge_case": "domain_then_DE",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Detect spatial domains on slice 0",
+        "Find marker genes for each spatial domain on slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 7.5
+  },
+  {
+    "query_id": "PA25",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Identify cell types, analyze cell-cell communication, and detect spatial niches.",
+    "session": "1-cell-noCT",
+    "category": "multi_step",
+    "edge_case": "three_step_from_noCT",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 3,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Identify cell types on slice 0",
+        "Analyze cell-cell communication on slice 0",
+        "Detect spatial niches on slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 3.5
+  },
+  {
+    "query_id": "PA26",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Annotate the breast cancer tissue, then compare its cell types with the DLPFC tissue.",
+    "session": "mixed",
+    "category": "multi_step",
+    "edge_case": "annotate_one_compare_both",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Annotate the breast cancer tissue",
+        "Compare cell types between breast cancer tissue and DLPFC tissue"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 4.1
+  },
+  {
+    "query_id": "PA27",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Integrate slices 0 and 1, then detect spatial domains on the merged result.",
+    "session": "2-cell",
+    "category": "multi_step",
+    "edge_case": "integration_then_downstream",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Integrate slices 0 and 1",
+        "Detect spatial domains on the merged result"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 2.9
+  },
+  {
+    "query_id": "PA28",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Run the full analysis pipeline: annotate cell types, detect niches, compute neighborhood enrichment, and find spatially variable genes.",
+    "session": "1-cell-noCT",
+    "category": "multi_step",
+    "edge_case": "four_step_comprehensive",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 1,
+      "target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Run the full analysis pipeline: annotate cell types, detect niches, compute neighborhood enrichment, and find spatially variable genes on slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 3.0
+  },
+  {
+    "query_id": "PA29",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "Find spatially variable genes and then run pathway enrichment on the top SVGs.",
+    "session": "1-spot",
+    "category": "multi_step",
+    "edge_case": "SVG_then_pathway",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 2,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Find spatially variable genes in slice 0",
+        "Run pathway enrichment on the top spatially variable genes from slice 0"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 3.0
+  },
+  {
+    "query_id": "PA30",
+    "model": "Grok-3",
+    "set": "A",
+    "query_text": "For each tissue, annotate cell types and then analyze cell communication.",
+    "session": "mixed",
+    "category": "multi_step",
+    "edge_case": "per_tissue_multi_step",
+    "actual": {
+      "needs_clarification": false,
+      "num_steps": 4,
+      "target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "clarification_question": null,
+      "refined_queries": [
+        "Annotate cell types on slice 0",
+        "Annotate cell types on slice 1",
+        "Analyze cell communication on slice 0",
+        "Analyze cell communication on slice 1"
+      ]
+    },
+    "expected": {
+      "needs_clarification": false,
+      "num_steps": null,
+      "target_slice_ids": null
+    },
+    "evaluation": {
+      "clarification_correct": true,
+      "num_steps_correct": true,
+      "target_slices_correct": true,
+      "success": true
+    },
+    "wall_s": 4.9
+  }
+]

@@ -1,0 +1,664 @@
+[
+  {
+    "id": "Q01",
+    "task": "T1",
+    "dataset": "D2",
+    "difficulty": "clear",
+    "query": "Annotate cell types on this tissue. It is a mouse brain cortex sample.",
+    "input": "mouse_brain/mouse_brain_no_celltype.h5ad",
+    "reference": null,
+    "ground_truth": "ground_truth/mouse_brain_celltype.csv",
+    "scripted_responses": {
+      "reference": "I do not have a reference dataset. Please use marker-based annotation or clustering-based approach instead.",
+      "path": "I do not have a reference dataset. Please use marker-based annotation or clustering-based approach instead.",
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q02",
+    "task": "T1",
+    "dataset": "D3",
+    "difficulty": "clear",
+    "query": "Identify cell types in this breast cancer tissue sample. I have a single-cell reference dataset at './breast_cancer_reference.h5ad' with cell type annotations that you can optionally use.",
+    "input": "breast_cancer/breast_cancer_no_celltype.h5ad",
+    "reference": "breast_cancer/breast_cancer_reference.h5ad",
+    "ground_truth": "ground_truth/breast_cancer_celltype.csv",
+    "scripted_responses": {
+      "species": "human",
+      "human": "human",
+      "column": "celltype",
+      "label": "celltype",
+      "confirm": "Yes, the path is correct and accessible",
+      "correct": "Yes, the path is correct and accessible. The celltype column contains cell type labels.",
+      "accessible": "Yes, the file is accessible",
+      "path": "./breast_cancer_reference.h5ad",
+      "full path": "./breast_cancer_reference.h5ad",
+      "provide": "The reference file is at ./breast_cancer_reference.h5ad. The celltype column contains cell type labels.",
+      "file": "./breast_cancer_reference.h5ad"
+    }
+  },
+  {
+    "id": "Q03",
+    "task": "T1",
+    "dataset": "D2",
+    "difficulty": "vague",
+    "query": "What cell types are present in this tissue?",
+    "input": "mouse_brain/mouse_brain_no_celltype.h5ad",
+    "reference": null,
+    "ground_truth": "ground_truth/mouse_brain_celltype.csv",
+    "scripted_responses": {
+      "tissue": "Mouse brain cortex",
+      "reference": "I do not have a reference dataset. Please use marker-based annotation or clustering-based approach instead.",
+      "path": "I do not have a reference dataset. Please use marker-based annotation or clustering-based approach instead.",
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q04",
+    "task": "T1",
+    "dataset": "D3",
+    "difficulty": "vague",
+    "query": "Can you identify the different cell populations here? I have a reference scRNA-seq dataset at './breast_cancer_reference.h5ad' if that helps.",
+    "input": "breast_cancer/breast_cancer_no_celltype.h5ad",
+    "reference": "breast_cancer/breast_cancer_reference.h5ad",
+    "ground_truth": "ground_truth/breast_cancer_celltype.csv",
+    "scripted_responses": {
+      "tissue": "Human breast cancer",
+      "species": "human",
+      "human": "human",
+      "column": "celltype",
+      "label": "celltype",
+      "confirm": "Yes, the path is correct and accessible",
+      "correct": "Yes, the path is correct and accessible. The celltype column contains cell type labels.",
+      "accessible": "Yes, the file is accessible",
+      "path": "./breast_cancer_reference.h5ad",
+      "full path": "./breast_cancer_reference.h5ad",
+      "provide": "The reference file is at ./breast_cancer_reference.h5ad. The celltype column contains cell type labels.",
+      "file": "./breast_cancer_reference.h5ad"
+    }
+  },
+  {
+    "id": "Q05",
+    "task": "T2",
+    "dataset": "D1",
+    "difficulty": "clear",
+    "query": "Identify spatial domains in this brain tissue. There should be about 7 distinct regions including cortical layers and white matter.",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": "ground_truth/dlpfc_layer.csv",
+    "scripted_responses": {}
+  },
+  {
+    "id": "Q06",
+    "task": "T2",
+    "dataset": "D1",
+    "difficulty": "vague",
+    "query": "Can you find the spatial structure in this tissue?",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": "ground_truth/dlpfc_layer.csv",
+    "scripted_responses": {
+      "region": "Around 7",
+      "domain": "Around 7",
+      "how many": "Around 7"
+    }
+  },
+  {
+    "id": "Q07",
+    "task": "T2",
+    "dataset": "D2",
+    "difficulty": "vague",
+    "query": "Identify distinct tissue regions based on spatial gene expression.",
+    "input": "mouse_brain/mouse_brain_no_celltype.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "how many": "Around 10",
+      "domain": "Around 10",
+      "region": "Around 10",
+      "number": "Around 10",
+      "tissue": "Mouse brain cortex",
+      "brain": "Mouse brain cortex",
+      "type": "Mouse brain cortex",
+      "specify": "Mouse brain cortex",
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q08",
+    "task": "T3",
+    "dataset": "D1",
+    "difficulty": "clear",
+    "query": "Find genes that show significant spatial expression patterns across this tissue.",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {}
+  },
+  {
+    "id": "Q09",
+    "task": "T3",
+    "dataset": "D1",
+    "difficulty": "vague",
+    "query": "Which genes have interesting spatial patterns?",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {}
+  },
+  {
+    "id": "Q10",
+    "task": "T3",
+    "dataset": "D2",
+    "difficulty": "clear",
+    "query": "Identify spatially variable genes in this mouse brain section.",
+    "input": "mouse_brain/mouse_brain.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q11",
+    "task": "T4",
+    "dataset": "D2",
+    "difficulty": "clear",
+    "query": "Analyze ligand-receptor interactions between cell types in this mouse brain tissue.",
+    "input": "mouse_brain/mouse_brain.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q12",
+    "task": "T4",
+    "dataset": "D3",
+    "difficulty": "clear",
+    "query": "Find cell-cell communication patterns between tumor and immune cells in this human breast cancer sample.",
+    "input": "breast_cancer/breast_cancer.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "human",
+      "human": "human",
+      "mouse": "human"
+    }
+  },
+  {
+    "id": "Q13",
+    "task": "T4",
+    "dataset": "D3",
+    "difficulty": "vague",
+    "query": "How are the cells communicating with each other?",
+    "input": "breast_cancer/breast_cancer.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "human",
+      "human": "human"
+    }
+  },
+  {
+    "id": "Q14",
+    "task": "T5",
+    "dataset": "D2",
+    "difficulty": "clear",
+    "query": "Test whether certain cell types tend to co-localize or avoid each other spatially in this mouse brain tissue.",
+    "input": "mouse_brain/mouse_brain.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q15",
+    "task": "T5",
+    "dataset": "D3",
+    "difficulty": "clear",
+    "query": "Analyze spatial co-localization patterns between cell types in this breast cancer sample.",
+    "input": "breast_cancer/breast_cancer.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "human",
+      "human": "human"
+    }
+  },
+  {
+    "id": "Q16",
+    "task": "T5",
+    "dataset": "D2",
+    "difficulty": "vague",
+    "query": "Are certain cell types found near each other in this tissue?",
+    "input": "mouse_brain/mouse_brain.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q17",
+    "task": "T6",
+    "dataset": "D1",
+    "difficulty": "clear",
+    "query": "Estimate cell type proportions for each spot in this Visium tissue. I have a single-cell reference dataset at './dlpfc_reference.h5ad' with cell type annotations.",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": "dlpfc/dlpfc_reference.h5ad",
+    "ground_truth": "ground_truth/dlpfc_layer.csv",
+    "scripted_responses": {
+      "celltype": "celltype",
+      "column": "celltype",
+      "reference": "./dlpfc_reference.h5ad",
+      "raw": "Yes the data contains raw counts",
+      "count": "Yes raw counts",
+      "type": "celltype",
+      "name": "celltype",
+      "label": "celltype",
+      "confirm": "Yes, the path is correct and accessible",
+      "correct": "Yes, the path is correct and accessible. The celltype column contains cell type labels.",
+      "accessible": "Yes, the file is accessible",
+      "path": "./dlpfc_reference.h5ad",
+      "full path": "./dlpfc_reference.h5ad",
+      "provide": "The reference file is at ./dlpfc_reference.h5ad. The celltype column contains cell type labels.",
+      "file": "./dlpfc_reference.h5ad"
+    }
+  },
+  {
+    "id": "Q18",
+    "task": "T6",
+    "dataset": "D1",
+    "difficulty": "vague",
+    "query": "What cell types make up each spot in this tissue?",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": "dlpfc/dlpfc_reference.h5ad",
+    "ground_truth": "ground_truth/dlpfc_layer.csv",
+    "scripted_responses": {
+      "reference": "./dlpfc_reference.h5ad",
+      "celltype": "celltype",
+      "column": "celltype",
+      "raw": "Yes the data contains raw counts",
+      "count": "Yes raw counts",
+      "type": "celltype",
+      "name": "celltype",
+      "spot": "This is Visium spot data",
+      "label": "celltype",
+      "confirm": "Yes, the path is correct and accessible",
+      "correct": "Yes, the path is correct and accessible. The celltype column contains cell type labels.",
+      "accessible": "Yes, the file is accessible",
+      "path": "./dlpfc_reference.h5ad",
+      "full path": "./dlpfc_reference.h5ad",
+      "provide": "The reference file is at ./dlpfc_reference.h5ad. The celltype column contains cell type labels.",
+      "file": "./dlpfc_reference.h5ad"
+    }
+  },
+  {
+    "id": "Q19",
+    "task": "T7",
+    "dataset": "D2",
+    "difficulty": "clear",
+    "query": "Identify spatial microenvironments (niches) based on the local cell type composition in this mouse brain tissue.",
+    "input": "mouse_brain/mouse_brain.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q20",
+    "task": "T7",
+    "dataset": "D2",
+    "difficulty": "vague",
+    "query": "Find the spatial neighborhoods in this tissue.",
+    "input": "mouse_brain/mouse_brain.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q21",
+    "task": "T8",
+    "dataset": "D1",
+    "difficulty": "clear",
+    "query": "Find differentially expressed genes between the different spatial domains in this tissue.",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "domain": "Use the layer column in adata.obs",
+      "compare": "Compare all layer groups",
+      "which": "Use the layer column",
+      "spatial": "Use the layer column in adata.obs",
+      "group": "Use the layer column",
+      "annotation": "Use the layer column in adata.obs as spatial domains",
+      "exact": "layer",
+      "name": "layer",
+      "column name": "layer",
+      "found": "The column is called layer",
+      "available": "Use the layer column",
+      "exist": "The column is layer in adata.obs",
+      "check": "layer"
+    }
+  },
+  {
+    "id": "Q22",
+    "task": "T8",
+    "dataset": "D3",
+    "difficulty": "vague",
+    "query": "What genes distinguish the tumor regions from the surrounding stroma?",
+    "input": "breast_cancer/breast_cancer.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "human",
+      "human": "human",
+      "tumor": "Invasive Tumor, Prolif Invasive Tumor, DCIS 1, DCIS 2",
+      "stroma": "Stromal, Endothelial, Myoepi ACTA2+",
+      "which": "Tumor types: Invasive Tumor, Prolif Invasive Tumor, DCIS 1, DCIS 2. Stroma types: Stromal, Endothelial, Myoepi ACTA2+",
+      "cell type": "Tumor types: Invasive Tumor, Prolif Invasive Tumor, DCIS 1, DCIS 2. Stroma types: Stromal, Endothelial, Myoepi ACTA2+",
+      "represent": "Tumor types: Invasive Tumor, Prolif Invasive Tumor, DCIS 1, DCIS 2. Stroma types: Stromal, Endothelial, Myoepi ACTA2+"
+    }
+  },
+  {
+    "id": "Q23",
+    "task": "T9",
+    "dataset": "D1",
+    "difficulty": "clear",
+    "query": "Run gene ontology enrichment analysis on these marker genes: RELN, CUX2, PCP4, MBP, MOBP, NTNG2, TLE4. The species is human.",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {}
+  },
+  {
+    "id": "Q24",
+    "task": "T9",
+    "dataset": "D3",
+    "difficulty": "vague",
+    "query": "What biological pathways are active in the tumor microenvironment?",
+    "input": "breast_cancer/breast_cancer.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "human",
+      "human": "human",
+      "tumor": "Invasive Tumor, Prolif Invasive Tumor, DCIS 1, DCIS 2",
+      "which": "Tumor microenvironment includes: Invasive Tumor, Prolif Invasive Tumor, DCIS 1, DCIS 2, Macrophages 1, Macrophages 2, CD8+ T Cells, CD4+ T Cells",
+      "cell type": "Focus on tumor and immune cells",
+      "pathway": "Focus on cancer-related pathways",
+      "represent": "Tumor types: Invasive Tumor, Prolif Invasive Tumor",
+      "choose": "1",
+      "select": "1",
+      "option": "1",
+      "number": "1",
+      "how": "Differentially expressed genes between tumor cells vs immune cells",
+      "extract": "Yes, extract marker genes from the tumor and immune cell types then run GO enrichment",
+      "marker": "Yes, extract marker genes from the tumor and immune cell types",
+      "gene": "Differentially expressed genes between tumor cells vs immune cells",
+      "list": "Yes, extract marker genes from the specified cell types first"
+    }
+  },
+  {
+    "id": "Q25",
+    "task": "T10",
+    "dataset": "D1x4",
+    "difficulty": "clear",
+    "query": "Integrate these four brain tissue slices, correcting for batch effects while preserving biological variation.",
+    "input": [
+      "dlpfc/dlpfc.h5ad",
+      "dlpfc/dlpfc_slice_1.h5ad",
+      "dlpfc/dlpfc_slice_2.h5ad",
+      "dlpfc/dlpfc_slice_3.h5ad"
+    ],
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {}
+  },
+  {
+    "id": "Q26",
+    "task": "T10",
+    "dataset": "D2x2",
+    "difficulty": "vague",
+    "query": "These two tissue sections are from the same brain region but look quite different. Can you make them comparable?",
+    "input": [
+      "mouse_brain/mouse_brain.h5ad",
+      "mouse_brain/mouse_brain_slice_2.h5ad"
+    ],
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "landmark": "Skip landmark alignment, just use batch correction methods like BBKNN or Harmony to integrate the two slices",
+      "point": "Skip landmark alignment, just use batch correction methods like BBKNN or Harmony",
+      "pairs": "I do not have landmark points. Please use BBKNN or Harmony for batch correction instead."
+    }
+  },
+  {
+    "id": "Q27",
+    "task": "T11",
+    "dataset": "D1",
+    "difficulty": "clear",
+    "query": "Give me a summary of this dataset \u2014 how many spots, how many genes, what spatial extent, and what annotations are already present.",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {}
+  },
+  {
+    "id": "Q28",
+    "task": "T11",
+    "dataset": "D2",
+    "difficulty": "clear",
+    "query": "Show the top 10 most highly expressed genes across all cells in this tissue.",
+    "input": "mouse_brain/mouse_brain.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "mouse",
+      "mouse": "mouse",
+      "group": "No comparison needed. Just show the top 10 most highly expressed genes across all cells.",
+      "compare": "No comparison needed. Just show the top 10 most highly expressed genes across all cells.",
+      "condition": "No groups or conditions. Show overall top 10 genes by mean expression."
+    }
+  },
+  {
+    "id": "Q29",
+    "task": "T11",
+    "dataset": "D2",
+    "difficulty": "vague",
+    "query": "Give me a complete analysis of this spatial transcriptomics data.",
+    "input": "mouse_brain/mouse_brain.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "mouse",
+      "mouse": "mouse",
+      "comparison": "Compare all cell types against each other for DE analysis",
+      "group": "Compare all cell types",
+      "specific": "Compare all cell types in the tissue"
+    }
+  },
+  {
+    "id": "Q30",
+    "task": "T11",
+    "dataset": "D1",
+    "difficulty": "vague",
+    "query": "What can you tell me about this tissue?",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {}
+  },
+  {
+    "id": "Q31",
+    "task": "multi-step",
+    "dataset": "D2",
+    "difficulty": "multi",
+    "query": "First annotate cell types, then analyze which cell types tend to co-localize in this mouse brain tissue.",
+    "input": "mouse_brain/mouse_brain_no_celltype.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "tissue": "Mouse brain cortex",
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q32",
+    "task": "multi-step",
+    "dataset": "D1",
+    "difficulty": "multi",
+    "query": "Identify spatial domains in this brain tissue (about 7 regions), then find genes that are differentially expressed between them.",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "number": "7",
+      "exact": "7",
+      "how many": "7",
+      "integer": "7",
+      "range": "7"
+    }
+  },
+  {
+    "id": "Q33",
+    "task": "multi-step",
+    "dataset": "D3",
+    "difficulty": "multi",
+    "query": "Annotate cell types in this breast cancer sample using the reference at './breast_cancer_reference.h5ad', then analyze cell-cell communication between tumor and immune cells.",
+    "input": "breast_cancer/breast_cancer_no_celltype.h5ad",
+    "reference": "breast_cancer/breast_cancer_reference.h5ad",
+    "ground_truth": null,
+    "scripted_responses": {
+      "tissue": "Human breast cancer",
+      "species": "Human",
+      "column": "celltype",
+      "label": "celltype",
+      "confirm": "Yes, the path is correct and accessible",
+      "correct": "Yes, the path is correct and accessible. The celltype column contains cell type labels.",
+      "accessible": "Yes, the file is accessible",
+      "path": "./breast_cancer_reference.h5ad",
+      "full path": "./breast_cancer_reference.h5ad",
+      "provide": "The reference file is at ./breast_cancer_reference.h5ad. The celltype column contains cell type labels.",
+      "file": "./breast_cancer_reference.h5ad"
+    }
+  },
+  {
+    "id": "Q34",
+    "task": "multi-step",
+    "dataset": "D3",
+    "difficulty": "multi",
+    "query": "Identify cell types, find marker genes for each type, then run pathway enrichment on the tumor cell markers.",
+    "input": "breast_cancer/breast_cancer_no_celltype.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "tissue": "Human breast cancer",
+      "species": "human",
+      "human": "human"
+    }
+  },
+  {
+    "id": "Q35",
+    "task": "infeasible",
+    "dataset": "D1",
+    "difficulty": "special",
+    "query": "Estimate cell type proportions for each spot without any reference dataset.",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "reference": "I do not have a reference dataset. This task is infeasible without a reference.",
+      "path": "I do not have a reference dataset. Please explain that deconvolution without a reference is not feasible.",
+      "provide": "No reference is available. Deconvolution requires a reference dataset.",
+      "file": "No reference file available."
+    }
+  },
+  {
+    "id": "Q36",
+    "task": "out-of-scope",
+    "dataset": "D3",
+    "difficulty": "special",
+    "query": "Segment individual cells from the H&E image.",
+    "input": "breast_cancer/breast_cancer.h5ad",
+    "image": "breast_cancer/he.tif",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "human",
+      "human": "human"
+    }
+  },
+  {
+    "id": "Q37",
+    "task": "out-of-scope",
+    "dataset": "D2",
+    "difficulty": "special",
+    "query": "Perform RNA velocity analysis on this spatial data.",
+    "input": "mouse_brain/mouse_brain.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "mouse",
+      "mouse": "mouse"
+    }
+  },
+  {
+    "id": "Q38",
+    "task": "out-of-scope",
+    "dataset": "D3",
+    "difficulty": "special",
+    "query": "Train a deep learning classifier to predict patient survival from this tissue.",
+    "input": "breast_cancer/breast_cancer.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "human",
+      "human": "human"
+    }
+  },
+  {
+    "id": "Q39",
+    "task": "missing-prereq",
+    "dataset": "D2",
+    "difficulty": "special",
+    "query": "Identify spatial niches in this tissue based on cell type composition.",
+    "input": "mouse_brain/mouse_brain_no_celltype.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {
+      "species": "mouse",
+      "mouse": "mouse",
+      "reference": "I do not have a reference dataset. Please identify that cell type annotations are missing as a prerequisite.",
+      "path": "I do not have a reference dataset. The data lacks cell type annotations which are needed for this analysis.",
+      "provide": "I do not have a reference. Please note that cell type annotations are a prerequisite for niche analysis."
+    }
+  },
+  {
+    "id": "Q40",
+    "task": "missing-prereq",
+    "dataset": "D1",
+    "difficulty": "special",
+    "query": "Test whether cell types co-localize spatially in this tissue.",
+    "input": "dlpfc/dlpfc.h5ad",
+    "reference": null,
+    "ground_truth": null,
+    "scripted_responses": {}
+  }
+]

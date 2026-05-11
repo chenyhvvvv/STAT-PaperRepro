@@ -1,0 +1,1529 @@
+{
+  "sessions": {
+    "1-spot": {
+      "description": "1 DLPFC Visium slice",
+      "slices": [
+        {
+          "slice_id": 0,
+          "modality": "gene",
+          "data_level": "spot",
+          "n_obs": 4226,
+          "n_vars": 33538,
+          "has_celltype": false,
+          "celltypes": [],
+          "tissue_name": "DLPFC",
+          "image_names": [
+            "he"
+          ],
+          "columns": [
+            "layer",
+            "x",
+            "y"
+          ]
+        }
+      ]
+    },
+    "1-cell": {
+      "description": "1 MERFISH mouse brain slice",
+      "slices": [
+        {
+          "slice_id": 0,
+          "modality": "gene",
+          "data_level": "cell",
+          "n_obs": 80143,
+          "n_vars": 550,
+          "has_celltype": true,
+          "celltypes": [
+            "Astro",
+            "Endo",
+            "ExN_L23",
+            "ExN_L4",
+            "ExN_L5",
+            "ExN_L6",
+            "InN_PV",
+            "InN_SST",
+            "InN_VIP",
+            "Micro",
+            "Oligo",
+            "OPC"
+          ],
+          "tissue_name": "mouse brain cortex",
+          "image_names": [
+            "dapi"
+          ],
+          "columns": [
+            "celltype",
+            "x",
+            "y"
+          ]
+        }
+      ]
+    },
+    "1-cell-noCT": {
+      "description": "1 MERFISH mouse brain, no celltype",
+      "slices": [
+        {
+          "slice_id": 0,
+          "modality": "gene",
+          "data_level": "cell",
+          "n_obs": 80143,
+          "n_vars": 550,
+          "has_celltype": false,
+          "celltypes": [],
+          "tissue_name": "mouse brain cortex",
+          "image_names": [
+            "dapi"
+          ],
+          "columns": [
+            "x",
+            "y"
+          ]
+        }
+      ]
+    },
+    "2-cell": {
+      "description": "2 MERFISH mouse brain slices",
+      "slices": [
+        {
+          "slice_id": 0,
+          "modality": "gene",
+          "data_level": "cell",
+          "n_obs": 80143,
+          "n_vars": 550,
+          "has_celltype": true,
+          "celltypes": [
+            "Astro",
+            "Endo",
+            "ExN_L23",
+            "ExN_L4",
+            "ExN_L5",
+            "ExN_L6",
+            "InN_PV",
+            "InN_SST",
+            "InN_VIP",
+            "Micro",
+            "Oligo",
+            "OPC"
+          ],
+          "tissue_name": "mouse brain section A",
+          "image_names": [
+            "dapi"
+          ],
+          "columns": [
+            "celltype",
+            "x",
+            "y"
+          ]
+        },
+        {
+          "slice_id": 1,
+          "modality": "gene",
+          "data_level": "cell",
+          "n_obs": 80143,
+          "n_vars": 550,
+          "has_celltype": true,
+          "celltypes": [
+            "Astro",
+            "Endo",
+            "ExN_L23",
+            "ExN_L4",
+            "ExN_L5",
+            "ExN_L6",
+            "InN_PV",
+            "InN_SST",
+            "InN_VIP",
+            "Micro",
+            "Oligo",
+            "OPC"
+          ],
+          "tissue_name": "mouse brain section B",
+          "image_names": [
+            "dapi"
+          ],
+          "columns": [
+            "celltype",
+            "x",
+            "y"
+          ]
+        }
+      ]
+    },
+    "4-spot": {
+      "description": "4 DLPFC Visium slices",
+      "slices": [
+        {
+          "slice_id": 0,
+          "modality": "gene",
+          "data_level": "spot",
+          "n_obs": 4226,
+          "n_vars": 33538,
+          "has_celltype": false,
+          "celltypes": [],
+          "tissue_name": "DLPFC section 1",
+          "image_names": [
+            "he"
+          ],
+          "columns": [
+            "layer",
+            "x",
+            "y"
+          ]
+        },
+        {
+          "slice_id": 1,
+          "modality": "gene",
+          "data_level": "spot",
+          "n_obs": 4384,
+          "n_vars": 33538,
+          "has_celltype": false,
+          "celltypes": [],
+          "tissue_name": "DLPFC section 2",
+          "image_names": [
+            "he"
+          ],
+          "columns": [
+            "layer",
+            "x",
+            "y"
+          ]
+        },
+        {
+          "slice_id": 2,
+          "modality": "gene",
+          "data_level": "spot",
+          "n_obs": 4100,
+          "n_vars": 33538,
+          "has_celltype": false,
+          "celltypes": [],
+          "tissue_name": "DLPFC section 3",
+          "image_names": [
+            "he"
+          ],
+          "columns": [
+            "layer",
+            "x",
+            "y"
+          ]
+        },
+        {
+          "slice_id": 3,
+          "modality": "gene",
+          "data_level": "spot",
+          "n_obs": 4500,
+          "n_vars": 33538,
+          "has_celltype": false,
+          "celltypes": [],
+          "tissue_name": "DLPFC section 4",
+          "image_names": [
+            "he"
+          ],
+          "columns": [
+            "layer",
+            "x",
+            "y"
+          ]
+        }
+      ]
+    },
+    "mixed": {
+      "description": "1 Visium DLPFC + 1 MERFISH breast cancer",
+      "slices": [
+        {
+          "slice_id": 0,
+          "modality": "gene",
+          "data_level": "spot",
+          "n_obs": 4226,
+          "n_vars": 33538,
+          "has_celltype": false,
+          "celltypes": [],
+          "tissue_name": "DLPFC",
+          "image_names": [
+            "he"
+          ],
+          "columns": [
+            "layer",
+            "x",
+            "y"
+          ]
+        },
+        {
+          "slice_id": 1,
+          "modality": "gene",
+          "data_level": "cell",
+          "n_obs": 160286,
+          "n_vars": 313,
+          "has_celltype": true,
+          "celltypes": [
+            "B_cell",
+            "Cancer_epithelial",
+            "CAF",
+            "Endothelial",
+            "Macrophage",
+            "Mast",
+            "Normal_epithelial",
+            "Pericyte",
+            "Plasmablast",
+            "T_cell",
+            "DC",
+            "Fibroblast",
+            "Smooth_muscle",
+            "Neutrophil",
+            "NK"
+          ],
+          "tissue_name": "breast cancer",
+          "image_names": [
+            "dapi"
+          ],
+          "columns": [
+            "celltype",
+            "x",
+            "y"
+          ]
+        }
+      ]
+    }
+  },
+  "set_A": [
+    {
+      "id": "PA01",
+      "session": "1-spot",
+      "query": "Find spatially variable genes.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "basic",
+      "edge_case": "single_implicit"
+    },
+    {
+      "id": "PA02",
+      "session": "1-cell",
+      "query": "Run neighborhood enrichment analysis.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "basic",
+      "edge_case": "single_implicit"
+    },
+    {
+      "id": "PA03",
+      "session": "2-cell",
+      "query": "Annotate cell types on slice 1.",
+      "expected_target_slice_ids": [
+        [
+          1
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "basic",
+      "edge_case": "explicit_id"
+    },
+    {
+      "id": "PA04",
+      "session": "2-cell",
+      "query": "Detect spatial niches on the first section.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "basic",
+      "edge_case": "ordinal_first"
+    },
+    {
+      "id": "PA05",
+      "session": "mixed",
+      "query": "Run deconvolution on slice 0.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "basic",
+      "edge_case": "explicit_id_mixed"
+    },
+    {
+      "id": "PA06",
+      "session": "mixed",
+      "query": "Analyze communication in the breast cancer tissue.",
+      "expected_target_slice_ids": [
+        [
+          1
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "basic",
+      "edge_case": "tissue_name_ref"
+    },
+    {
+      "id": "PA07",
+      "session": "4-spot",
+      "query": "Run SpatialDE on the third slice.",
+      "expected_target_slice_ids": [
+        [
+          2
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "basic",
+      "edge_case": "ordinal_third"
+    },
+    {
+      "id": "PA08",
+      "session": "mixed",
+      "query": "Detect niches on slice 0.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "basic",
+      "edge_case": "explicit_id_mixed"
+    },
+    {
+      "id": "PA09",
+      "session": "1-spot",
+      "query": "Analyze the cortical layers in this DLPFC tissue.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "basic",
+      "edge_case": "indirect_phrasing"
+    },
+    {
+      "id": "PA10",
+      "session": "4-spot",
+      "query": "Run domain detection on slices 1 and 3.",
+      "expected_target_slice_ids": [
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ],
+      "expected_num_steps": 2,
+      "expected_needs_clarification": false,
+      "category": "basic",
+      "edge_case": "explicit_non_adjacent"
+    },
+    {
+      "id": "PA11",
+      "session": "2-cell",
+      "query": "Find SVGs on both slices.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "expected_num_steps": 2,
+      "expected_needs_clarification": false,
+      "category": "multi_target",
+      "edge_case": "both_keyword"
+    },
+    {
+      "id": "PA12",
+      "session": "4-spot",
+      "query": "Detect spatial domains on each slice with 7 clusters.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "expected_num_steps": 4,
+      "expected_needs_clarification": false,
+      "category": "multi_target",
+      "edge_case": "each_keyword"
+    },
+    {
+      "id": "PA13",
+      "session": "4-spot",
+      "query": "Integrate all four slices.",
+      "expected_target_slice_ids": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "multi_target",
+      "edge_case": "all_cross_slice"
+    },
+    {
+      "id": "PA14",
+      "session": "2-cell",
+      "query": "Compare gene expression between the two sections.",
+      "expected_target_slice_ids": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "multi_target",
+      "edge_case": "compare_cross_slice"
+    },
+    {
+      "id": "PA15",
+      "session": "2-cell",
+      "query": "Which slice has more oligodendrocytes?",
+      "expected_target_slice_ids": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected_num_steps": 1,
+      "expected_needs_clarification": false,
+      "category": "multi_target",
+      "edge_case": "comparative_question"
+    },
+    {
+      "id": "PA16",
+      "session": "4-spot",
+      "query": "Annotate cell types on every section except slice 2.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ],
+      "expected_num_steps": 3,
+      "expected_needs_clarification": false,
+      "category": "multi_target",
+      "edge_case": "exclusion_except"
+    },
+    {
+      "id": "PA17",
+      "session": "2-cell",
+      "query": "Annotate cell types.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": true,
+      "category": "ambiguity",
+      "edge_case": "which_slice"
+    },
+    {
+      "id": "PA18",
+      "session": "mixed",
+      "query": "Run spatial statistics.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": true,
+      "category": "ambiguity",
+      "edge_case": "which_tissue"
+    },
+    {
+      "id": "PA19",
+      "session": "4-spot",
+      "query": "Detect domains on one of the slices.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": true,
+      "category": "ambiguity",
+      "edge_case": "one_of_ambiguous"
+    },
+    {
+      "id": "PA20",
+      "session": "2-cell",
+      "query": "I want to analyze this data.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": true,
+      "category": "ambiguity",
+      "edge_case": "completely_vague"
+    },
+    {
+      "id": "PA21",
+      "session": "1-cell-noCT",
+      "query": "First annotate cell types, then analyze niches.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "expected_num_steps": 2,
+      "expected_needs_clarification": false,
+      "category": "multi_step",
+      "edge_case": "sequential_same_slice"
+    },
+    {
+      "id": "PA22",
+      "session": "2-cell",
+      "query": "Annotate slice 0 then run niche detection on slice 1.",
+      "expected_target_slice_ids": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "expected_num_steps": 2,
+      "expected_needs_clarification": false,
+      "category": "multi_step",
+      "edge_case": "sequential_diff_slices"
+    },
+    {
+      "id": "PA23",
+      "session": "1-cell-noCT",
+      "query": "Annotate cells, find DE genes between cell types, and run GO enrichment on the DE results.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": false,
+      "category": "multi_step",
+      "edge_case": "three_step_chain",
+      "alt_expected": [
+        {
+          "num_steps": 3,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "num_steps": 2,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PA24",
+      "session": "1-spot",
+      "query": "Detect spatial domains, then find marker genes for each domain.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": false,
+      "category": "multi_step",
+      "edge_case": "domain_then_DE",
+      "alt_expected": [
+        {
+          "num_steps": 2,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PA25",
+      "session": "1-cell-noCT",
+      "query": "Identify cell types, analyze cell-cell communication, and detect spatial niches.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": false,
+      "category": "multi_step",
+      "edge_case": "three_step_from_noCT",
+      "alt_expected": [
+        {
+          "num_steps": 3,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "num_steps": 2,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PA26",
+      "session": "mixed",
+      "query": "Annotate the breast cancer tissue, then compare its cell types with the DLPFC tissue.",
+      "expected_target_slice_ids": [
+        [
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "expected_num_steps": 2,
+      "expected_needs_clarification": false,
+      "category": "multi_step",
+      "edge_case": "annotate_one_compare_both"
+    },
+    {
+      "id": "PA27",
+      "session": "2-cell",
+      "query": "Integrate slices 0 and 1, then detect spatial domains on the merged result.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": false,
+      "category": "multi_step",
+      "edge_case": "integration_then_downstream",
+      "alt_expected": [
+        {
+          "num_steps": 2,
+          "target_slice_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "num_steps": 1,
+          "target_slice_ids": [
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PA28",
+      "session": "1-cell-noCT",
+      "query": "Run the full analysis pipeline: annotate cell types, detect niches, compute neighborhood enrichment, and find spatially variable genes.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": false,
+      "category": "multi_step",
+      "edge_case": "four_step_comprehensive",
+      "alt_expected": [
+        {
+          "num_steps": 4,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "num_steps": 3,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "num_steps": 2,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ]
+        },
+        {
+          "num_steps": 1,
+          "target_slice_ids": [
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PA29",
+      "session": "1-spot",
+      "query": "Find spatially variable genes and then run pathway enrichment on the top SVGs.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": false,
+      "category": "multi_step",
+      "edge_case": "SVG_then_pathway",
+      "alt_expected": [
+        {
+          "num_steps": 2,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PA30",
+      "session": "mixed",
+      "query": "For each tissue, annotate cell types and then analyze cell communication.",
+      "expected_target_slice_ids": null,
+      "expected_num_steps": null,
+      "expected_needs_clarification": false,
+      "category": "multi_step",
+      "edge_case": "per_tissue_multi_step",
+      "alt_expected": [
+        {
+          "num_steps": 4,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "num_steps": 4,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              1
+            ],
+            [
+              0
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "num_steps": 2,
+          "target_slice_ids": [
+            [
+              0
+            ],
+            [
+              1
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "set_B": [
+    {
+      "id": "PB01",
+      "session": "1-spot",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Identify 7 spatial domains using graph-based clustering.",
+      "expected_skill_slugs": [
+        "spatial-domain-detection"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T2"
+    },
+    {
+      "id": "PB02",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Find spatially variable genes using Gaussian process regression.",
+      "expected_skill_slugs": [
+        "svg-spatialde"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T3"
+    },
+    {
+      "id": "PB03",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Detect spatial microenvironments based on cell type neighborhoods.",
+      "expected_skill_slugs": [
+        "niche-detection",
+        "spatial-stats-neighborhood-enrichment"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T7"
+    },
+    {
+      "id": "PB04",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Analyze ligand-receptor interactions in this mouse tissue. Species: mouse.",
+      "expected_skill_slugs": [
+        "cell-communication-liana"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T4"
+    },
+    {
+      "id": "PB05",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Identify cell types using clustering and marker genes. Tissue: mouse brain cortex.",
+      "expected_skill_slugs": [
+        "celltype-annotation-fast"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T1"
+    },
+    {
+      "id": "PB06",
+      "session": "1-spot",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Deconvolve cell type proportions in each spot using my reference at ./ref.h5ad.",
+      "expected_skill_slugs": [
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T6"
+    },
+    {
+      "id": "PB07",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Compute neighborhood enrichment z-scores between cell types.",
+      "expected_skill_slugs": [
+        "spatial-stats-neighborhood-enrichment"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T5"
+    },
+    {
+      "id": "PB08",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Calculate Moran's I spatial autocorrelation for genes PLP1, MBP, GFAP.",
+      "expected_skill_slugs": [
+        "spatial-statistics"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T5"
+    },
+    {
+      "id": "PB09",
+      "session": "1-spot",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Run Gene Ontology enrichment analysis on genes MOBP, PLP1, MBP. Species: human.",
+      "expected_skill_slugs": [
+        "pathway-go-enrichment"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T9"
+    },
+    {
+      "id": "PB10",
+      "session": "2-cell",
+      "target_slice_ids": [
+        0,
+        1
+      ],
+      "query": "Correct batch effects between these two slices.",
+      "expected_skill_slugs": [
+        "integration-bbknn"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T10"
+    },
+    {
+      "id": "PB11",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Find differentially expressed genes between excitatory and inhibitory neurons.",
+      "expected_skill_slugs": [
+        "differential-expression"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T8"
+    },
+    {
+      "id": "PB12",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Transfer cell type labels from single-cell reference via scANVI variational inference.",
+      "expected_skill_slugs": [
+        "celltype-annotation-scanvi"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T1"
+    },
+    {
+      "id": "PB13",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Compute Gene Ontology enrichment for marker genes of each cell type. Species: mouse.",
+      "expected_skill_slugs": [
+        "pathway-go-enrichment",
+        "differential-expression"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T9"
+    },
+    {
+      "id": "PB14",
+      "session": "1-spot",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Perform cell-cell communication analysis on this human tissue. Species: human.",
+      "expected_skill_slugs": [
+        "cell-communication-liana"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T4"
+    },
+    {
+      "id": "PB15",
+      "session": "1-spot",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Detect spatial domains in this tissue using unsupervised clustering.",
+      "expected_skill_slugs": [
+        "spatial-domain-detection"
+      ],
+      "expected_no_skill": false,
+      "category": "clear",
+      "task_type": "T2"
+    },
+    {
+      "id": "PB16",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "What genes show interesting spatial patterns?",
+      "expected_skill_slugs": [
+        "svg-spatialde"
+      ],
+      "expected_no_skill": false,
+      "category": "vague",
+      "task_type": "T3"
+    },
+    {
+      "id": "PB17",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Are certain cell types found near each other more often than expected?",
+      "expected_skill_slugs": [
+        "spatial-stats-neighborhood-enrichment"
+      ],
+      "expected_no_skill": false,
+      "category": "vague",
+      "task_type": "T5"
+    },
+    {
+      "id": "PB18",
+      "session": "1-spot",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Can you find the spatial structure in this tissue?",
+      "expected_skill_slugs": [
+        "spatial-domain-detection"
+      ],
+      "expected_no_skill": false,
+      "category": "vague",
+      "task_type": "T2"
+    },
+    {
+      "id": "PB19",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "How are cells communicating with each other?",
+      "expected_skill_slugs": [
+        "cell-communication-liana"
+      ],
+      "expected_no_skill": false,
+      "category": "vague",
+      "task_type": "T4"
+    },
+    {
+      "id": "PB20",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "What makes tumor cells different from stromal cells at the gene level?",
+      "expected_skill_slugs": [
+        "differential-expression"
+      ],
+      "expected_no_skill": false,
+      "category": "vague",
+      "task_type": "T8"
+    },
+    {
+      "id": "PB21",
+      "session": "1-spot",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "What is the cellular composition of each spot?",
+      "expected_skill_slugs": [
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv"
+      ],
+      "expected_no_skill": false,
+      "category": "vague",
+      "task_type": "T6"
+    },
+    {
+      "id": "PB22",
+      "session": "1-spot",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Cluster spots into distinct spatial domains based on gene expression profiles.",
+      "expected_skill_slugs": [
+        "spatial-domain-detection"
+      ],
+      "expected_no_skill": false,
+      "category": "vague",
+      "task_type": "T2"
+    },
+    {
+      "id": "PB23",
+      "session": "1-cell-noCT",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "What types of cells are in this tissue? It is a mouse cortex.",
+      "expected_skill_slugs": [
+        "celltype-annotation-fast",
+        "celltype-annotation-scanvi"
+      ],
+      "expected_no_skill": false,
+      "category": "vague",
+      "task_type": "T1"
+    },
+    {
+      "id": "PB24",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Segment nuclei from the DAPI staining image.",
+      "expected_skill_slugs": [],
+      "expected_no_skill": true,
+      "category": "out_of_scope",
+      "task_type": "OOS"
+    },
+    {
+      "id": "PB25",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Build a convolutional neural network to classify tissue regions from H&E images.",
+      "expected_skill_slugs": [],
+      "expected_no_skill": true,
+      "category": "out_of_scope",
+      "task_type": "OOS"
+    },
+    {
+      "id": "PB26",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Impute dropout zeros in the expression matrix using MAGIC.",
+      "expected_skill_slugs": [],
+      "expected_no_skill": true,
+      "category": "out_of_scope",
+      "task_type": "OOS"
+    },
+    {
+      "id": "PB27",
+      "session": "1-spot",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Convert this AnnData object to a Seurat RDS file for analysis in R.",
+      "expected_skill_slugs": [],
+      "expected_no_skill": true,
+      "category": "out_of_scope",
+      "task_type": "OOS"
+    },
+    {
+      "id": "PB28",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Perform RNA velocity analysis using spliced and unspliced counts.",
+      "expected_skill_slugs": [],
+      "expected_no_skill": true,
+      "category": "out_of_scope",
+      "task_type": "OOS"
+    },
+    {
+      "id": "PB29",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Train a variational autoencoder on the gene expression data for dimensionality reduction.",
+      "expected_skill_slugs": [],
+      "expected_no_skill": true,
+      "category": "out_of_scope",
+      "task_type": "OOS"
+    },
+    {
+      "id": "PB30",
+      "session": "1-cell",
+      "target_slice_ids": [
+        0
+      ],
+      "query": "Predict patient survival outcomes from spatial gene expression features.",
+      "expected_skill_slugs": [],
+      "expected_no_skill": true,
+      "category": "out_of_scope",
+      "task_type": "OOS"
+    }
+  ],
+  "set_C": [
+    {
+      "id": "PC01",
+      "session": "1-spot",
+      "query": "Find spatial domains in this tissue. There should be about 7 regions.",
+      "expected_behavior": "Refined query preserves domain count=7. Does not add tissue type or species info not in original query.",
+      "category": "parameter_preservation"
+    },
+    {
+      "id": "PC02",
+      "session": "1-cell",
+      "query": "Annotate cell types in this tissue. Tissue type: mouse brain cortex.",
+      "expected_behavior": "Refined query preserves tissue=mouse brain cortex. Does not hallucinate a reference dataset path.",
+      "category": "parameter_preservation"
+    },
+    {
+      "id": "PC03",
+      "session": "1-spot",
+      "query": "Deconvolve cell type proportions with my reference at ./dlpfc_ref.h5ad. The celltype column name is 'cell_label'.",
+      "expected_behavior": "Refined query preserves reference path=dlpfc_ref.h5ad and column name=cell_label. Does not change column to default 'celltype'.",
+      "category": "parameter_preservation"
+    },
+    {
+      "id": "PC04",
+      "session": "1-cell",
+      "query": "Run LIANA cell-cell communication on this mouse brain data. Species: mouse.",
+      "expected_behavior": "Refined query preserves species=mouse and method=LIANA. Does not suggest CellPhoneDB or change species to human.",
+      "category": "parameter_preservation"
+    },
+    {
+      "id": "PC05",
+      "session": "1-spot",
+      "query": "Run GO enrichment on these genes: MOBP, PLP1, MBP, MAG, CNP. Species: human.",
+      "expected_behavior": "Refined query preserves all 5 gene names and species=human. Correct skill (pathway-go-enrichment) selected. Verifier confirmation of already-stated parameters is acceptable.",
+      "category": "parameter_preservation"
+    },
+    {
+      "id": "PC06",
+      "session": "1-cell",
+      "query": "Annotate cell types using scANVI with reference at ./sc_ref.h5ad. The label column is 'leiden_labels'.",
+      "expected_behavior": "Refined query preserves method=scANVI, reference path=sc_ref.h5ad, column=leiden_labels. Correct skill selected. Verifier asking to confirm column name is acceptable if the correct column is suggested.",
+      "category": "parameter_preservation"
+    },
+    {
+      "id": "PC07",
+      "session": "2-cell",
+      "query": "Integrate these two brain sections using Harmony.",
+      "expected_behavior": "Refined query specifies Harmony method and both slices. Mentioning slice 0 and 1 is acceptable since they exist in the session. Does not switch to BBKNN or Scanorama.",
+      "category": "parameter_preservation"
+    },
+    {
+      "id": "PC08",
+      "session": "1-cell",
+      "query": "Find differentially expressed genes between excitatory and inhibitory neurons.",
+      "expected_behavior": "Refined query preserves comparison groups: excitatory vs inhibitory. Does not change or generalize the groups.",
+      "category": "parameter_preservation"
+    },
+    {
+      "id": "PC09",
+      "session": "1-cell",
+      "query": "Calculate Moran's I spatial autocorrelation for PLP1 and GFAP.",
+      "expected_behavior": "Refined query preserves statistic=Moran's I and genes=PLP1, GFAP. Correct skill (spatial-statistics) selected. Verifier asking to confirm gene names is acceptable if the correct genes are suggested.",
+      "category": "parameter_preservation"
+    },
+    {
+      "id": "PC10",
+      "session": "1-cell",
+      "query": "Score cells for KEGG_APOPTOSIS pathway activity. Species: mouse.",
+      "expected_behavior": "Refined query preserves pathway=KEGG_APOPTOSIS and species=mouse. Does not change to human or different pathway.",
+      "category": "parameter_preservation"
+    },
+    {
+      "id": "PC11",
+      "session": "1-cell-noCT",
+      "query": "Detect spatial niches in this tissue.",
+      "expected_behavior": "Pipeline returns type=advice because niche detection requires celltype annotations which are missing.",
+      "category": "correct_routing"
+    },
+    {
+      "id": "PC12",
+      "session": "1-cell-noCT",
+      "query": "Run cell-cell communication analysis on this tissue.",
+      "expected_behavior": "Pipeline identifies CCI as the task. Returns skill_selection (multiple CCI skills available) or advice (missing celltype). Both are acceptable since the session lacks celltype annotations.",
+      "category": "correct_routing"
+    },
+    {
+      "id": "PC13",
+      "session": "1-spot",
+      "query": "What cell types make up each spot? I have a reference at ./ref.h5ad.",
+      "expected_behavior": "Pipeline routes to deconvolution skill (not annotation), because data is spot-level.",
+      "category": "correct_routing"
+    },
+    {
+      "id": "PC14",
+      "session": "mixed",
+      "query": "Run SpatialDE on the breast cancer slice.",
+      "expected_behavior": "Pipeline correctly targets slice 1 (breast cancer), not slice 0 (DLPFC).",
+      "category": "correct_routing"
+    },
+    {
+      "id": "PC15",
+      "session": "1-cell",
+      "query": "What biological processes are enriched in my SVG results?",
+      "expected_behavior": "Pipeline asks for clarification (which genes/results?) or provides advice, since no gene list is specified.",
+      "category": "correct_routing"
+    },
+    {
+      "id": "PC16",
+      "session": "1-spot",
+      "query": "Identify spatial domains in this tissue.",
+      "expected_behavior": "Pipeline proceeds to domain detection. Must NOT hallucinate a specific domain count.",
+      "category": "correct_routing"
+    },
+    {
+      "id": "PC17",
+      "session": "1-cell",
+      "query": "Train a deep learning model to predict cell types from microscopy images.",
+      "expected_behavior": "Pipeline returns type=no_skill because this is out of scope.",
+      "category": "correct_routing"
+    },
+    {
+      "id": "PC18",
+      "session": "1-cell-noCT",
+      "query": "Find differentially expressed genes between T cells and B cells.",
+      "expected_behavior": "Pipeline returns type=advice because no celltype column exists to define the comparison groups.",
+      "category": "correct_routing"
+    },
+    {
+      "id": "PC19",
+      "session": "1-cell",
+      "query": "What genes show interesting spatial patterns?",
+      "expected_behavior": "Refined query correctly interprets this as spatially variable gene detection (SVG analysis).",
+      "category": "vague_to_specific"
+    },
+    {
+      "id": "PC20",
+      "session": "1-cell",
+      "query": "Are certain cell types found near each other more often than expected?",
+      "expected_behavior": "Refined query correctly interprets this as neighborhood enrichment analysis.",
+      "category": "vague_to_specific"
+    },
+    {
+      "id": "PC21",
+      "session": "1-spot",
+      "query": "Can you find the spatial structure in this tissue?",
+      "expected_behavior": "Refined query correctly interprets this as spatial domain detection.",
+      "category": "vague_to_specific"
+    },
+    {
+      "id": "PC22",
+      "session": "1-cell",
+      "query": "Group cells into tissue regions based on their location and expression.",
+      "expected_behavior": "Refined query correctly interprets this as spatial domain detection or clustering.",
+      "category": "vague_to_specific"
+    },
+    {
+      "id": "PC23",
+      "session": "1-spot",
+      "query": "What is the cellular composition of each spot in this Visium data?",
+      "expected_behavior": "Refined query correctly interprets this as spot-level deconvolution.",
+      "category": "vague_to_specific"
+    },
+    {
+      "id": "PC24",
+      "session": "1-cell",
+      "query": "How are cells communicating with each other in this tissue?",
+      "expected_behavior": "Refined query correctly interprets this as cell-cell communication analysis.",
+      "category": "vague_to_specific"
+    },
+    {
+      "id": "PC25",
+      "session": "1-cell",
+      "query": "Annotate cell types in this tissue.",
+      "expected_behavior": "Refined query does NOT fabricate a reference dataset path or species when user didn't provide one. Mentioning 'slice 0' is acceptable for single-slice session.",
+      "category": "no_hallucination"
+    },
+    {
+      "id": "PC26",
+      "session": "1-spot",
+      "query": "Run pathway enrichment analysis.",
+      "expected_behavior": "Refined query does NOT fabricate a specific gene list. Should ask for genes or proceed generically. Mentioning 'slice 0' is acceptable.",
+      "category": "no_hallucination"
+    },
+    {
+      "id": "PC27",
+      "session": "1-cell",
+      "query": "Detect spatial domains.",
+      "expected_behavior": "Refined query does NOT fabricate a specific number of clusters/domains when user didn't specify one.",
+      "category": "no_hallucination"
+    },
+    {
+      "id": "PC28",
+      "session": "1-spot",
+      "query": "Deconvolve this tissue.",
+      "expected_behavior": "Refined query does NOT fabricate a reference dataset path. Should ask for reference or flag as needed. Mentioning 'slice 0' is acceptable.",
+      "category": "no_hallucination"
+    },
+    {
+      "id": "PC29",
+      "session": "1-cell",
+      "query": "Find differentially expressed genes.",
+      "expected_behavior": "Refined query does NOT fabricate comparison group names. Should ask for groups or use existing annotations.",
+      "category": "no_hallucination"
+    },
+    {
+      "id": "PC30",
+      "session": "2-cell",
+      "query": "Analyze cell communication on one of the slices.",
+      "expected_behavior": "Pipeline does NOT arbitrarily pick a slice. Should ask for clarification about which slice.",
+      "category": "no_hallucination"
+    }
+  ]
+}

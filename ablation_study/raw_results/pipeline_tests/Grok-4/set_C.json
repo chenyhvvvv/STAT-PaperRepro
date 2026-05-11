@@ -1,0 +1,760 @@
+[
+  {
+    "query_id": "PC01",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Find spatial domains in this tissue. There should be about 7 regions.",
+    "session": "1-spot",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves domain count=7. Does not add tissue type or species info not in original query.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "spatial-domain-graphst",
+        "spatial-domain-detection",
+        "spatial-domain-stagate"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified spatial domain detection task and provided appropriate skill options without hallucinating tissue type or species information"
+    },
+    "wall_s": 26.8
+  },
+  {
+    "query_id": "PC02",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Annotate cell types in this tissue. Tissue type: mouse brain cortex.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves tissue=mouse brain cortex. Does not hallucinate a reference dataset path.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "celltype-annotation-scanvi",
+        "annotation-tangram",
+        "celltype-annotation-fast"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified multiple relevant cell type annotation skills and asked user to choose, preserved tissue type in context without hallucinating reference dataset paths"
+    },
+    "wall_s": 34.2
+  },
+  {
+    "query_id": "PC03",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Deconvolve cell type proportions with my reference at ./dlpfc_ref.h5ad. The celltype column name is 'cell_label'.",
+    "session": "1-spot",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves reference path=dlpfc_ref.h5ad and column name=cell_label. Does not change column to default 'celltype'.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "deconvolution-cell2location",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified deconvolution task type and provided relevant skill options without hallucinating parameters"
+    },
+    "wall_s": 56.0
+  },
+  {
+    "query_id": "PC04",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Run LIANA cell-cell communication on this mouse brain data. Species: mouse.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves species=mouse and method=LIANA. Does not suggest CellPhoneDB or change species to human.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Run LIANA cell-cell communication on slice 0. Species: mouse.",
+      "selected_skill": "cell-communication-liana",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to LIANA cell communication, preserved species=mouse, and added reasonable default (slice 0) without changing user specifications"
+    },
+    "wall_s": 18.7
+  },
+  {
+    "query_id": "PC05",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Run GO enrichment on these genes: MOBP, PLP1, MBP, MAG, CNP. Species: human.",
+    "session": "1-spot",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves all 5 gene names and species=human. Correct skill (pathway-go-enrichment) selected. Verifier confirmation of already-stated parameters is acceptable.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Run GO enrichment on these genes: MOBP, PLP1, MBP, MAG, CNP. Species: human. on slice 0",
+      "selected_skill": "pathway-go-enrichment",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly selected pathway-go-enrichment skill, preserved all 5 gene names and species=human, only added minor slice specification which is acceptable for execution context"
+    },
+    "wall_s": 40.7
+  },
+  {
+    "query_id": "PC06",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Annotate cell types using scANVI with reference at ./sc_ref.h5ad. The label column is 'leiden_labels'.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves method=scANVI, reference path=sc_ref.h5ad, column=leiden_labels. Correct skill selected. Verifier asking to confirm column name is acceptable if the correct column is suggested.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Annotate cell types using scANVI with reference at ./sc_ref.h5ad on slice 0. The label column is 'leiden_labels'.",
+      "selected_skill": "celltype-annotation-scanvi",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly selected scANVI skill, preserved all user parameters (method, reference path, label column), and appropriately added slice specification without hallucinating unspecified information"
+    },
+    "wall_s": 34.7
+  },
+  {
+    "query_id": "PC07",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Integrate these two brain sections using Harmony.",
+    "session": "2-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query specifies Harmony method and both slices. Mentioning slice 0 and 1 is acceptable since they exist in the session. Does not switch to BBKNN or Scanorama.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Integrate slice 0 and slice 1 using Harmony",
+      "selected_skill": "integration-harmony",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly selected Harmony integration method and appropriately specified slice 0 and slice 1 as mentioned in expected behavior"
+    },
+    "wall_s": 26.5
+  },
+  {
+    "query_id": "PC08",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Find differentially expressed genes between excitatory and inhibitory neurons.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves comparison groups: excitatory vs inhibitory. Does not change or generalize the groups.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Find differentially expressed genes between excitatory and inhibitory neurons on slice 0",
+      "selected_skill": "differential-expression",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to differential expression analysis and preserved the specified comparison groups (excitatory vs inhibitory neurons), only adding necessary default parameter (slice 0)"
+    },
+    "wall_s": 29.7
+  },
+  {
+    "query_id": "PC09",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Calculate Moran's I spatial autocorrelation for PLP1 and GFAP.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves statistic=Moran's I and genes=PLP1, GFAP. Correct skill (spatial-statistics) selected. Verifier asking to confirm gene names is acceptable if the correct genes are suggested.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Calculate Moran's I spatial autocorrelation for PLP1 and GFAP on slice 0",
+      "selected_skill": "spatial-statistics",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly selected spatial-statistics skill, preserved Moran's I statistic and PLP1/GFAP genes, and appropriately added default slice parameter without hallucinating user-specified information"
+    },
+    "wall_s": 24.4
+  },
+  {
+    "query_id": "PC10",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Score cells for KEGG_APOPTOSIS pathway activity. Species: mouse.",
+    "session": "1-cell",
+    "category": "parameter_preservation",
+    "expected_behavior": "Refined query preserves pathway=KEGG_APOPTOSIS and species=mouse. Does not change to human or different pathway.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Score cells for KEGG_APOPTOSIS pathway activity on slice 0. Species: mouse.",
+      "selected_skill": "pathway-ssgsea",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to pathway-ssgsea skill and preserved KEGG_APOPTOSIS pathway and mouse species, only added default slice 0 parameter"
+    },
+    "wall_s": 24.8
+  },
+  {
+    "query_id": "PC11",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Detect spatial niches in this tissue.",
+    "session": "1-cell-noCT",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline returns type=advice because niche detection requires celltype annotations which are missing.",
+    "actual": {
+      "result_type": "advice",
+      "final_query": "",
+      "selected_skill": "niche-detection",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "Niche detection requires cell type annotations in slice 0. Please first annotate cell types using one of the annotation methods (e.g., 'Annotate cell types in slice 0'), then retry niche detection.",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly returned advice type indicating missing celltype annotations prerequisite for niche detection"
+    },
+    "wall_s": 22.3
+  },
+  {
+    "query_id": "PC12",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Run cell-cell communication analysis on this tissue.",
+    "session": "1-cell-noCT",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline identifies CCI as the task. Returns skill_selection (multiple CCI skills available) or advice (missing celltype). Both are acceptable since the session lacks celltype annotations.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "cell-communication-cellphonedb",
+        "cell-communication-liana"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified CCI task and provided appropriate skill options for user selection"
+    },
+    "wall_s": 19.9
+  },
+  {
+    "query_id": "PC13",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "What cell types make up each spot? I have a reference at ./ref.h5ad.",
+    "session": "1-spot",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline routes to deconvolution skill (not annotation), because data is spot-level.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "deconvolution-cell2location",
+        "annotation-tangram",
+        "celltype-deconvolution",
+        "deconvolution-flashdeconv"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified deconvolution as the appropriate task type for spot-level cell type composition analysis and provided relevant deconvolution skill options"
+    },
+    "wall_s": 31.1
+  },
+  {
+    "query_id": "PC14",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Run SpatialDE on the breast cancer slice.",
+    "session": "mixed",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline correctly targets slice 1 (breast cancer), not slice 0 (DLPFC).",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Run SpatialDE on slice 1",
+      "selected_skill": "svg-spatialde",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified breast cancer as slice 1 and routed to SpatialDE skill with proper slice targeting"
+    },
+    "wall_s": 28.2
+  },
+  {
+    "query_id": "PC15",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "What biological processes are enriched in my SVG results?",
+    "session": "1-cell",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline asks for clarification (which genes/results?) or provides advice, since no gene list is specified.",
+    "actual": {
+      "result_type": "advice",
+      "final_query": "",
+      "selected_skill": "pathway-go-enrichment",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "GO Enrichment Analysis requires a list of genes, such as those from spatially variable gene (SVG) detection results. Please first perform SVG detection on slice 0 to generate the necessary gene list (which will be stored in adata.uns['go_genes']), then retry the query for enriched biological processes.",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified missing prerequisite (gene list) and provided appropriate advice to perform SVG detection first"
+    },
+    "wall_s": 89.0
+  },
+  {
+    "query_id": "PC16",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Identify spatial domains in this tissue.",
+    "session": "1-spot",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline proceeds to domain detection. Must NOT hallucinate a specific domain count.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "spatial-domain-graphst",
+        "spatial-domain-detection",
+        "spatial-domain-stagate"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified spatial domain detection as the task and provided appropriate skill options without hallucinating specific domain counts or other parameters not specified by the user"
+    },
+    "wall_s": 28.1
+  },
+  {
+    "query_id": "PC17",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Train a deep learning model to predict cell types from microscopy images.",
+    "session": "1-cell",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline returns type=no_skill because this is out of scope.",
+    "actual": {
+      "result_type": "no_skill",
+      "final_query": "Train a deep learning model to predict cell types from microscopy images on slice 0",
+      "selected_skill": null,
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified the task as out of scope for spatial transcriptomics analysis and returned no_skill type"
+    },
+    "wall_s": 18.0
+  },
+  {
+    "query_id": "PC18",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Find differentially expressed genes between T cells and B cells.",
+    "session": "1-cell-noCT",
+    "category": "correct_routing",
+    "expected_behavior": "Pipeline returns type=advice because no celltype column exists to define the comparison groups.",
+    "actual": {
+      "result_type": "advice",
+      "final_query": "",
+      "selected_skill": "differential-expression",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "Differential gene expression analysis between T cells and B cells requires cell type annotations in slice 0. Please first annotate cell types using one of the annotation methods (e.g., 'Annotate cell types in slice 0'), then retry the differential expression analysis.",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly returned advice type indicating missing celltype annotations prerequisite, with appropriate guidance to annotate cell types first"
+    },
+    "wall_s": 29.6
+  },
+  {
+    "query_id": "PC19",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "What genes show interesting spatial patterns?",
+    "session": "1-cell",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as spatially variable gene detection (SVG analysis).",
+    "actual": {
+      "result_type": "success",
+      "final_query": "What genes show interesting spatial patterns on slice 0 using SpatialDE on slice 0",
+      "selected_skill": "svg-spatialde",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified spatially variable gene detection task and routed to appropriate SVG analysis skill"
+    },
+    "wall_s": 40.2
+  },
+  {
+    "query_id": "PC20",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Are certain cell types found near each other more often than expected?",
+    "session": "1-cell",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as neighborhood enrichment analysis.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Are certain cell types found near each other more often than expected on slice 0",
+      "selected_skill": "spatial-stats-neighborhood-enrichment",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified neighborhood enrichment analysis task and appropriately added default slice parameter without hallucinating user-specified constraints"
+    },
+    "wall_s": 33.5
+  },
+  {
+    "query_id": "PC21",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Can you find the spatial structure in this tissue?",
+    "session": "1-spot",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as spatial domain detection.",
+    "actual": {
+      "result_type": "no_skill",
+      "final_query": "Find the spatial structure in slice 0",
+      "selected_skill": null,
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": false,
+      "judge_verdict": "FAIL - result type should be \"skill_selection\" with spatial domain detection options, not \"no_skill\" which incorrectly categorizes this as out of scope"
+    },
+    "wall_s": 29.3
+  },
+  {
+    "query_id": "PC22",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Group cells into tissue regions based on their location and expression.",
+    "session": "1-cell",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as spatial domain detection or clustering.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Group cells into tissue regions based on their location and expression on slice 0 using STAGATE",
+      "selected_skill": "spatial-domain-stagate",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified spatial domain detection task and selected appropriate STAGATE method, with reasonable default slice assumption"
+    },
+    "wall_s": 38.4
+  },
+  {
+    "query_id": "PC23",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "What is the cellular composition of each spot in this Visium data?",
+    "session": "1-spot",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as spot-level deconvolution.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "celltype-deconvolution",
+        "deconvolution-cell2location",
+        "deconvolution-flashdeconv",
+        "annotation-tangram"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified deconvolution task and provided relevant skill options including appropriate deconvolution methods"
+    },
+    "wall_s": 40.3
+  },
+  {
+    "query_id": "PC24",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "How are cells communicating with each other in this tissue?",
+    "session": "1-cell",
+    "category": "vague_to_specific",
+    "expected_behavior": "Refined query correctly interprets this as cell-cell communication analysis.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "cell-communication-cellphonedb",
+        "cell-communication-liana"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified cell communication analysis task and provided appropriate skill options without hallucinating parameters"
+    },
+    "wall_s": 28.9
+  },
+  {
+    "query_id": "PC25",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Annotate cell types in this tissue.",
+    "session": "1-cell",
+    "category": "no_hallucination",
+    "expected_behavior": "Refined query does NOT fabricate a reference dataset path or species when user didn't provide one. Mentioning 'slice 0' is acceptable for single-slice session.",
+    "actual": {
+      "result_type": "skill_selection",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [
+        "annotation-tangram",
+        "celltype-annotation-scanvi",
+        "celltype-annotation-fast"
+      ],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified multiple relevant cell type annotation skills and asked user to choose without fabricating missing parameters"
+    },
+    "wall_s": 47.2
+  },
+  {
+    "query_id": "PC26",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Run pathway enrichment analysis.",
+    "session": "1-spot",
+    "category": "no_hallucination",
+    "expected_behavior": "Refined query does NOT fabricate a specific gene list. Should ask for genes or proceed generically. Mentioning 'slice 0' is acceptable.",
+    "actual": {
+      "result_type": "no_skill",
+      "final_query": "Run pathway enrichment analysis on slice 0",
+      "selected_skill": null,
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": false,
+      "judge_verdict": "FAIL - result type \"no_skill\" indicates the task was considered out of scope, but pathway enrichment analysis is a standard spatial transcriptomics task that should be handled by the pipeline"
+    },
+    "wall_s": 55.6
+  },
+  {
+    "query_id": "PC27",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Detect spatial domains.",
+    "session": "1-cell",
+    "category": "no_hallucination",
+    "expected_behavior": "Refined query does NOT fabricate a specific number of clusters/domains when user didn't specify one.",
+    "actual": {
+      "result_type": "success",
+      "final_query": "Detect spatial domains on slice 0",
+      "selected_skill": "spatial-domain-stagate",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly routed to spatial domain detection without fabricating a specific number of domains, only added default slice parameter"
+    },
+    "wall_s": 26.1
+  },
+  {
+    "query_id": "PC28",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Deconvolve this tissue.",
+    "session": "1-spot",
+    "category": "no_hallucination",
+    "expected_behavior": "Refined query does NOT fabricate a reference dataset path. Should ask for reference or flag as needed. Mentioning 'slice 0' is acceptable.",
+    "actual": {
+      "result_type": "no_skill",
+      "final_query": "Deconvolve this tissue on slice 0",
+      "selected_skill": null,
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": false,
+      "judge_verdict": "FAIL - result type should be \"planner_clarification\" or \"verifier_clarification\" since the query lacks a required reference dataset, but pipeline returned \"no_skill\" suggesting the task is out of scope when deconvolution is actually a valid spatial transcriptomics task"
+    },
+    "wall_s": 55.4
+  },
+  {
+    "query_id": "PC29",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Find differentially expressed genes.",
+    "session": "1-cell",
+    "category": "no_hallucination",
+    "expected_behavior": "Refined query does NOT fabricate comparison group names. Should ask for groups or use existing annotations.",
+    "actual": {
+      "result_type": "verifier_clarification",
+      "final_query": "",
+      "selected_skill": "differential-expression",
+      "skill_options": [],
+      "clarification_question": null,
+      "verifier_questions": [
+        "For differential gene expression analysis on slice 0, what specifically do you want to compare? For example, between different cell types (e.g., celltype A vs. celltype B), cells in different regions of interest (ROIs), or another grouping? Please provide details."
+      ],
+      "advice_message": "",
+      "plan_steps": 1
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified differential expression task and asked for comparison groups without fabricating group names"
+    },
+    "wall_s": 41.7
+  },
+  {
+    "query_id": "PC30",
+    "model": "Grok-4",
+    "set": "C",
+    "query_text": "Analyze cell communication on one of the slices.",
+    "session": "2-cell",
+    "category": "no_hallucination",
+    "expected_behavior": "Pipeline does NOT arbitrarily pick a slice. Should ask for clarification about which slice.",
+    "actual": {
+      "result_type": "planner_clarification",
+      "final_query": "",
+      "selected_skill": null,
+      "skill_options": [],
+      "clarification_question": "Which slice would you like to analyze cell communication on? We have slice 0 (mouse brain section A) and slice 1 (mouse brain section B).",
+      "verifier_questions": [],
+      "advice_message": "",
+      "plan_steps": 0
+    },
+    "evaluation": {
+      "success": true,
+      "judge_verdict": "SUCCESS - correctly identified ambiguous query and asked for slice clarification without arbitrarily picking one"
+    },
+    "wall_s": 6.8
+  }
+]
