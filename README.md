@@ -10,7 +10,7 @@ Reproducibility code for **STAT — Spatial Transcriptomics Analytical agenT**.
 | Directory | Contents |
 | --- | --- |
 | `breast_cancer/` | <!-- TODO: short description --> |
-| `colorectal_cancer/` | Full chat history, notebook, and logs from a single conversational analysis with STAT |
+| `colorectal_cancer/` | Two end-to-end STAT conversational analyses on a colorectal cancer dataset, with notebook + per-turn logs + UI screenshots |
 | `benchmarking/` | 40-query benchmark of 4 systems (Vanilla / Biomni / SpatialAgent / STAT). Raw results + reproducible STAT runner |
 | `ablation_study/` | STAT with 7 LLM backbones on the 40 queries, plus 90 pipeline-stage queries. Raw results + runnable scripts |
 
